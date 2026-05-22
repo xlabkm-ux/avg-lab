@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://avg.local/schemas/map-edge.schema.json",
+  "title": "AVG Map Edge",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "from",
+    "to",
+    "claim_status"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "defines",
+        "supports",
+        "contradicts",
+        "depends_on",
+        "contains",
+        "manifests_as",
+        "risks",
+        "repairs",
+        "cites",
+        "analogizes"
+      ]
+    },
+    "from": {
+      "type": "string"
+    },
+    "to": {
+      "type": "string"
+    },
+    "claim_status": {
+      "type": "string"
+    },
+    "scope": {
+      "type": "string"
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

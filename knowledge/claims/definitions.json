@@ -1,0 +1,11 @@
+{
+  "claims": [
+    {
+      "id": "claim_avg_definition",
+      "statement": "AVG is a creative dialogue system that generates ideas and validates claims.",
+      "claim_status": "definition",
+      "language_mode": "operational_description",
+      "risks": []
+    }
+  ]
+}

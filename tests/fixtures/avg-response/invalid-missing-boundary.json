@@ -1,0 +1,15 @@
+{
+  "id": "response_002",
+  "project_id": "project_001",
+  "session_id": "session_001",
+  "message_id": "message_002",
+  "summary": "This response omits a boundary marker.",
+  "scope": "MVP-1 dialogue slice.",
+  "claim_status": "hypothesis",
+  "language_mode": "conditional_description",
+  "validation_risk": "high",
+  "risk_markers": [
+    "missing_boundary_marker"
+  ],
+  "next_action": "Restore the missing boundary marker."
+}

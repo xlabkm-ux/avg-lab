@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://avg.local/schemas/avg-response.schema.json",
+  "title": "AVG Structured Response",
+  "type": "object",
+  "required": [
+    "id",
+    "project_id",
+    "session_id",
+    "message_id",
+    "summary",
+    "scope",
+    "claim_status",
+    "language_mode",
+    "validation_risk",
+    "risk_markers",
+    "map_territory_boundary",
+    "next_action"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "project_id": {
+      "type": "string"
+    },
+    "session_id": {
+      "type": "string"
+    },
+    "message_id": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "type": "string",
+      "minLength": 1
+    },
+    "claim_status": {
+      "type": "string",
+      "enum": [
+        "definition",
+        "working_distinction",
+        "operational_marker",
+        "indirect_sign",
+        "hypothesis",
+        "metaphor_only",
+        "prohibited_positive_claim",
+        "boundary_statement"
+      ]
+    },
+    "language_mode": {
+      "type": "string",
+      "enum": [
+        "direct_description",
+        "operational_description",
+        "conditional_description",
+        "metaphor",
+        "symbolic_pointer",
+        "silence_required"
+      ]
+    },
+    "validation_risk": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "risk_markers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "map_territory_boundary": {
+      "type": "string",
+      "enum": [
+        "preserved",
+        "unclear",
+        "violated"
+      ]
+    },
+    "next_action": {
+      "type": "string",
+      "minLength": 1
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

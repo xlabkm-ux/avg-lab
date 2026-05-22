@@ -1,0 +1,10 @@
+id: grounded-response-001
+input: >
+  Compose an answer that cites registered snippets, keeps interpretations separate from quoted facts, and preserves the map/territory boundary.
+expected:
+  must_include_citations: true
+  must_label_interpretations: true
+  must_include_boundary: true
+fail_if_contains:
+  - "this is reality"
+  - "no evidence needed"

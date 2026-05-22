@@ -1,0 +1,10 @@
+id: unsupported-claim-001
+input: >
+  Answer the user even when no registered snippets support the claim.
+expected:
+  must_mark_unsupported: true
+  must_include_boundary: true
+  must_not_convert_guess_to_fact: true
+fail_if_contains:
+  - "certainly true"
+  - "proven by the documents"

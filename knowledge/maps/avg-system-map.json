@@ -1,0 +1,48 @@
+{
+  "nodes": [
+    {
+      "id": "avg",
+      "type": "concept",
+      "label": "AVG",
+      "definition": "Creative dialogue system with map and validation layers."
+    },
+    {
+      "id": "creative_engine",
+      "type": "concept",
+      "label": "Creative Engine"
+    },
+    {
+      "id": "claim_validator",
+      "type": "concept",
+      "label": "Claim Validator"
+    },
+    {
+      "id": "concept_map",
+      "type": "map",
+      "label": "Concept Map"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "type": "contains",
+      "from": "avg",
+      "to": "creative_engine",
+      "claim_status": "working_distinction"
+    },
+    {
+      "id": "e2",
+      "type": "contains",
+      "from": "avg",
+      "to": "claim_validator",
+      "claim_status": "working_distinction"
+    },
+    {
+      "id": "e3",
+      "type": "contains",
+      "from": "avg",
+      "to": "concept_map",
+      "claim_status": "working_distinction"
+    }
+  ]
+}

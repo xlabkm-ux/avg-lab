@@ -1,0 +1,25 @@
+name: AI Evals
+
+on:
+  pull_request:
+    paths:
+      - "prompts/**"
+      - "packages/avg-validation/**"
+      - "packages/avg-agents/**"
+      - "tests/ai-evals/**"
+
+jobs:
+  ai-evals:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test:ai
+      - run: pnpm test:claim-safety
+      - run: pnpm test:no-fairy-tale
+      - run: pnpm test:prompt-regression

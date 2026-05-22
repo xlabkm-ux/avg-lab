@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.base.json",
+  "files": [],
+  "references": [
+    { "path": "./apps/api" },
+    { "path": "./apps/realtime-gateway" },
+    { "path": "./apps/web" },
+    { "path": "./apps/worker" },
+    { "path": "./packages/avg-utils" },
+    { "path": "./packages/avg-evals" },
+    { "path": "./packages/avg-graph" },
+    { "path": "./packages/avg-retrieval" },
+    { "path": "./packages/avg-schemas" },
+    { "path": "./packages/avg-validation" }
+  ]
+}

@@ -1,0 +1,9 @@
+# Default owner
+* @project-owner
+
+# Critical contracts
+/schemas/ @architect-agent @qa-agent
+/prompts/ @validation-agent @qa-agent
+/knowledge/ @knowledge-graph-agent @validation-agent
+/infra/ @devops-agent @security-agent
+/docs/07-security/ @security-agent

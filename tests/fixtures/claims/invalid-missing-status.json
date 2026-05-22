@@ -1,0 +1,8 @@
+{
+  "id": "claim_invalid_001",
+  "statement": "AVG sees the user's true essence.",
+  "language_mode": "direct_description",
+  "risks": [
+    "strong_word_substitution"
+  ]
+}

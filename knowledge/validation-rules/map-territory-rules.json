@@ -1,0 +1,19 @@
+{
+  "rules": [
+    {
+      "id": "rule_map_not_reality",
+      "severity": "error",
+      "message": "Do not present a map as Reality."
+    },
+    {
+      "id": "rule_metaphor_marking",
+      "severity": "warning",
+      "message": "Metaphors must be marked when they shape interpretation."
+    },
+    {
+      "id": "rule_strong_word_definition",
+      "severity": "warning",
+      "message": "Strong words require operational definition or risk marker."
+    }
+  ]
+}
