@@ -108,35 +108,42 @@ Gate note:
 
 Goal: implement comprehensive quality gates including visual regression, accessibility testing, code coverage, integration tests, Storybook, and CI/CD improvements.
 
-Status: **in progress**.
+Status: **completed**.
 
 | Task | Owner | Parallel | Risk | Output | Status |
 |---|---|---:|---|---|---|
-| AVG-722 | QA/Frontend | yes | red | Visual regression testing with Playwright screenshot comparison | pending |
-| AVG-723 | QA/Frontend | yes | red | Accessibility testing with axe-core integration | pending |
-| AVG-724 | QA/Backend | yes | yellow | Code coverage reporting with Vitest and Codecov | pending |
-| AVG-725 | QA/Backend | yes | yellow | Integration test framework infrastructure | pending |
-| AVG-726 | Frontend | yes | green | Storybook setup with initial component stories | pending |
-| AVG-727 | DevOps | yes | red | CI/CD pipeline updates for all quality gates | pending |
-| AVG-728 | DevOps | yes | red | Fix auto-merge approval requirements | pending |
-| AVG-729 | DevOps | yes | yellow | Branch protection documentation | pending |
-| AVG-730 | QA/Performance | yes | yellow | Performance testing baseline | pending |
+| AVG-722 | QA/Frontend | yes | red | Visual regression testing with Playwright screenshot comparison | ✅ |
+| AVG-723 | QA/Frontend | yes | red | Accessibility testing with axe-core integration | ✅ |
+| AVG-724 | QA/Backend | yes | yellow | Code coverage reporting with Vitest and Codecov | ✅ |
+| AVG-725 | QA/Backend | yes | yellow | Integration test framework infrastructure | ✅ |
+| AVG-726 | Frontend | yes | green | Storybook setup with initial component stories | ✅ |
+| AVG-727 | DevOps | yes | red | CI/CD pipeline updates for all quality gates | ✅ |
+| AVG-728 | DevOps | yes | red | Fix auto-merge approval requirements | ✅ |
+| AVG-729 | DevOps | yes | yellow | Branch protection documentation | ✅ |
+| AVG-730 | QA/Performance | yes | yellow | Performance testing baseline | ✅ |
 
 Exit criteria:
 
-- [ ] Visual regression tests pass on key UI components (`pnpm test:visual`)
-- [ ] Accessibility tests pass with axe-core (`pnpm test:a11y`)
-- [ ] Code coverage thresholds defined and met (`pnpm test:coverage`)
-- [ ] Integration test framework operational (`pnpm test:integration`)
-- [ ] Storybook running with core component stories
-- [ ] CI pipeline enforces all quality gates
-- [ ] Auto-merge requires at least 1 approval
-- [ ] Branch protection rules documented
-- [ ] Performance baseline established for key user flows
+- [x] Visual regression tests pass on key UI components (`pnpm test:visual`)
+- [x] Accessibility tests pass with axe-core (`pnpm test:a11y`)
+- [x] Code coverage thresholds defined and met (`pnpm test:coverage`)
+- [x] Integration test framework operational (`pnpm test:integration`)
+- [x] Storybook running with core component stories
+- [x] CI pipeline enforces all quality gates
+- [x] Auto-merge requires at least 1 approval
+- [x] Branch protection rules documented
+- [x] Performance baseline established for key user flows
 
 Gate note:
 
-- Sprint in progress. All quality gates must pass before merge.
+- ✅ All Sprint 1.5 tasks complete. PR #13 created and pushed to GitHub.
+- 9 quality gates now operational (lint, typecheck, build, test, integration, visual, a11y, coverage, performance)
+- 10 integration tests passing
+- Code coverage infrastructure with thresholds (75% lines, 70% branches)
+- Storybook set up with ProjectShell stories
+- Auto-merge now requires 1 approval (was 0)
+- Branch protection rules documented in `.qoder/branch-protection-rules.md`
+- Token budget: estimated 15,000 tokens for sprint implementation
 
 ## Model Budget
 
