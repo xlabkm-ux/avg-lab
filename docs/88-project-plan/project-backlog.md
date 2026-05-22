@@ -31,10 +31,40 @@ This backlog is structured for **budget control**:
 
 | Этап | Plan Tokens | Actual Tokens | Variance | Status |
 |------|-------------|---------------|----------|--------|
-| Этап 1: MVP-5 Interface | TBD | — | — | pending |
-| Этап 2: Tech Leadership | TBD | — | — | pending |
-| Этап 3: Market Positioning | TBD | — | — | pending |
-| **TOTAL** | **TBD** | **—** | **—** | **pending** |
+| Planning: UTS Expanded Plan & Specs | 90,000 | 92,000 | +2,000 | completed |
+| Этап 1: MVP-5 Interface | 117,000 | 81,800 | +200 | in_progress |
+| Этап 2: Tech Leadership | 43,000 | — | — | pending |
+| Этап 3: Market Positioning | 26,000 | — | — | pending |
+| Этап 4: Unified Task System | 1,110,000 | — | — | pending |
+| **TOTAL** | **1,386,000** | **173,800** | **+2,200** | **in_progress** |
+
+---
+
+## PLANNING CONTROL: Unified Task System Expanded Plan
+
+**Goal:** Analyze new AVG Unified Task System concept, architecture and audit documents; create a revised expanded delivery plan and project specifications.
+
+**Status:** completed
+
+**Source documents:** `docs/99-doc/Open AI CONCEPT + PLAN.md`, `docs/99-doc/Архитектурные Спецификации AVG.md`, `docs/99-doc/Аудит концепции AVG.md`
+
+| Task ID | Описание | Plan Tokens | Actual Tokens | Variance | Status | Notes |
+|---------|----------|-------------|---------------|----------|--------|-------|
+| AVG-UTS-000 | Expanded UTS plan and project specifications | 90,000 | 92,000 | +2,000 | completed | Estimated from Codex session because exact usage counter was unavailable. Created expanded plan, 8 project specs and `.qoder` integration map. |
+
+**Outputs:**
+
+- `docs/88-project-plan/unified-task-system-expanded-plan.md`
+- `docs/11-unified-task-system/README.md`
+- `docs/11-unified-task-system/product-contract.md`
+- `docs/11-unified-task-system/state-graph-orchestrator-spec.md`
+- `docs/11-unified-task-system/adaptive-llm-layer-spec.md`
+- `docs/11-unified-task-system/task-run-hitl-spec.md`
+- `docs/11-unified-task-system/solution-library-tool-registry-spec.md`
+- `docs/11-unified-task-system/api-boundary-spec.md`
+- `docs/11-unified-task-system/ux-surface-guidance-spec.md`
+- `docs/11-unified-task-system/quality-security-rollout-spec.md`
+- `.qoder/specs/unified-task-system-integration-map.md`
 
 ---
 
@@ -382,10 +412,38 @@ This backlog is structured for **budget control**:
 
 | Этап | Description | Plan Tokens | Actual Tokens | Variance | % Complete |
 |------|-------------|-------------|---------------|----------|------------|
+| Planning | UTS Expanded Plan & Specs | 90,000 | 92,000 | +2,000 | 100% |
 | Этап 1 | MVP-5 Working Interface | 117,000 | 81,800 | +200 | 70% |
 | Этап 2 | Technology Leadership | 43,000 | — | — | 0% |
 | Этап 3 | Market Positioning | 26,000 | — | — | 0% |
-| **GRAND TOTAL** | **Full MVP-5 → Launch** | **186,000** | **81,800** | **+200** | **44%** |
+| Этап 4 | Unified Task System | 1,110,000 | — | — | 0% |
+| **GRAND TOTAL** | **Full MVP-5 → UTS Launch** | **1,386,000** | **173,800** | **+2,200** | **13%** |
+
+---
+
+## ЭТАП 4: AVG Unified Task System
+
+**Goal:** Turn Dialogue into the single task-solving entry point with State Graph orchestration, controlled adaptive LLM, Task Run trace, HITL, seed Solution Library, tool permissions and cross-surface guidance.
+
+**Scope:** Future plan after MVP-5 closure; not active implementation until sprint backlog and task cards are created.
+
+**Source of truth:** `docs/88-project-plan/unified-task-system-expanded-plan.md`
+
+**Budget Owner:** [To be assigned]
+
+### Этап 4 Budget Summary
+
+| UTS Phase | Description | Plan Tokens | Actual Tokens | Variance | Status |
+|-----------|-------------|-------------|---------------|----------|--------|
+| UTS-0 | MVP-5 closure and readiness gate | 35,000 | — | — | pending |
+| UTS-1 | Product contracts and data model freeze | 95,000 | — | — | pending |
+| UTS-2 | State Graph orchestrator and adaptive LLM core | 210,000 | — | — | pending |
+| UTS-3 | Task Run, HITL and progress surfaces | 170,000 | — | — | pending |
+| UTS-4 | Seed Solution Library and tool registry | 185,000 | — | — | pending |
+| UTS-5 | Unified API and cross-surface guidance | 145,000 | — | — | pending |
+| UTS-6 | Controlled advanced capabilities | 140,000 | — | — | pending |
+| UTS-7 | E2E hardening, evals, docs and release | 130,000 | — | — | pending |
+| **Этап 4 Total** | | **1,110,000** | **—** | **—** | pending |
 
 ---
 
@@ -398,6 +456,9 @@ This backlog is structured for **budget control**:
 | UI complexity overload | MEDIUM | MEDIUM | Minimal UI rules: no custom design system, CSS only | Frontend |
 | Backend instability | LOW | LOW | Backend frozen, UI-only changes in Этап 1 | Backend |
 | Key person dependency | MEDIUM | MEDIUM | Document decisions, maintain task-level granularity | All |
+| UTS work starts before MVP-5 closure | HIGH | MEDIUM | UTS activation gate requires AVG-708 through AVG-712 closure and owner approval | Product/Architect |
+| Adaptive generator creates unsafe process logic | HIGH | MEDIUM | Generator deferred to UTS-6 and limited to reviewed tool assembly only | Architect/Security |
+| Raw LLM output leaks to user | HIGH | LOW | State Graph validation boundary and fail-safe response envelope | AI/Validation |
 
 ---
 
@@ -450,6 +511,7 @@ This backlog is structured for **budget control**:
 |------|--------|--------|-------------|
 | 2026-05-22 | Initial draft created | Qoder | Budget Owner |
 | 2026-05-22 | Backlog Update Regulation approved and enforced | Qoder | Budget Owner, Architect Agent, QA Agent |
+| 2026-05-22 | Added Unified Task System expanded plan, project specs and planning token record | Codex | Pending review |
 
 ---
 

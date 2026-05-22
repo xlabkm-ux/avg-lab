@@ -12,6 +12,7 @@ While `.qoder/` operating model handles **how** to execute (sprint management, a
 |------|--------|-----------|
 | [avg-leadership-roadmap.md](avg-leadership-roadmap.md) | Active | Sprint 7-9 (MVP-5), Future sprints (Phase 2-3) |
 | [integration-map.md](integration-map.md) | Active | Roadmap-to-sprint mapping, success metrics |
+| [unified-task-system-integration-map.md](unified-task-system-integration-map.md) | Draft | Future UTS phases after MVP-5 closure |
 
 ## Relationship with .qoder/
 
