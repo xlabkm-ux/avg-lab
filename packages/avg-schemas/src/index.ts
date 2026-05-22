@@ -1,4 +1,6 @@
 import { readFileSync } from "node:fs";
+import { dirname, join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import Ajv2020, { type AnySchema, type ErrorObject, type ValidateFunction } from "ajv/dist/2020.js";
 
 export const claimStatuses = [
@@ -115,9 +117,23 @@ export interface ValidationResult {
 
 const ajv = new Ajv2020({ allErrors: true, strict: false });
 
+/**
+ * Resolves the repo root directory from the current file location.
+ * Works both in source (src/) and built (dist/) contexts.
+ */
+function findRepoRoot(): string {
+  const currentFileUrl = import.meta.url;
+  const currentFilePath = fileURLToPath(currentFileUrl);
+  // Current file is either in packages/avg-schemas/src/ or packages/avg-schemas/dist/
+  const currentDir = dirname(currentFilePath);
+  // Go up from packages/avg-schemas/{src,dist} to packages/avg-schemas, then to packages, then to repo root
+  return resolve(currentDir, "..", "..", "..");
+}
+
 function loadSchema(pathFromRepoRoot: string): AnySchema {
-  const schemaUrl = new URL(`../../../${pathFromRepoRoot}`, import.meta.url);
-  return JSON.parse(readFileSync(schemaUrl, "utf8")) as AnySchema;
+  const repoRoot = findRepoRoot();
+  const schemaPath = resolve(repoRoot, pathFromRepoRoot);
+  return JSON.parse(readFileSync(schemaPath, "utf8")) as AnySchema;
 }
 
 export const claimSchema = loadSchema("schemas/json-schema/claim.schema.json");

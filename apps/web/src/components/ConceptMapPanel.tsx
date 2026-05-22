@@ -70,6 +70,7 @@ export function ConceptMapPanel({ snapshot, projectId, sessionId }: ConceptMapPa
     return (
       <section
         className="concept-map-surface"
+        data-testid="concept-map-panel"
         data-project-id={projectId}
         data-session-id={sessionId}
         data-node-count="0"
@@ -85,7 +86,7 @@ export function ConceptMapPanel({ snapshot, projectId, sessionId }: ConceptMapPa
             responses will appear here as graph nodes and edges.
           </p>
         </div>
-        <aside className="map-territory-boundary">
+        <aside className="map-territory-boundary" data-testid="map-territory-reminder">
           <p>The map is a working projection, not Reality.</p>
         </aside>
       </section>
@@ -95,6 +96,7 @@ export function ConceptMapPanel({ snapshot, projectId, sessionId }: ConceptMapPa
   return (
     <section
       className="concept-map-surface"
+      data-testid="concept-map-panel"
       data-project-id={projectId}
       data-session-id={sessionId}
       data-node-count={snapshot.nodes.length}
@@ -102,12 +104,12 @@ export function ConceptMapPanel({ snapshot, projectId, sessionId }: ConceptMapPa
     >
       <header>
         <h2>Concept Map</h2>
-        <span className="concept-map-stats">
+        <span className="concept-map-stats" data-testid="node-edge-count">
           {snapshot.nodes.length} nodes, {snapshot.edges.length} edges
         </span>
       </header>
 
-      <div className="concept-map-canvas-wrapper">
+      <div className="concept-map-canvas-wrapper" data-testid="concept-map-canvas">
         <div style={{ width: "100%", height: "500px" }}>
           <ReactFlow
             nodes={nodes}
@@ -123,7 +125,7 @@ export function ConceptMapPanel({ snapshot, projectId, sessionId }: ConceptMapPa
       </div>
 
       {selectedNode !== null && (
-        <aside className="concept-map-detail-panel">
+        <aside className="concept-map-detail-panel" data-testid="node-detail-panel">
           <h3>Node Details</h3>
           <NodeDetailPanel node={selectedNode} />
           <button
@@ -136,7 +138,7 @@ export function ConceptMapPanel({ snapshot, projectId, sessionId }: ConceptMapPa
         </aside>
       )}
 
-      <aside className="map-territory-boundary">
+      <aside className="map-territory-boundary" data-testid="map-territory-reminder">
         <p>The map is a working projection, not Reality.</p>
       </aside>
     </section>

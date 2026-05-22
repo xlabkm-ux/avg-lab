@@ -23,43 +23,63 @@ test.describe('UC-006: Citation Panel', () => {
       await route.fulfill({
         status: 200,
         body: JSON.stringify({
-          hits: [
-            {
-              source: 'test-document',
-              score: 0.85,
-              confidence: 'high',
-              snippet: 'This is a test citation snippet that demonstrates the citation panel functionality',
+          retrieval: {
+            hits: [
+              {
+                snippet_id: 'snippet-1',
+                citation_id: 'citation-1',
+                document_id: 'doc-1',
+                source: 'test-document',
+                source_label: 'Test Document',
+                score: 0.85,
+                confidence: 'high',
+                matched_text: 'This is a test citation snippet that demonstrates the citation panel functionality',
+              },
+              {
+                snippet_id: 'snippet-2',
+                citation_id: 'citation-2',
+                document_id: 'doc-2',
+                source: 'another-document',
+                source_label: 'Another Document',
+                score: 0.45,
+                confidence: 'medium',
+                matched_text: 'Another citation with medium confidence level for testing purposes',
+              },
+            ],
+            retrieval_confidence: 'high',
+            boundary_statement: 'The map is a working projection, not Reality',
+          },
+          report: {
+            groundedResponse: {
+              response: {
+                summary: 'Test response',
+                claim_status: 'definition',
+                language_mode: 'direct_description',
+                validation_risk: 'medium',
+                map_territory_boundary: 'preserved',
+                scope: 'Test scope',
+                next_action: 'Continue exploring',
+                risks: [],
+                risk_markers: [],
+              },
+              grounding: {
+                boundary_statement: 'The map is a working projection, not Reality',
+              },
             },
-            {
-              source: 'another-document',
-              score: 0.45,
-              confidence: 'medium',
-              snippet: 'Another citation with medium confidence level for testing purposes',
-            },
-          ],
-          response: {
-            summary: 'Test response',
-            claim_status: 'definition',
-            language_mode: 'direct_description',
-            validation_risk: 'LOW',
-            map_territory_boundary: 'The map is a working projection, not Reality',
-            scope: 'Test scope',
-            next_action: 'Continue exploring',
-            risks: [],
           },
         }),
       });
     });
 
     // Submit query
-    await page.getByRole('textbox', { name: /question/i }).fill('Test question?');
-    await page.getByRole('button', { name: /ask with evidence/i }).click();
+    await page.getByTestId('query-input').fill('Test question?');
+    await page.getByTestId('submit-query-btn').click();
 
     // Wait for response
     await expect(page.getByText(/test response/i)).toBeVisible({ timeout: 10000 });
 
     // Verify citation panel is visible
-    await expect(page.getByText(/test-document|another-document/i)).toBeVisible();
+    await expect(page.getByTestId('citation-panel')).toBeVisible();
   });
 
   test('should display confidence badges on citations', async ({ page }) => {
@@ -134,27 +154,39 @@ test.describe('UC-006: Citation Panel', () => {
       await route.fulfill({
         status: 200,
         body: JSON.stringify({
-          hits: [],
-          response: {
-            summary: 'No evidence found',
-            claim_status: 'boundary_statement',
-            language_mode: 'direct_description',
-            validation_risk: 'LOW',
-            map_territory_boundary: 'The map is a working projection, not Reality',
-            scope: 'No evidence available',
-            next_action: 'Register documents first',
-            risks: [],
+          retrieval: {
+            hits: [],
+            retrieval_confidence: 'none',
+            boundary_statement: 'No evidence found for this query.',
+          },
+          report: {
+            groundedResponse: {
+              response: {
+                summary: 'No evidence found',
+                claim_status: 'boundary_statement',
+                language_mode: 'direct_description',
+                validation_risk: 'medium',
+                map_territory_boundary: 'preserved',
+                scope: 'No evidence available',
+                next_action: 'Register documents first',
+                risks: [],
+                risk_markers: [],
+              },
+              grounding: {
+                boundary_statement: 'No evidence found for this query.',
+              },
+            },
           },
         }),
       });
     });
 
     // Submit query
-    await page.getByRole('textbox', { name: /question/i }).fill('Test question?');
-    await page.getByRole('button', { name: /ask with evidence/i }).click();
+    await page.getByTestId('query-input').fill('Test question?');
+    await page.getByTestId('submit-query-btn').click();
 
     // Verify empty state
-    await expect(page.getByText(/no (evidence|citations)/i)).toBeVisible({ timeout: 10000 });
+    await expect(page.getByTestId('no-evidence-state')).toBeVisible({ timeout: 10000 });
   });
 
   test('should truncate snippet to 150 chars when collapsed', async ({ page }) => {

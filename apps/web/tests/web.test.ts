@@ -1117,10 +1117,9 @@ describe("document registration surface (AVG-704)", () => {
 
     const rendered = renderDocumentRegistrationSurface(surface);
 
-    expect(rendered).toContain('<option value="text">Plain text</option>');
-    expect(rendered).toContain('<option value="markdown">Markdown</option>');
-    expect(rendered).toContain('<option value="pdf">PDF (text extraction)</option>');
-    expect(rendered).toContain('<option value="web">Web page</option>');
+    expect(rendered).toContain('<option value="local_text">Plain text</option>');
+    expect(rendered).toContain('<option value="local_markdown">Markdown</option>');
+    expect(rendered).toContain('<option value="local_document">Document</option>');
   });
 
   it("estimates token count correctly", () => {

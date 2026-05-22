@@ -19,13 +19,14 @@ test.describe('UC-003: Grounded Retrieval', () => {
 
   test('should display retrieval interface', async ({ page }) => {
     // Verify retrieval interface is visible
-    await expect(page.getByRole('textbox', { name: /question/i })).toBeVisible();
-    await expect(page.getByRole('button', { name: /ask with evidence/i })).toBeVisible();
+    await expect(page.getByTestId('retrieval-interface')).toBeVisible();
+    await expect(page.getByTestId('query-input')).toBeVisible();
+    await expect(page.getByTestId('submit-query-btn')).toBeVisible();
   });
 
   test('should enable submit button when text is entered', async ({ page }) => {
-    const submitButton = page.getByRole('button', { name: /ask with evidence/i });
-    const textArea = page.getByRole('textbox', { name: /question/i });
+    const submitButton = page.getByTestId('submit-query-btn');
+    const textArea = page.getByTestId('query-input');
 
     // Submit button should be disabled initially
     await expect(submitButton).toBeDisabled();
@@ -38,15 +39,15 @@ test.describe('UC-003: Grounded Retrieval', () => {
   });
 
   test('should prevent empty submission', async ({ page }) => {
-    const submitButton = page.getByRole('button', { name: /ask with evidence/i });
+    const submitButton = page.getByTestId('submit-query-btn');
 
     // Submit button should be disabled with empty text
     await expect(submitButton).toBeDisabled();
   });
 
   test('should show loading state during query', async ({ page }) => {
-    const textArea = page.getByRole('textbox', { name: /question/i });
-    const submitButton = page.getByRole('button', { name: /ask with evidence/i });
+    const textArea = page.getByTestId('query-input');
+    const submitButton = page.getByTestId('submit-query-btn');
 
     // Enter text
     await textArea.fill('How does memory work?');
@@ -64,18 +65,18 @@ test.describe('UC-003: Grounded Retrieval', () => {
     await page.route('**/api/projects/*/retrieval/grounded-flow', async (route) => {
       await route.fulfill({
         status: 500,
-        body: JSON.stringify({ error: 'Internal server error' }),
+        body: JSON.stringify({ message: 'Internal server error' }),
       });
     });
 
-    const textArea = page.getByRole('textbox', { name: /question/i });
-    const submitButton = page.getByRole('button', { name: /ask with evidence/i });
+    const textArea = page.getByTestId('query-input');
+    const submitButton = page.getByTestId('submit-query-btn');
 
     // Enter text and submit
     await textArea.fill('How does memory work?');
     await submitButton.click();
 
     // Verify error state
-    await expect(page.getByText(/failed|error/i)).toBeVisible({ timeout: 10000 });
+    await expect(page.getByTestId('retrieval-error')).toBeVisible({ timeout: 10000 });
   });
 });

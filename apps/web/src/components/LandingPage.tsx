@@ -77,7 +77,7 @@ export function LandingPage({ onCreateProject }: LandingPageProps) {
         <table className="comparison-table">
           <thead>
             <tr>
-              <th></th>
+              <th aria-label="Feature">Feature</th>
               <th>AVG</th>
               <th>Chatbot</th>
               <th>Search</th>

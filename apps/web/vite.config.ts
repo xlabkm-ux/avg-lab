@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { resolve } from 'path';
 
 export default defineConfig({
   plugins: [react()],
@@ -16,6 +17,12 @@ export default defineConfig({
   build: {
     outDir: 'dist-app',
     sourcemap: true,
+  },
+  resolve: {
+    alias: {
+      // Use source files for @avg/schemas to avoid import.meta.url issues in vitest
+      '@avg/schemas': resolve(__dirname, '../../packages/avg-schemas/src/index.ts'),
+    },
   },
   test: {
     environment: 'jsdom',

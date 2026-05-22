@@ -79,7 +79,7 @@ export function GroundedRetrievalFlow({ projectId, sessionId }: GroundedRetrieva
   }[retrievalConfidence];
 
   return (
-    <section className="grounded-retrieval-flow" data-status={status}>
+    <section className="grounded-retrieval-flow" data-status={status} data-testid="retrieval-interface">
       <header className="retrieval-header">
         <h2>Grounded Retrieval</h2>
         <p className="retrieval-description">
@@ -91,6 +91,7 @@ export function GroundedRetrievalFlow({ projectId, sessionId }: GroundedRetrieva
         <label htmlFor="grounded-query">Grounded question</label>
         <textarea
           id="grounded-query"
+          data-testid="query-input"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Ask against registered project documents"
@@ -99,6 +100,7 @@ export function GroundedRetrievalFlow({ projectId, sessionId }: GroundedRetrieva
         />
         <button
           type="button"
+          data-testid="submit-query-btn"
           onClick={handleSubmit}
           disabled={status === 'loading' || !query.trim()}
           className="btn-primary"
@@ -108,7 +110,7 @@ export function GroundedRetrievalFlow({ projectId, sessionId }: GroundedRetrieva
       </section>
 
       {status === 'error' && errorMessage && (
-        <aside className="retrieval-error" data-risk="critical">
+        <aside className="retrieval-error" data-risk="critical" data-testid="retrieval-error">
           <strong>Error</strong>
           <p>{errorMessage}</p>
         </aside>
@@ -124,6 +126,7 @@ export function GroundedRetrievalFlow({ projectId, sessionId }: GroundedRetrieva
           {retrievalConfidence !== 'none' && (
             <span
               className="confidence-badge"
+              data-testid="retrieval-confidence-badge"
               style={{ backgroundColor: confidenceColor }}
             >
               Confidence: {retrievalConfidence}
@@ -141,7 +144,7 @@ export function GroundedRetrievalFlow({ projectId, sessionId }: GroundedRetrieva
       )}
 
       {status === 'missing_evidence' && retrievalHits.length === 0 && (
-        <section className="empty-evidence">
+        <section className="empty-evidence" data-testid="no-evidence-state">
           <h3>No matching evidence</h3>
           <p>No registered snippets matched this question. Try:</p>
           <ul>
