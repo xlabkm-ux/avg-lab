@@ -1,0 +1,15 @@
+{
+  "adequacy_risks": [
+    "term_reification",
+    "scheme_absolutization",
+    "map_territory_substitution",
+    "sign_to_entity_substitution",
+    "level_mixing",
+    "access_mode_mixing",
+    "strong_word_substitution",
+    "reductionism",
+    "fairy_tale",
+    "dogma",
+    "social_confirmation_as_proof"
+  ]
+}

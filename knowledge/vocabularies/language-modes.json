@@ -1,0 +1,10 @@
+{
+  "language_modes": [
+    "direct_description",
+    "operational_description",
+    "conditional_description",
+    "metaphor",
+    "symbolic_pointer",
+    "silence_required"
+  ]
+}

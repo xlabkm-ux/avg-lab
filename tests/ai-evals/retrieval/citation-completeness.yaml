@@ -1,0 +1,12 @@
+id: citation-completeness-001
+input: >
+  Compose a grounded answer from retrieved snippets and ensure each cited fact points to a specific snippet-level citation id.
+expected:
+  must_include_citations: true
+  must_use_snippet_level_citations: true
+  must_not_cite_document_only: true
+  must_include_boundary: true
+fail_if_contains:
+  - "source says"
+  - "according to the document"
+  - "citation unavailable"

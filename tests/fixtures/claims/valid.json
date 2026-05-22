@@ -1,0 +1,8 @@
+{
+  "id": "claim_001",
+  "statement": "AVG builds a working hypothesis about the user's underlying request.",
+  "claim_status": "hypothesis",
+  "language_mode": "operational_description",
+  "scope": "Based on current conversation context.",
+  "risks": []
+}

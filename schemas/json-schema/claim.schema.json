@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://avg.local/schemas/claim.schema.json",
+  "title": "AVG Claim",
+  "type": "object",
+  "required": [
+    "id",
+    "statement",
+    "claim_status",
+    "language_mode",
+    "risks"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "statement": {
+      "type": "string",
+      "minLength": 1
+    },
+    "claim_status": {
+      "type": "string",
+      "enum": [
+        "definition",
+        "working_distinction",
+        "operational_marker",
+        "indirect_sign",
+        "hypothesis",
+        "metaphor_only",
+        "prohibited_positive_claim",
+        "boundary_statement"
+      ]
+    },
+    "language_mode": {
+      "type": "string",
+      "enum": [
+        "direct_description",
+        "operational_description",
+        "conditional_description",
+        "metaphor",
+        "symbolic_pointer",
+        "silence_required"
+      ]
+    },
+    "scope": {
+      "type": "string"
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "repair": {
+      "type": "string"
+    },
+    "source_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

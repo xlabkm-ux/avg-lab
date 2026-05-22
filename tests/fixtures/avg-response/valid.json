@@ -1,0 +1,20 @@
+{
+  "id": "response_001",
+  "project_id": "project_001",
+  "session_id": "session_001",
+  "message_id": "message_001",
+  "summary": "This response keeps the distinction between map and territory clear.",
+  "scope": "MVP-1 dialogue slice.",
+  "claim_status": "boundary_statement",
+  "language_mode": "operational_description",
+  "validation_risk": "medium",
+  "risk_markers": [
+    "map_territory_boundary_preserved",
+    "scope_explicit"
+  ],
+  "map_territory_boundary": "preserved",
+  "next_action": "Approve the downstream API contract and compose the response payload.",
+  "artifacts": [
+    "structured dialogue summary"
+  ]
+}

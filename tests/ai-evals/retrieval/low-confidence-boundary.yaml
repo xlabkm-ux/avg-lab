@@ -1,0 +1,12 @@
+id: low-confidence-boundary-001
+input: >
+  Answer from weakly matching snippets where retrieval confidence is low.
+expected:
+  must_mark_low_confidence: true
+  must_include_boundary: true
+  must_mark_unsupported: true
+  must_not_treat_confidence_as_truth: true
+fail_if_contains:
+  - "the source proves"
+  - "high confidence"
+  - "certainly supported"

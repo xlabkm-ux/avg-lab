@@ -1,0 +1,56 @@
+name: Audit Snapshot
+
+on:
+  workflow_dispatch:
+    inputs:
+      note:
+        description: "Optional audit note"
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build audit snapshot
+        env:
+          AUDIT_NOTE: ${{ inputs.note }}
+        run: |
+          set -euo pipefail
+
+          safe_ref="${GITHUB_REF_NAME//\//-}"
+          short_sha="${GITHUB_SHA::12}"
+          snapshot_id="audit-snapshot-${safe_ref}-${short_sha}"
+
+          mkdir -p snapshot/avg-lab
+          git archive HEAD | tar -x -C snapshot/avg-lab
+
+          cat > snapshot/AUDIT_MANIFEST.md <<EOF
+          # Audit Snapshot
+
+          Repository: ${GITHUB_REPOSITORY}
+          Ref: ${GITHUB_REF_NAME}
+          Commit: ${GITHUB_SHA}
+          Actor: ${GITHUB_ACTOR}
+          Workflow run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}
+          Created UTC: $(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          Note: ${AUDIT_NOTE}
+
+          Scope: committed repository files at the selected ref.
+          Excluded: local uncommitted changes, ignored files, dependency folders, build outputs, and Git metadata.
+          EOF
+
+          tar -czf "${snapshot_id}.tar.gz" -C snapshot .
+          echo "SNAPSHOT_ID=${snapshot_id}" >> "$GITHUB_ENV"
+
+      - name: Upload audit snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.SNAPSHOT_ID }}
+          path: ${{ env.SNAPSHOT_ID }}.tar.gz
+          retention-days: 90
