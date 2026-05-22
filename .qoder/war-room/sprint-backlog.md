@@ -104,6 +104,40 @@ Gate note:
 - 95 ESLint issues fixed (100% of errors eliminated)
 - 36 tests passing (22 @avg/api + 13 new @avg/web component tests + 1 smoke test)
 
+## Sprint 1.5: Quality Gates
+
+Goal: implement comprehensive quality gates including visual regression, accessibility testing, code coverage, integration tests, Storybook, and CI/CD improvements.
+
+Status: **in progress**.
+
+| Task | Owner | Parallel | Risk | Output | Status |
+|---|---|---:|---|---|---|
+| AVG-722 | QA/Frontend | yes | red | Visual regression testing with Playwright screenshot comparison | pending |
+| AVG-723 | QA/Frontend | yes | red | Accessibility testing with axe-core integration | pending |
+| AVG-724 | QA/Backend | yes | yellow | Code coverage reporting with Vitest and Codecov | pending |
+| AVG-725 | QA/Backend | yes | yellow | Integration test framework infrastructure | pending |
+| AVG-726 | Frontend | yes | green | Storybook setup with initial component stories | pending |
+| AVG-727 | DevOps | yes | red | CI/CD pipeline updates for all quality gates | pending |
+| AVG-728 | DevOps | yes | red | Fix auto-merge approval requirements | pending |
+| AVG-729 | DevOps | yes | yellow | Branch protection documentation | pending |
+| AVG-730 | QA/Performance | yes | yellow | Performance testing baseline | pending |
+
+Exit criteria:
+
+- [ ] Visual regression tests pass on key UI components (`pnpm test:visual`)
+- [ ] Accessibility tests pass with axe-core (`pnpm test:a11y`)
+- [ ] Code coverage thresholds defined and met (`pnpm test:coverage`)
+- [ ] Integration test framework operational (`pnpm test:integration`)
+- [ ] Storybook running with core component stories
+- [ ] CI pipeline enforces all quality gates
+- [ ] Auto-merge requires at least 1 approval
+- [ ] Branch protection rules documented
+- [ ] Performance baseline established for key user flows
+
+Gate note:
+
+- Sprint in progress. All quality gates must pass before merge.
+
 ## Model Budget
 
 | Task | Tier | Model | Approval |

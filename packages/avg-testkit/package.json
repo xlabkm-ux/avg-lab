@@ -17,6 +17,8 @@
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "test": "vitest run",
     "test:unit": "vitest run",
+    "test:integration": "vitest run tests/integration.test.ts",
+    "test:coverage": "vitest run --coverage",
     "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\""
   }
 }

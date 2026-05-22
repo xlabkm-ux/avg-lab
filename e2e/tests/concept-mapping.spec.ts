@@ -25,7 +25,7 @@ test.describe('UC-005: Concept Mapping', () => {
   test('should render graph nodes and edges', async ({ page }) => {
     // Check for ReactFlow elements
     const nodes = page.locator('.react-flow__node');
-    const edges = page.locator('.react-flow__edge');
+    const _edges = page.locator('.react-flow__edge');
 
     // Verify at least some nodes are rendered (sample data)
     await expect(nodes.first()).toBeVisible();

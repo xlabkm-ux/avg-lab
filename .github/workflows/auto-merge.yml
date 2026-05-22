@@ -33,7 +33,7 @@ jobs:
           MERGE_METHOD: squash
           MERGE_COMMIT_MESSAGE: pull-request-title
           MERGE_DELETE_BRANCH: true
-          MERGE_REQUIRED_APPROVALS: 0
+          MERGE_REQUIRED_APPROVALS: 1
           MERGE_FILTER_AUTHOR: ""
           MERGE_LABELS: ""
           MERGE_RETRIES: 6
