@@ -1,0 +1,6 @@
+# Test artifacts
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+test-output/
