@@ -342,12 +342,20 @@ Every PR must include:
 - Actual Tokens not recorded
 - Variance >20% without explanation
 
-### Automated Checks (Future)
+### Automated Checks
 
-When tooling is available:
-- Pre-commit hook will verify backlog updates for modified task files
-- CI will fail if backlog Actual Tokens remain `—` for completed tasks
-- Dashboard will highlight stale backlog entries >1 hour old for in-progress tasks
+PR automation is now enabled:
+
+- **Auto-PR creation**: Agents MUST use `make pr` or `make commit-and-pr MSG="..."` after completing tasks
+- **Auto-merge**: GitHub Actions (`.github/workflows/auto-merge.yml`) merges PRs when checks pass
+- **CI validation**: CI will fail if backlog Actual Tokens remain `—` for completed tasks
+- **Dashboard highlights**: Stale backlog entries >1 hour old for in-progress tasks are flagged
+
+**PR will be rejected** if:
+- Backlog update checkbox unchecked
+- Actual Tokens not recorded
+- Variance >20% without explanation
+- PR not created via automation script
 
 ---
 
@@ -358,6 +366,8 @@ When tooling is available:
 - Verify sprint Total row after completing last task in sprint
 - Follow status naming conventions
 - Report blockers immediately with Notes
+- **MANDATORY**: Create PR using `make pr` or `make commit-and-pr` after task completion
+- **MANDATORY**: Do NOT manually merge PRs; auto-merge workflow handles it
 
 ### Architect Agent
 - Validate sprint Total calculations

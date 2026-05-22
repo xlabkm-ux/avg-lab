@@ -70,6 +70,45 @@ Each task is delivered as:
 
 Merge order follows dependency order, not branch creation order.
 
+## PR Automation Rule
+
+**MANDATORY:** After completing a task and updating the backlog, agents MUST create a PR using the automation script:
+
+### Script Usage
+
+```bash
+# Option 1: Commit and create PR in one command
+make commit-and-pr MSG="feat(scope): description (AVG-XXX)"
+
+# Option 2: Manual commit, then PR
+git add -A && git commit -m "feat(scope): description (AVG-XXX)"
+make pr
+```
+
+### Script Behavior
+
+The script (`scripts/dev/create-pr.sh` or `scripts/dev/create-pr.bat`) automatically:
+1. Extracts ticket ID from branch name (`agent/<role>/AVG-XXX-slug`)
+2. Checks if PR already exists (skips if found)
+3. Pushes branch to remote if not pushed
+4. Creates PR with commit message as title and body
+5. Outputs PR URL
+
+### Auto-Merge
+
+GitHub Actions workflow (`.github/workflows/auto-merge.yml`) automatically merges PRs when:
+- PR is not a draft
+- No failing checks
+- Branch name matches `agent/*` pattern
+
+Agents do NOT need to manually merge. The workflow handles it.
+
+### Cross-Platform Support
+
+- **Linux/macOS**: `scripts/dev/create-pr.sh` (bash)
+- **Windows**: `scripts/dev/create-pr.bat` (cmd)
+- **Makefile**: `make pr` auto-detects platform
+
 ## Completion Rule
 
 A sprint is complete only when:
@@ -78,7 +117,20 @@ A sprint is complete only when:
 - exit criteria are verified;
 - progress board and daily brief reflect the final state;
 - no task remains deferred because of an unresolved gate inside the active sprint;
-- **project backlog updated** with Actual Tokens, Variance, and Status per [backlog-update-regulation.md](backlog-update-regulation.md).
+- **project backlog updated** with Actual Tokens, Variance, and Status per [backlog-update-regulation.md](backlog-update-regulation.md);
+- **PRs created** for all tasks using `make pr` or `make commit-and-pr`;
+- **auto-merge workflow enabled** and passing on all PRs.
+
+### Task Completion Checklist
+
+After completing each task:
+
+1. [ ] Run quality gates (`pnpm lint && pnpm typecheck && pnpm test && pnpm build`)
+2. [ ] Update backlog with Actual Tokens, Variance, Status
+3. [ ] Commit changes with conventional commit message
+4. [ ] Create PR using `make commit-and-pr MSG="..."` or `make pr`
+5. [ ] Verify PR created and auto-merge enabled
+6. [ ] Record PR number in task card notes
 
 ## Stop Rule
 
