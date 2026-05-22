@@ -31,20 +31,32 @@ function ClaimStatusBadge({ status }: { status: string }) {
   const label = claimStatusLabels[status] ?? status;
   const className = `claim-status-badge claim-status-${status.replace(/_/g, "-")}`;
 
-  return <span className={className}>{label}</span>;
+  return (
+    <span className={className} data-testid="claim-status-badge" data-status={status}>
+      {label}
+    </span>
+  );
 }
 
 function LanguageModeBadge({ mode }: { mode: string }) {
   const label = languageModeLabels[mode] ?? mode;
 
-  return <span className="language-mode-badge">{label}</span>;
+  return (
+    <span className="language-mode-badge" data-testid="claim-language-mode" data-mode={mode}>
+      {label}
+    </span>
+  );
 }
 
 function RiskBadge({ risk }: { risk: string }) {
   const className = `risk-badge risk-${risk}`;
   const label = risk.charAt(0).toUpperCase() + risk.slice(1);
 
-  return <span className={className}>{label}</span>;
+  return (
+    <span className={className} data-testid="claim-risk-marker">
+      {label}
+    </span>
+  );
 }
 
 function ClaimCard({ claim }: { claim: AvgClaim }) {
@@ -64,11 +76,13 @@ function ClaimCard({ claim }: { claim: AvgClaim }) {
         <button
           type="button"
           className="claim-expand-btn"
+          data-testid="expand-claim-btn"
           onClick={() => setExpanded(!expanded)}
           aria-expanded={expanded}
+          aria-label={expanded ? "Collapse claim details" : "Expand claim details"}
         >
           <span className="claim-expand-icon">{expanded ? "\u25BC" : "\u25B6"}</span>
-          <span className="claim-statement">{claim.statement}</span>
+          <span className="claim-statement" data-testid="claim-statement">{claim.statement}</span>
         </button>
         <div className="claim-badges">
           <ClaimStatusBadge status={claim.claim_status} />
@@ -129,6 +143,7 @@ export function ClaimReviewPanel({ claims, projectId, sessionId }: ClaimReviewPa
     return (
       <section
         className="claim-review-surface"
+        data-testid="claim-review-panel"
         data-project-id={projectId}
         data-session-id={sessionId}
         data-status="empty"
@@ -136,7 +151,7 @@ export function ClaimReviewPanel({ claims, projectId, sessionId }: ClaimReviewPa
         <header>
           <h2>Claim Review</h2>
         </header>
-        <div className="claim-review-empty">
+        <div className="claim-review-empty" data-testid="claim-review-empty-state">
           <h3>No claims to inspect</h3>
           <p>
             Structured response claims will appear here with status, language mode and validation
@@ -159,6 +174,7 @@ export function ClaimReviewPanel({ claims, projectId, sessionId }: ClaimReviewPa
   return (
     <section
       className="claim-review-surface"
+      data-testid="claim-review-panel"
       data-project-id={projectId}
       data-session-id={sessionId}
       data-status={status}

@@ -18,6 +18,7 @@
     "test": "vitest run",
     "test:unit": "vitest run",
     "test:contract": "vitest run tests/contract.test.ts",
+    "test:coverage": "vitest run --coverage",
     "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\""
   },
   "dependencies": {

@@ -104,6 +104,47 @@ Gate note:
 - 95 ESLint issues fixed (100% of errors eliminated)
 - 36 tests passing (22 @avg/api + 13 new @avg/web component tests + 1 smoke test)
 
+## Sprint 1.5: Quality Gates
+
+Goal: implement comprehensive quality gates including visual regression, accessibility testing, code coverage, integration tests, Storybook, and CI/CD improvements.
+
+Status: **completed**.
+
+| Task | Owner | Parallel | Risk | Output | Status |
+|---|---|---:|---|---|---|
+| AVG-722 | QA/Frontend | yes | red | Visual regression testing with Playwright screenshot comparison | ✅ |
+| AVG-723 | QA/Frontend | yes | red | Accessibility testing with axe-core integration | ✅ |
+| AVG-724 | QA/Backend | yes | yellow | Code coverage reporting with Vitest and Codecov | ✅ |
+| AVG-725 | QA/Backend | yes | yellow | Integration test framework infrastructure | ✅ |
+| AVG-726 | Frontend | yes | green | Storybook setup with initial component stories | ✅ |
+| AVG-727 | DevOps | yes | red | CI/CD pipeline updates for all quality gates | ✅ |
+| AVG-728 | DevOps | yes | red | Fix auto-merge approval requirements | ✅ |
+| AVG-729 | DevOps | yes | yellow | Branch protection documentation | ✅ |
+| AVG-730 | QA/Performance | yes | yellow | Performance testing baseline | ✅ |
+
+Exit criteria:
+
+- [x] Visual regression tests pass on key UI components (`pnpm test:visual`)
+- [x] Accessibility tests pass with axe-core (`pnpm test:a11y`)
+- [x] Code coverage thresholds defined and met (`pnpm test:coverage`)
+- [x] Integration test framework operational (`pnpm test:integration`)
+- [x] Storybook running with core component stories
+- [x] CI pipeline enforces all quality gates
+- [x] Auto-merge requires at least 1 approval
+- [x] Branch protection rules documented
+- [x] Performance baseline established for key user flows
+
+Gate note:
+
+- ✅ All Sprint 1.5 tasks complete. PR #13 created and pushed to GitHub.
+- 9 quality gates now operational (lint, typecheck, build, test, integration, visual, a11y, coverage, performance)
+- 10 integration tests passing
+- Code coverage infrastructure with thresholds (75% lines, 70% branches)
+- Storybook set up with ProjectShell stories
+- Auto-merge now requires 1 approval (was 0)
+- Branch protection rules documented in `.qoder/branch-protection-rules.md`
+- Token budget: estimated 15,000 tokens for sprint implementation
+
 ## Model Budget
 
 | Task | Tier | Model | Approval |

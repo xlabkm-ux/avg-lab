@@ -17,6 +17,7 @@
     "test:e2e": "playwright test",
     "test:visual": "turbo test:visual",
     "test:a11y": "turbo test:a11y",
+    "test:coverage": "turbo test:coverage",
     "test:security": "turbo test:security",
     "test:ai": "turbo test:ai",
     "test:claim-safety": "node --experimental-strip-types scripts/evals/claim-safety-check.ts",
@@ -28,8 +29,12 @@
     "clean": "turbo clean && rm -rf node_modules"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.10.2",
+    "@playwright/test": "^1.60.0",
     "@types/node": "25.9.1",
+    "@vitest/coverage-v8": "^4.1.7",
     "ajv": "8.20.0",
+    "dotenv": "^17.4.2",
     "eslint": "10.4.0",
     "eslint-plugin-unicorn": "^64.0.0",
     "playwright": "1.60.0",

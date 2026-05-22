@@ -26,12 +26,14 @@ export function CitationPanel({ hits, onSelectHit }: CitationPanelProps) {
   };
 
   return (
-    <section className="citation-panel" data-hit-count={hits.length}>
+    <section className="citation-panel" data-hit-count={hits.length} data-testid="citation-panel">
       <header className="citation-header">
         <h3>Retrieval hits ({hits.length})</h3>
         <div className="citation-filters">
-          <label>Filter by confidence:</label>
+          <label htmlFor="confidence-filter">Filter by confidence:</label>
           <select
+            id="confidence-filter"
+            data-testid="confidence-filter"
             value={filterConfidence}
             onChange={(e) => setFilterConfidence(e.target.value)}
           >
@@ -52,11 +54,12 @@ export function CitationPanel({ hits, onSelectHit }: CitationPanelProps) {
             data-citation-id={hit.citation_id}
             data-document-id={hit.document_id}
             data-confidence={hit.confidence}
+            data-testid="citation"
             onClick={() => handleHitClick(hit)}
           >
             <div className="citation-header-row">
               <strong className="citation-source">{hit.source_label}</strong>
-              <span className={`confidence-badge confidence-${hit.confidence}`}>
+              <span className={`confidence-badge confidence-${hit.confidence}`} data-testid="confidence-badge">
                 {hit.confidence}
               </span>
               <span className="score-badge">Score: {hit.score.toFixed(2)}</span>
@@ -79,7 +82,7 @@ export function CitationPanel({ hits, onSelectHit }: CitationPanelProps) {
               </dl>
             </div>
 
-            <blockquote className="citation-text">
+            <blockquote className="citation-text" data-testid="citation-snippet">
               {expandedHit === hit.snippet_id ? (
                 hit.matched_text
               ) : (
@@ -93,6 +96,7 @@ export function CitationPanel({ hits, onSelectHit }: CitationPanelProps) {
             {expandedHit === hit.snippet_id && (
               <button
                 className="btn-small"
+                data-testid="copy-snippet-btn"
                 onClick={(e) => {
                   e.stopPropagation();
                   navigator.clipboard.writeText(hit.matched_text);

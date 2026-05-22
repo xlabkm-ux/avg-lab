@@ -11,6 +11,7 @@
     "test:contract": {},
     "test:visual": {},
     "test:a11y": {},
+    "test:coverage": {},
     "test:security": {},
     "test:ai": {},
     "test:claim-safety": {},

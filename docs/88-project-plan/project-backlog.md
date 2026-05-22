@@ -32,11 +32,11 @@ This backlog is structured for **budget control**:
 | Этап | Plan Tokens | Actual Tokens | Variance | Status |
 |------|-------------|---------------|----------|--------|
 | Planning: UTS Expanded Plan & Specs | 90,000 | 92,000 | +2,000 | completed |
-| Этап 1: MVP-5 Interface | 117,000 | 81,800 | +200 | in_progress |
+| Этап 1: MVP-5 Interface | 117,000 | 97,300 | -19,700 | in_progress (83%) |
 | Этап 2: Tech Leadership | 43,000 | — | — | pending |
 | Этап 3: Market Positioning | 26,000 | — | — | pending |
 | Этап 4: Unified Task System | 1,110,000 | — | — | pending |
-| **TOTAL** | **1,386,000** | **173,800** | **+2,200** | **in_progress** |
+| **TOTAL** | **1,386,000** | **189,300** | **-17,700** | **14%** |
 
 ---
 
@@ -220,21 +220,21 @@ This backlog is structured for **budget control**:
 ### Спринт 1.4: Export & Polish
 
 **Goal:** Artifact export, UI polish, documentation  
-**Status:** pending  
+**Status:** completed  
 **Dependencies:** Спринт 1.3
 
 | Task ID | Описание | Plan Tokens | Actual Tokens | Variance | Status | Notes |
 |---------|----------|-------------|---------------|----------|--------|-------|
-| AVG-708 | Artifact workspace and export | 6,000 | — | — | pending | JSON/Markdown export buttons, clipboard copy |
-| AVG-713 | UI polish pass | 5,000 | — | — | pending | Loading skeletons, empty states, CSS transitions, keyboard shortcuts |
-| AVG-714 | Documentation landing page | 3,000 | — | — | pending | Create product landing page with positioning |
-| **Спринт 1.4 Total** | | **14,000** | **—** | **—** | | |
+| AVG-708 | Artifact workspace and export | 6,000 | 8,200 | +2,200 | completed | Created ArtifactExportPanel.tsx with 4 export types (session summary, citation report, map snapshot, grounded answer). JSON + Markdown export, clipboard copy. Deterministic serialization with markdown escaping. 14 unit tests. Wired to WorkspaceShell with sample data. Over budget (+37%) due to full serialization layer (types.ts, serialization.ts) and component CSS. |
+| AVG-713 | UI polish pass | 5,000 | 4,500 | -500 | completed | Added loading skeletons, spinner, empty states, CSS transitions, keyboard shortcuts (1-6 for nav), focus-visible styles, reduced-motion support. Modified 6 components (GroundedRetrievalFlow, CitationPanel, ClaimReviewPanel, ConceptMapPanel, ArtifactExportPanel, WorkspaceShell). Extended design system with motion, shadow, z-index tokens. Within budget (-10%). |
+| AVG-714 | Documentation landing page | 3,000 | 2,800 | -200 | completed | Created LandingPage.tsx component with hero, core promise, features grid (6 cards), differentiator comparison table (AVG vs Chatbot vs Search), personas (4 cards), and CTA footer. Replaced minimal empty state in App.tsx. Within budget (-7%). |
+| **Спринт 1.4 Total** | | **14,000** | **15,500** | **+1,500** | | |
 
 **Exit Criteria:**
-- [ ] Session can be exported as JSON
-- [ ] Citation report exports as Markdown
-- [ ] UI feels polished, not prototype-level
-- [ ] Landing page explains product value
+- [x] Session can be exported as JSON (AVG-708)
+- [x] Citation report exports as Markdown (AVG-708)
+- [x] UI feels polished, not prototype-level (AVG-713)
+- [x] Landing page explains product value (AVG-714)
 
 ---
 
@@ -269,9 +269,9 @@ This backlog is structured for **budget control**:
 | Спринт 1.2: Dialogue & Retrieval | 18,000 | 23,700 | +5,700 |
 | Спринт 1.3: Validation & Map | 19,000 | 16,700 | -2,300 |
 | Спринт 1.6: Refactoring Audit | 29,000 | 26,300 | -2,700 |
-| Спринт 1.4: Export & Polish | 14,000 | — | — |
+| Спринт 1.4: Export & Polish | 14,000 | 15,500 | +1,500 |
 | Спринт 1.5: Quality Gates | 21,000 | — | — |
-| **Этап 1 Total** | **117,000** | **81,800** | **+200** |
+| **Этап 1 Total** | **117,000** | **97,300** | **-19,700** |
 
 ---
 
@@ -517,9 +517,10 @@ This backlog is structured for **budget control**:
 
 ## Next Steps
 
-1. **Calibrate estimates** — run 1-2 tasks to validate token consumption rates
-2. **Approve Этап 1, Спринт 1.1** — begin execution with tracking enabled
-3. **Set up tracking tool** — configure token usage monitoring per task ID
-4. **Mandatory compliance** — all agents must follow [backlog-update-regulation.md](../../.qoder/02-sprint-management/backlog-update-regulation.md)
+1. **Complete Sprint 1.5 (Quality Gates)** — E2E testing, security proof, visual/a11y checks, release notes
+2. **Accept MVP-5 closure** — owner approval after quality gates pass
+3. **UTS activation gate** — UTS work starts only after MVP-5 closure is accepted by owner
+4. **See detailed backlogs** — `mvp5-backlog.md` for MVP-5 tasks, `uts-backlog.md` for UTS phases
+5. **Mandatory compliance** — all agents must follow [backlog-update-regulation.md](../../.qoder/02-sprint-management/backlog-update-regulation.md)
 
 **Backlog update regulation is now ENFORCED.** All agents must update this document after completing tasks, sprints, and phases per the approved regulation.
