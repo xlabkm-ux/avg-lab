@@ -584,3 +584,396 @@ body {
     gap: var(--spacing-sm);
   }
 }
+
+/* ============================================================================
+   Claim Review Panel (AVG-706)
+   ============================================================================ */
+
+.claim-review-surface {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.claim-review-surface header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.claim-review-surface header h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.claim-review-count {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  background: var(--color-bg);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+}
+
+.claim-review-empty {
+  text-align: center;
+  padding: var(--spacing-xl);
+  color: var(--color-text-muted);
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.claim-review-empty h3 {
+  margin-bottom: var(--spacing-sm);
+}
+
+.claim-review-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.claim-review-item {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  transition: all 0.2s;
+}
+
+.claim-review-item.has-risks {
+  border-left: 3px solid var(--color-risk-medium);
+}
+
+.claim-review-item.needs-repair {
+  border-left-color: var(--color-risk-high);
+  background: #fff8f0;
+}
+
+.claim-review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.claim-expand-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 0.95rem;
+  text-align: left;
+  flex: 1;
+  min-width: 0;
+}
+
+.claim-expand-btn:hover {
+  color: var(--color-primary);
+}
+
+.claim-expand-icon {
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.claim-statement {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.claim-badges {
+  display: flex;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.claim-review-details {
+  margin-top: var(--spacing-md);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.claim-review-field {
+  margin-bottom: var(--spacing-md);
+}
+
+.claim-review-field:last-child {
+  margin-bottom: 0;
+}
+
+.claim-review-field strong {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.claim-review-field p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.claim-repair {
+  background: #fff3cd;
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--color-risk-medium);
+}
+
+.claim-risk-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.claim-risk-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: 0.85rem;
+}
+
+.claim-source-list {
+  list-style: none;
+  font-size: 0.85rem;
+}
+
+.claim-source-list li {
+  padding: var(--spacing-xs) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.claim-source-list li:last-child {
+  border-bottom: none;
+}
+
+.no-risks {
+  font-size: 0.85rem;
+  color: var(--color-risk-low);
+}
+
+/* Claim status badges */
+.claim-status-badge {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.claim-status-definition {
+  background: #d4edda;
+  color: #155724;
+}
+
+.claim-status-working-distinction {
+  background: #cce5ff;
+  color: #004085;
+}
+
+.claim-status-operational-marker {
+  background: #e2e3e5;
+  color: #383d41;
+}
+
+.claim-status-indirect-sign {
+  background: #d1ecf1;
+  color: #0c5460;
+}
+
+.claim-status-hypothesis {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.claim-status-metaphor-only {
+  background: #d1ecf1;
+  color: #0c5460;
+  border: 1px dashed #0c5460;
+}
+
+.claim-status-prohibited {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.claim-status-boundary-statement {
+  background: #e2e3e5;
+  color: #383d41;
+}
+
+.language-mode-badge {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: var(--color-bg);
+  color: var(--color-text-muted);
+}
+
+/* Risk badges in claim review */
+.claim-review-item .risk-badge {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: white;
+}
+
+.claim-review-item .risk-low {
+  background: var(--color-risk-low);
+}
+
+.claim-review-item .risk-medium {
+  background: var(--color-risk-medium);
+  color: #000;
+}
+
+.claim-review-item .risk-high {
+  background: var(--color-risk-high);
+}
+
+.claim-review-item .risk-critical {
+  background: var(--color-risk-critical);
+}
+
+/* ============================================================================
+   Concept Map Panel (AVG-707)
+   ============================================================================ */
+
+.concept-map-surface {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.concept-map-surface header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.concept-map-surface header h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.concept-map-stats {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  background: var(--color-bg);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+}
+
+.concept-map-empty {
+  text-align: center;
+  padding: var(--spacing-xl);
+  color: var(--color-text-muted);
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.concept-map-empty h3 {
+  margin-bottom: var(--spacing-sm);
+}
+
+.concept-map-canvas-wrapper {
+  margin-bottom: var(--spacing-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.map-territory-boundary {
+  background: #fff3cd;
+  border-left: 4px solid var(--color-risk-medium);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+.concept-map-detail-panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+.concept-map-detail-panel h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+}
+
+.concept-map-node-detail dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.concept-map-node-detail dt {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-xs);
+}
+
+.concept-map-node-detail dd {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.node-detail-definition {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  padding: var(--spacing-sm);
+  background: var(--color-bg);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--color-primary);
+}
+
+/* React Flow overrides to match AVG design */
+.react-flow__node {
+  font-family: inherit;
+}
+
+.react-flow__edge-path {
+  stroke-width: 2;
+}
+
+.react-flow__controls {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius-sm);
+}
+
+.react-flow__controls-button {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.react-flow__controls-button:hover {
+  background: var(--color-bg);
+}
+
+.react-flow__background {
+  background: var(--color-bg);
+}

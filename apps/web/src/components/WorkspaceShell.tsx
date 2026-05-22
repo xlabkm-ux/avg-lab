@@ -1,5 +1,9 @@
 import { GroundedRetrievalFlow } from './GroundedRetrievalFlow';
+import { ClaimReviewPanel } from './ClaimReviewPanel';
+import { ConceptMapPanel } from './ConceptMapPanel';
 import type { WorkspaceSurface } from '../index';
+import type { AvgClaim } from '@avg/schemas';
+import type { GraphSnapshot } from '@avg/graph';
 
 interface WorkspaceShellProps {
   projectId: string;
@@ -7,6 +11,8 @@ interface WorkspaceShellProps {
   projectTitle: string;
   selectedSurface: WorkspaceSurface;
   onSurfaceChange: (surface: WorkspaceSurface) => void;
+  claims?: AvgClaim[];
+  mapSnapshot?: GraphSnapshot;
 }
 
 const navigationItems: { surface: WorkspaceSurface; label: string }[] = [
@@ -24,6 +30,8 @@ export function WorkspaceShell({
   projectTitle,
   selectedSurface,
   onSurfaceChange,
+  claims = [],
+  mapSnapshot,
 }: WorkspaceShellProps) {
   return (
     <main className="workspace-shell" data-project-id={projectId} data-session-id={sessionId}>
@@ -85,13 +93,22 @@ export function WorkspaceShell({
         )}
 
         {selectedSurface === 'claim-review' && (
-          <div className="surface-placeholder">
-            <h2>Claim review surface</h2>
-            <p>Inspect validation results, risk levels, and repair suggestions.</p>
-          </div>
+          <ClaimReviewPanel
+            claims={claims}
+            projectId={projectId}
+            sessionId={sessionId}
+          />
         )}
 
-        {selectedSurface === 'map' && (
+        {selectedSurface === 'map' && mapSnapshot !== undefined && (
+          <ConceptMapPanel
+            snapshot={mapSnapshot}
+            projectId={projectId}
+            sessionId={sessionId}
+          />
+        )}
+
+        {selectedSurface === 'map' && mapSnapshot === undefined && (
           <div className="surface-placeholder">
             <h2>Concept map surface</h2>
             <p>Visualize working claims as graph nodes and edges.</p>

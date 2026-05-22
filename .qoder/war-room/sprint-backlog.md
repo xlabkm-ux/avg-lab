@@ -36,19 +36,23 @@ Gate note:
 
 Goal: make the planned AVG functions usable in the browser.
 
-Status: planned.
+Status: **in progress** (AVG-706, AVG-707 completed via Sprint 1.3).
 
-| Task | Owner | Parallel | Risk | Output |
-|---|---|---:|---|---|
-| AVG-705 | Frontend/Retrieval | yes | red | grounded retrieval flow with citation panel |
-| AVG-706 | Frontend/Validation | yes | red | claim review panel with risk and repair suggestions |
-| AVG-707 | Frontend/Graph | yes | yellow | concept map surface from session material |
-| AVG-708 | Frontend/Product | yes | yellow | artifact workspace and export |
+| Task | Owner | Parallel | Risk | Output | Status |
+|---|---|---:|---|---|---|
+| AVG-705 | Frontend/Retrieval | yes | red | grounded retrieval flow with citation panel | ✅ (Sprint 1.2) |
+| AVG-706 | Frontend/Validation | yes | red | claim review panel with risk and repair suggestions | ✅ (Sprint 1.3) |
+| AVG-707 | Frontend/Graph | yes | yellow | concept map surface from session material | ✅ (Sprint 1.3) |
+| AVG-708 | Frontend/Product | yes | yellow | artifact workspace and export | pending |
 
 Exit criteria:
 
-- user can complete the full MVP-5 scenario from dialogue through artifacts;
-- grounded answers, claim review, map and exports share one project state.
+- [x] grounded retrieval flow with citation panel (AVG-705, Sprint 1.2);
+- [x] claim review panel with validation risk and repair suggestions (AVG-706, Sprint 1.3);
+- [x] concept map surface from session material (AVG-707, Sprint 1.3);
+- [ ] artifact workspace and export (AVG-708, Sprint 1.4);
+- [ ] user can complete the full MVP-5 scenario from dialogue through artifacts;
+- [ ] grounded answers, claim review, map and exports share one project state.
 
 ## Sprint 9: Product Hardening
 
