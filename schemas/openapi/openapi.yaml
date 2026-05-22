@@ -1,0 +1,210 @@
+openapi: 3.1.0
+info:
+  title: AVG API
+  version: 0.1.0
+paths:
+  /health:
+    get:
+      summary: Health check
+      responses:
+        "200":
+          description: OK
+  /projects:
+    post:
+      summary: Create project
+      responses:
+        "201":
+          description: Project created
+  /projects/{projectId}/documents:
+    post:
+      summary: Register a local project document for MVP retrieval
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RegisterDocumentRequest"
+      responses:
+        "201":
+          description: Document registered
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - document
+                properties:
+                  document:
+                    $ref: "#/components/schemas/AvgDocumentRef"
+        "400":
+          description: Invalid document registration request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+  /projects/{projectId}/retrieval/search:
+    post:
+      summary: Search registered project document snippets
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RetrievalSearchRequest"
+      responses:
+        "200":
+          description: Retrieval hits with snippet-level citation ids
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RetrievalSearchResponse"
+        "400":
+          description: Invalid retrieval search request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "404":
+          description: No registered snippets matched the query
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+  /sessions/{sessionId}/messages:
+    post:
+      summary: Send message to AVG dialogue session
+      parameters:
+        - name: sessionId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: AVG response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AvgStructuredResponse"
+components:
+  schemas:
+    AvgStructuredResponse:
+      $ref: "../json-schema/avg-response.schema.json"
+    AvgDocumentRef:
+      $ref: "../json-schema/document.schema.json"
+    ApiError:
+      type: object
+      required:
+        - code
+        - message
+        - details
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        request_id:
+          type: string
+        details:
+          type: object
+    RegisterDocumentRequest:
+      type: object
+      required:
+        - title
+        - source_kind
+        - text
+      properties:
+        title:
+          type: string
+          minLength: 1
+        source_kind:
+          type: string
+          enum:
+            - local_text
+            - local_markdown
+            - local_document
+        text:
+          type: string
+          minLength: 1
+        created_at:
+          type: string
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+      additionalProperties: false
+    RetrievalSearchRequest:
+      type: object
+      required:
+        - query
+      properties:
+        query:
+          type: string
+          minLength: 1
+        limit:
+          type: integer
+          minimum: 1
+      additionalProperties: false
+    RetrievalHit:
+      type: object
+      required:
+        - snippet_id
+        - document_id
+        - project_id
+        - score
+        - confidence
+        - citation_id
+        - matched_text
+        - source_label
+      properties:
+        snippet_id:
+          type: string
+        document_id:
+          type: string
+        project_id:
+          type: string
+        score:
+          type: number
+        confidence:
+          type: string
+          enum:
+            - low
+            - medium
+            - high
+        citation_id:
+          type: string
+        matched_text:
+          type: string
+        source_label:
+          type: string
+      additionalProperties: false
+    RetrievalSearchResponse:
+      type: object
+      required:
+        - hits
+        - retrieval_confidence
+      properties:
+        hits:
+          type: array
+          items:
+            $ref: "#/components/schemas/RetrievalHit"
+        retrieval_confidence:
+          type: string
+          enum:
+            - none
+            - low
+            - medium
+            - high
+      additionalProperties: false

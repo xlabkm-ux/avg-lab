@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://avg.local/schemas/map-node.schema.json",
+  "title": "AVG Map Node",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "label",
+    "coordinates",
+    "map_safety"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "term",
+        "claim",
+        "concept",
+        "map",
+        "risk",
+        "source_fragment",
+        "artifact",
+        "mode"
+      ]
+    },
+    "label": {
+      "type": "string"
+    },
+    "definition": {
+      "type": "string"
+    },
+    "coordinates": {
+      "type": "object",
+      "required": [
+        "access_mode",
+        "language_mode"
+      ],
+      "properties": {
+        "access_mode": {
+          "type": "string",
+          "enum": [
+            "knowable",
+            "indirectly_accessible",
+            "unknowable",
+            "mixed",
+            "unknown"
+          ]
+        },
+        "language_mode": {
+          "type": "string",
+          "enum": [
+            "direct_description",
+            "operational_description",
+            "conditional_description",
+            "metaphor",
+            "symbolic_pointer",
+            "silence_required"
+          ]
+        },
+        "claim_status": {
+          "type": "string"
+        }
+      }
+    },
+    "map_safety": {
+      "type": "object",
+      "properties": {
+        "known_risks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

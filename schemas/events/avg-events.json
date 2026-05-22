@@ -1,0 +1,24 @@
+{
+  "events": [
+    {
+      "name": "message.created",
+      "description": "User or assistant message created"
+    },
+    {
+      "name": "claim.validated",
+      "description": "A claim was classified and validated"
+    },
+    {
+      "name": "artifact.generated",
+      "description": "Artifact generated or updated"
+    },
+    {
+      "name": "map.updated",
+      "description": "Concept map changed"
+    },
+    {
+      "name": "eval.completed",
+      "description": "AI eval run completed"
+    }
+  ]
+}

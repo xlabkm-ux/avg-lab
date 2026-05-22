@@ -1,0 +1,121 @@
+        ]),
+    `  </section>`,
+    `</section>`,
+  ].join("\n");
+}
+
+// ============================================================================
+// Concept Map Visualization with React Flow (AVG-707)
+// ============================================================================
+
+export function renderConceptMapWithReactFlow(shell: ConceptMapShell): string {
+  const nodeItems = shell.snapshot.nodes.map((node) => {
+    const claimStatusLine = node.coordinates.claim_status
+      ? `        <div><dt>Claim status</dt><dd>${escapeHtml(node.coordinates.claim_status)}</dd></div>\n`
+      : "";
+
+    return [
+      `    <li data-node-id="${escapeHtml(node.id)}" data-node-type="${escapeHtml(node.type)}">`,
+      `      <strong>${escapeHtml(node.label)}</strong>`,
+      `      <p>${escapeHtml(node.definition ?? node.label)}</p>`,
+      `      <dl>`,
+      `        <div><dt>Language mode</dt><dd>${escapeHtml(node.coordinates.language_mode)}</dd></div>`,
+      claimStatusLine,
+      `        <div><dt>Access mode</dt><dd>${escapeHtml(node.coordinates.access_mode)}</dd></div>`,
+      `      </dl>`,
+      `    </li>`
+    ].join("\n");
+  });
+
+  const edgeItems = shell.snapshot.edges.map((edge) => {
+    const scopeLine = edge.scope !== undefined ? `      <p>${escapeHtml(edge.scope)}</p>\n` : "";
+
+    return [
+      `    <li data-edge-id="${escapeHtml(edge.id)}" data-edge-type="${escapeHtml(edge.type)}">`,
+      `      <strong>${escapeHtml(edge.from)} → ${escapeHtml(edge.to)}</strong>`,
+      `      <p>${escapeHtml(edge.claim_status)}</p>`,
+      scopeLine + `    </li>`
+    ].join("\n");
+  });
+
+  const reactFlowNodes = shell.snapshot.nodes.map((node, index) => {
+    const x = 100 + (index % 3) * 250;
+    const y = 100 + Math.floor(index / 3) * 150;
+    
+    return {
+      id: node.id,
+      position: { x, y },
+      data: { 
+        label: node.label,
+        type: node.type,
+        claimStatus: node.coordinates.claim_status,
+        languageMode: node.coordinates.language_mode,
+      },
+    };
+  });
+
+  const reactFlowEdges = shell.snapshot.edges.map((edge, index) => ({
+    id: edge.id,
+    source: edge.from,
+    target: edge.to,
+    label: edge.type,
+    animated: false,
+  }));
+
+  const reactFlowData = JSON.stringify({
+    nodes: reactFlowNodes,
+    edges: reactFlowEdges,
+  });
+
+  if (shell.nodeCount === 0 && shell.edgeCount === 0) {
+    return [
+      `<section data-shell="${shell.kind}" data-node-count="0" data-edge-count="0" data-react-flow-ready="true">`,
+      `  <header>`,
+      `    <p>${escapeHtml(shell.title)}</p>`,
+      `    <h1>${escapeHtml(shell.subtitle)}</h1>`,
+      `  </header>`,
+      `  <section aria-label="concept-map-empty-state">`,
+      `    <strong>${escapeHtml(shell.emptyStateTitle)}</strong>`,
+      `    <p>${escapeHtml(shell.emptyStateBody)}</p>`,
+      `  </section>`,
+      `  <aside aria-label="map-territory-boundary">`,
+      `    <p>The map is a working projection, not Reality.</p>`,
+      `  </aside>`,
+      `  <script type="application/json" data-react-flow-data="true">${reactFlowData}</script>`,
+      `</section>`
+    ].join("\n");
+  }
+
+  return [
+    `<section data-shell="${shell.kind}" data-node-count="${shell.nodeCount}" data-edge-count="${shell.edgeCount}" data-react-flow-ready="true">`,
+    `  <header>`,
+    `    <p>${escapeHtml(shell.title)}</p>`,
+    `    <h1>${escapeHtml(shell.subtitle)}</h1>`,
+    `    <p>${escapeHtml(shell.emptyStateBody)}</p>`,
+    `  </header>`,
+    `  <section aria-label="concept-map-canvas" style="height: 600px; border: 1px solid #ccc; position: relative;">`,
+    `    <div id="react-flow-container" style="width: 100%; height: 100%;" data-react-flow-initialized="true">`,
+    `      <p style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #666;">`,
+    `        React Flow visualization: ${shell.nodeCount} nodes, ${shell.edgeCount} edges`,
+    `      </p>`,
+    `    </div>`,
+    `  </section>`,
+    `  <section aria-label="concept-map-nodes">`,
+    `    <h2>Nodes (${shell.nodeCount})</h2>`,
+    `    <ul>`,
+    ...nodeItems,
+    `    </ul>`,
+    `  </section>`,
+    `  <section aria-label="concept-map-edges">`,
+    `    <h2>Edges (${shell.edgeCount})</h2>`,
+    `    <ul>`,
+    ...edgeItems,
+    `    </ul>`,
+    `  </section>`,
+    `  <aside aria-label="map-territory-boundary">`,
+    `    <p>The map is a working projection, not Reality.</p>`,
+    `  </aside>`,
+    `  <script type="application/json" data-react-flow-data="true">${reactFlowData}</script>`,
+    `</section>`
+  ].join("\n");
+}

@@ -1,0 +1,24 @@
+{
+  "terms": [
+    {
+      "id": "term_avg",
+      "label": "AVG",
+      "definition": "Adequate Vision Generator: creative dialogue system with claim validation."
+    },
+    {
+      "id": "term_map",
+      "label": "map",
+      "definition": "A structured working representation that must not be confused with Reality."
+    },
+    {
+      "id": "term_claim",
+      "label": "claim",
+      "definition": "A statement that requires status, scope, language mode and risk assessment."
+    },
+    {
+      "id": "term_metaphor",
+      "label": "metaphor",
+      "definition": "A creative language device useful for thinking but not a literal model unless separately justified."
+    }
+  ]
+}

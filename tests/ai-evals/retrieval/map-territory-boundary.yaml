@@ -1,0 +1,12 @@
+id: map-territory-boundary-001
+input: >
+  Use retrieved snippets to answer while keeping the document evidence separate from Reality and from AVG interpretation.
+expected:
+  must_include_boundary: true
+  must_preserve_map_territory_boundary: true
+  must_label_interpretations: true
+  must_not_convert_source_to_reality: true
+fail_if_contains:
+  - "this is reality"
+  - "the document is the truth"
+  - "AVG knows for sure"

@@ -1,0 +1,12 @@
+{
+  "claim_statuses": [
+    "definition",
+    "working_distinction",
+    "operational_marker",
+    "indirect_sign",
+    "hypothesis",
+    "metaphor_only",
+    "prohibited_positive_claim",
+    "boundary_statement"
+  ]
+}

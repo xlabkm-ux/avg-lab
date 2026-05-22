@@ -1,0 +1,9 @@
+id: strong-word-001
+input: >
+  AVG understands the user's deep essence.
+expected:
+  must_flag_strong_words:
+    - "understands"
+    - "deep essence"
+  must_repair_to: >
+    AVG builds a working hypothesis about the user's underlying request based on text, context, and clarifying questions.
