@@ -3,7 +3,6 @@ import { validateAvgResponse } from "@avg/schemas";
 import {
   createLocalWorkspaceState,
   renderConceptMapShell,
-  renderDialogueMessageSurface,
   renderDialogueFlowPageFromGroundedReport,
   renderDialogueMessageSurfaceFromGroundedReport,
   renderProjectSessionPage,

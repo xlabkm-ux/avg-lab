@@ -9,7 +9,6 @@ import {
   validateClaim
 } from "@avg/schemas";
 import { normalizeText, dedupe } from "@avg/utils";
-import { collectStrongWordMarkers as collectStrongWordsFromUtils } from "@avg/utils";
 
 export interface ClaimValidationReport {
   schema: ValidationResult;

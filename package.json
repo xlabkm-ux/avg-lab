@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "turbo dev",
     "build": "turbo build",
-    "lint": "turbo lint",
+    "lint": "turbo lint && eslint . --ext .ts,.tsx",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
     "typecheck": "turbo typecheck",
     "test": "turbo test",
     "test:unit": "turbo test:unit",
@@ -30,10 +31,12 @@
     "@types/node": "25.9.1",
     "ajv": "8.20.0",
     "eslint": "10.4.0",
+    "eslint-plugin-unicorn": "^64.0.0",
     "playwright": "1.60.0",
     "prettier": "3.8.3",
     "turbo": "2.9.14",
     "typescript": "6.0.3",
+    "typescript-eslint": "^8.59.4",
     "vitest": "4.1.7",
     "zod": "4.4.3"
   }

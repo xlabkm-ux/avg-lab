@@ -371,7 +371,7 @@ export function createDocumentRepository(options: DocumentRepositoryOptions = {}
         const score = scoreSnippet(queryTokens, snippet.text, query);
 
         if (score <= 0) {
-          return undefined;
+          return null;
         }
 
         return {

@@ -17,4 +17,9 @@ export default defineConfig({
     outDir: 'dist-app',
     sourcemap: true,
   },
+  test: {
+    environment: 'jsdom',
+    globals: true,
+    setupFiles: ['./tests/setup.ts'],
+  },
 });

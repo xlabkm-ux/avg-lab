@@ -30,7 +30,7 @@ export interface ClaimSafetyEvalReport {
   boundaryNotes: string[];
 }
 
-import { normalizeText, collectStrongWordMarkers } from "@avg/utils";
+import { normalizeText } from "@avg/utils";
 
 const strongWordPattern =
   /\b(always|never|guarantee(?:s|d)?|certain(?:ly)?|definite(?:ly)?|obvious(?:ly)?|every|all|everyone|everything|nothing|proves?|truth|perfect|exactly|essence|deep essence|understands?)\b/;

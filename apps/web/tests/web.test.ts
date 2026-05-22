@@ -24,7 +24,6 @@ import {
   renderConceptMapShell,
   renderDialogueMessageSurface,
   renderDialogueMessageSurfaceFromGroundedReport,
-  renderDialogueFlowPage,
   renderDialogueFlowPageFromGroundedReport,
   renderProjectSessionPage,
   renderWorkspaceShell,

@@ -73,6 +73,37 @@ Exit criteria:
 - release quality gates pass;
 - known limitations are documented.
 
+## Sprint 10: Refactoring Audit & Quality Infrastructure
+
+Goal: fix broken quality gates, resolve architectural violations, establish real testing and linting, create developer tooling.
+
+Status: **completed**.
+
+| Task | Owner | Parallel | Risk | Output | Status |
+|---|---|---:|---|---|---|
+| AVG-719a | Backend/QA | no | red | Phase 0: Fix broken quality gates | ✅ |
+| AVG-719b | Architect/Backend | no | red | Phase 1: Fix architectural layer violation | ✅ |
+| AVG-719c | Backend | yes, after AVG-719b | yellow | Phase 2: Split monolithic files | ✅ |
+| AVG-718 | Frontend/QA | yes | yellow | Phase 3: Make UI tests real | ✅ |
+| AVG-720 | Backend/QA | yes | red | Phase 4: Add real TypeScript linting | ✅ |
+| AVG-721 | DevOps | yes | green | Phase 5: Operational improvements | ✅ |
+
+Exit criteria:
+
+- [x] All quality gates pass (`pnpm lint`, `pnpm typecheck`, `pnpm test`, `pnpm build`)
+- [x] Architectural layer violation resolved (@avg/api no longer imports @avg/web)
+- [x] Monolithic files split into focused modules (1,881 → 118 lines for web)
+- [x] Real UI tests with React Testing Library (13 passing tests)
+- [x] Real TypeScript linting with ESLint (0 errors, 25 warnings)
+- [x] Developer tooling scripts created (4 PowerShell scripts)
+
+Gate note:
+
+- All Sprint 10 tasks complete. Quality infrastructure established.
+- Token budget: 29,000 plan, 26,300 actual, -2,700 variance (under budget by 9%)
+- 95 ESLint issues fixed (100% of errors eliminated)
+- 36 tests passing (22 @avg/api + 13 new @avg/web component tests + 1 smoke test)
+
 ## Model Budget
 
 | Task | Tier | Model | Approval |

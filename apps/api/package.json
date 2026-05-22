@@ -15,9 +15,9 @@
   },
   "dependencies": {
     "@avg/graph": "workspace:*",
+    "@avg/html-rendering": "workspace:*",
     "@avg/retrieval": "workspace:*",
     "@avg/schemas": "workspace:*",
-    "@avg/validation": "workspace:*",
-    "@avg/web": "workspace:*"
+    "@avg/validation": "workspace:*"
   }
 }
