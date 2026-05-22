@@ -1,6 +1,6 @@
 # Local Setup Runbook
 
-1. Install Node.js 22+.
+1. Install Node.js 26+.
 2. Install pnpm.
 3. Copy `.env.example` to `.env`.
 4. Start databases:
