@@ -140,3 +140,107 @@ If a task is blocked:
 - do not jump to a later sprint;
 - update the progress board with the blocker;
 - wait for re-planning or contract approval.
+
+## Sprint Close Rule
+
+When the project owner issues a **"close sprint"** command, the agent must perform an atomic sprint closure: commit, push, PR, merge, and clean up all intermediate branches. This is a single automated procedure — no manual steps required.
+
+### Trigger
+
+The sprint close procedure activates when the owner explicitly requests:
+
+- "close sprint"
+- "закрыть спринт"
+- any equivalent unambiguous instruction
+
+### Pre-Close Verification
+
+Before performing closure, the agent must verify:
+
+1. **Quality gates pass**: `pnpm lint`, `pnpm typecheck`, `pnpm test`, `pnpm build`
+2. **Backlog is updated**: all tasks have Actual Tokens, Variance, Status, and Notes in `project-backlog.md`
+3. **Sprint backlog is updated**: exit criteria checked, status set to `completed` in `sprint-backlog.md`
+4. **Working tree is clean**: no uncommitted changes from sprint work
+
+If any check fails, the agent reports the specific failure and **does not** proceed with closure.
+
+### Closure Procedure
+
+The agent must execute these steps in order:
+
+#### Step 1: Commit all remaining sprint work
+
+```bash
+git checkout -b agent/<role>/AVG-XXX-<sprint-slug>
+git add -A
+git commit -m "<conventional-commit-message> (AVG-XXX)"
+```
+
+If work is already committed to a task branch, skip branch creation and use the existing branch.
+
+#### Step 2: Push branch to remote
+
+```bash
+git push -u origin <branch-name>
+```
+
+#### Step 3: Create Pull Request
+
+Create a PR with:
+- title: conventional commit message
+- body: purpose, changed areas, tests run, risks, rollback plan, affected agents, migration notes
+- base: `main`
+
+```bash
+gh pr create --base main --head <branch-name> --title "..." --body "..."
+```
+
+#### Step 4: Merge PR (squash merge)
+
+```bash
+gh pr merge <pr-number> --squash --delete-branch
+```
+
+#### Step 5: Switch to main and pull merged changes
+
+```bash
+git checkout main
+git pull origin main
+```
+
+#### Step 6: Clean up all intermediate branches
+
+Delete all local and remote branches created during the sprint that follow the `agent/*` pattern:
+
+```bash
+# Delete local branches
+git branch --merged main | grep 'agent/' | xargs git branch -d
+
+# Prune stale remote tracking branches
+git remote prune origin
+
+# Delete any remaining remote branches that were merged
+git branch -r --merged origin/main | grep 'agent/' | sed 's|origin/||' | xargs -I{} git push origin --delete {}
+```
+
+#### Step 7: Verify clean state
+
+```bash
+git status
+git branch -a
+```
+
+Confirm:
+- on `main` branch
+- working tree clean
+- no `agent/*` branches remain (local or remote)
+
+### Post-Close Report
+
+After closure, the agent must output a summary:
+
+- sprint id and title
+- tasks completed (with ticket IDs)
+- token budget vs actual
+- PR numbers created and merged
+- confirmation that all intermediate branches are deleted
