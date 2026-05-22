@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-- Node.js 22+;
+- Node.js 26+;
 - pnpm;
 - Docker;
 - OpenAI API key;
