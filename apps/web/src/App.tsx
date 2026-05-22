@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import { WorkspaceShell } from './components/WorkspaceShell';
+import { LandingPage } from './components/LandingPage';
 import type { WorkspaceSurface } from './index';
 import type { AvgClaim } from '@avg/schemas';
 import type { GraphSnapshot } from '@avg/graph';
@@ -128,13 +129,7 @@ export function App() {
   }, []);
 
   if (!projectId || !sessionId) {
-    return (
-      <div className="app-empty-state">
-        <h1>Welcome to AVG Codex Lab</h1>
-        <p>Create a project to start structured thinking with grounded evidence.</p>
-        <button onClick={handleCreateProject}>Create Project</button>
-      </div>
-    );
+    return <LandingPage onCreateProject={handleCreateProject} />;
   }
 
   return (
