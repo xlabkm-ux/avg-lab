@@ -49,7 +49,7 @@ jobs:
           echo "SNAPSHOT_ID=${snapshot_id}" >> "$GITHUB_ENV"
 
       - name: Upload audit snapshot
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: ${{ env.SNAPSHOT_ID }}
           path: ${{ env.SNAPSHOT_ID }}.tar.gz
