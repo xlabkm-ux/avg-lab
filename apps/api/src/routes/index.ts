@@ -15,13 +15,14 @@ import {
   registerProjectDocument,
   searchProjectDocuments,
   createGroundedProjectRetrievalFlow,
-  composeGroundedProjectResponse
+  composeGroundedProjectResponse,
+  getProject,
+  ensureProjectExists,
+  generateProjectDialogueResponse
 } from "../core";
 import {
-  renderDialogueFlowPageFromGroundedReport,
-  renderGroundedRetrievalFlow
+  renderDialogueFlowPageFromGroundedReport
 } from "@avg/html-rendering";
-import type { AvgRetrievalHit } from "@avg/retrieval";
 
 function jsonResponse(statusCode: number, body: unknown): ApiRouteResponse {
   return {
@@ -47,7 +48,7 @@ function errorResponse(
   });
 }
 
-function htmlResponse(body: string): ApiRouteResponse {
+function _htmlResponse(body: string): ApiRouteResponse {
   return {
     statusCode: 200,
     headers: {
@@ -141,7 +142,7 @@ function isRenderGroundedProjectDialoguePageRequest(
     typeof record.query === "string" &&
     typeof record.sessionId === "string" &&
     Array.isArray(record.messages) &&
-    "response" in record &&
+    (record.response === undefined || (typeof record.response === "object" && record.response !== null)) &&
     (typeof record.limit === "number" || record.limit === undefined)
   );
 }
@@ -167,6 +168,7 @@ export function handleGroundedProjectDialoguePageRoute(
     }
 
     try {
+      ensureProjectExists(projectId);
       const documents = listProjectDocuments(projectId);
       return jsonResponse(200, documents);
     } catch (error) {
@@ -223,6 +225,7 @@ export function handleGroundedProjectDialoguePageRoute(
     }
 
     try {
+      ensureProjectExists(projectId);
       const parsedBody = JSON.parse(bodyText) as unknown;
       if (!isRegisterProjectDocumentBody(parsedBody)) {
         return errorResponse(
@@ -291,6 +294,7 @@ export function handleGroundedProjectDialoguePageRoute(
     }
 
     try {
+      ensureProjectExists(projectId);
       const parsedBody = JSON.parse(bodyText) as unknown;
       if (!isSearchProjectDocumentsRequest(parsedBody)) {
         return errorResponse(
@@ -305,12 +309,7 @@ export function handleGroundedProjectDialoguePageRoute(
       });
 
       if (result.hits.length === 0) {
-        return errorResponse(
-          404,
-          "RETRIEVAL_NO_EVIDENCE",
-          "No registered snippets matched the retrieval query.",
-          { ...result }
-        );
+        return jsonResponse(200, { ...result, retrieval_confidence: result.retrieval_confidence ?? "none" });
       }
 
       return jsonResponse(200, result);
@@ -343,6 +342,7 @@ export function handleGroundedProjectDialoguePageRoute(
     }
 
     try {
+      ensureProjectExists(projectId);
       const parsedBody = JSON.parse(bodyText) as unknown;
       if (!isRenderGroundedProjectRetrievalFlowRequest(parsedBody)) {
         return errorResponse(
@@ -366,15 +366,10 @@ export function handleGroundedProjectDialoguePageRoute(
 
       const flow = createGroundedProjectRetrievalFlow(projectId, parsedBody);
 
-      const body = renderGroundedRetrievalFlow(
-        projectId,
-        parsedBody.sessionId,
-        parsedBody.query,
-        flow.retrieval.hits as AvgRetrievalHit[],
-        flow.report
-      );
-
-      return htmlResponse(body);
+      return jsonResponse(200, {
+        retrieval: flow.retrieval,
+        report: flow.report,
+      });
     } catch (error) {
       if (error instanceof SyntaxError) {
         return errorResponse(
@@ -409,21 +404,44 @@ export function handleGroundedProjectDialoguePageRoute(
         );
       }
 
-      if (parsedBody.response.project_id !== projectId) {
-        return errorResponse(
-          400,
-          "PROJECT_ID_MISMATCH",
-          "The grounded dialogue page response must match the route project id.",
-          {
-            projectId,
-            responseProjectId: parsedBody.response.project_id
-          }
+      // Auto-register project if it doesn't exist (frontend creates projects independently)
+      if (!getProject(projectId)) {
+        ensureProjectExists(projectId);
+      }
+
+      // Determine the structured response: use provided or generate from er-map
+      let response: import("@avg/schemas").AvgStructuredResponse;
+      if (parsedBody.response) {
+        if (parsedBody.response.project_id !== projectId) {
+          return errorResponse(
+            400,
+            "PROJECT_ID_MISMATCH",
+            "The grounded dialogue page response must match the route project id.",
+            {
+              projectId,
+              responseProjectId: parsedBody.response.project_id
+            }
+          );
+        }
+        response = parsedBody.response;
+      } else {
+        // Generate response from er-map knowledge base
+        const messageId = `msg-${Date.now()}`;
+        response = generateProjectDialogueResponse(
+          projectId,
+          parsedBody.sessionId,
+          parsedBody.query,
+          messageId
         );
       }
 
       const report = composeGroundedProjectResponse(projectId, {
-        response: parsedBody.response,
+        response,
         query: parsedBody.query,
+        ...(parsedBody.limit !== undefined ? { limit: parsedBody.limit } : {})
+      });
+
+      const retrieval = searchProjectDocuments(projectId, parsedBody.query, {
         ...(parsedBody.limit !== undefined ? { limit: parsedBody.limit } : {})
       });
 
@@ -434,7 +452,13 @@ export function handleGroundedProjectDialoguePageRoute(
         report
       );
 
-      return htmlResponse(body);
+      // Return JSON with HTML, structured response, grounding, and retrieval hits
+      return jsonResponse(200, {
+        html: body,
+        structuredResponse: report.groundedResponse?.response ?? response,
+        grounding: report.groundedResponse?.grounding ?? null,
+        retrievalHits: retrieval.hits ?? []
+      });
     } catch (error) {
       if (error instanceof SyntaxError) {
         return errorResponse(

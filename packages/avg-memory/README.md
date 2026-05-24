@@ -1,33 +1,43 @@
-# @avg/memory — COMING SOON (MVP-6+)
+# @avg/memory — Repository Interfaces
 
-⚠️ **This package is planned but NOT YET IMPLEMENTED.**  
-**Do NOT import from this package.** It will be implemented in MVP-6.
+**Status:** Interfaces defined (2026-05-22), Implementation pending  
+**Version:** 0.1.0
 
----
+## Purpose
 
-## Planned Purpose
+Defines repository interfaces for AVG data persistence, abstracting over storage implementations (in-memory, PostgreSQL, Neo4j).
 
-Project/session memory, memory ranking and memory update policy.
+## Interfaces
 
-## Ownership
+| Interface | Purpose | Current Impl | Future Impl |
+|-----------|---------|-------------|-------------|
+| `ProjectRepository` | Project CRUD | In-memory (apps/api) | PostgreSQL |
+| `SessionRepository` | Session CRUD | In-memory (apps/api) | PostgreSQL |
+| `MessageRepository` | Message CRUD | In-memory (apps/api) | PostgreSQL |
+| `DocumentRepository` | Document storage + search | In-memory (apps/api) | PostgreSQL + pgvector |
+| `GraphRepository` | Node/edge operations | In-memory (apps/api) | Neo4j |
 
-See `.codex/agent-registry.md`.
+## Current State
 
-## Required Quality
+All interfaces are defined but not yet used. The current implementation in `apps/api/src/core/` uses raw `Map` objects. The next step is to refactor the API to use these interfaces.
 
-- TypeScript strict mode.
-- Unit tests for pure logic.
-- Contract tests for public schemas.
-- README updated when public behavior changes.
+## Activation Criteria
 
-## First Implementation Tasks
+1. When PostgreSQL/Neo4j persistence is required
+2. When multiple storage backends need to be swapped
+3. When data migration scripts are needed
 
-1. Create `src/index.ts`.
-2. Add package-level tests.
-3. Export typed public API only.
+## Usage (Future)
 
-## Status
+```typescript
+import { ProjectRepository, ProjectRecord } from "@avg/memory";
 
-**Planned for:** MVP-6  
-**Current state:** Empty (only .gitkeep in src/)  
-**Blocker:** MVP-5 UI completion must finish first
+// In-memory implementation (current)
+import { createInMemoryProjectRepo } from "@avg/memory/in-memory";
+
+// PostgreSQL implementation (future)
+import { createPgProjectRepo } from "@avg/memory/postgres";
+
+const repo = createInMemoryProjectRepo();
+const project = await repo.create({ id: "1", name: "My Project" });
+```

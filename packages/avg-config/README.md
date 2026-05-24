@@ -5,9 +5,21 @@
 
 ---
 
-## Planned Purpose
+## Activation Criteria
 
-Shared runtime configuration and environment parsing.
+This package should be implemented when:
+
+1. **Environment variable validation is needed in production** - Current inline validation in apps/api/src/index.ts becomes insufficient
+2. **Multiple apps need shared configuration schema** - When apps/api, apps/web, apps/worker all need consistent config
+3. **Configuration hot-reload is required** - When runtime config updates without restart become necessary
+
+## Current State
+
+Environment variables are validated inline in `apps/api/src/index.ts`. This works fine for MVP-5 and development.
+
+## Decision
+
+**Defer until Этап 2 (Technology Leadership).** This README documents activation criteria only. No implementation needed yet.
 
 ## Ownership
 

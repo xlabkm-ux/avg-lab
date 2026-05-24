@@ -26,7 +26,8 @@
     "validate:schemas": "turbo validate:schemas",
     "eval": "turbo eval",
     "format": "prettier --write .",
-    "clean": "turbo clean && rm -rf node_modules"
+    "clean": "turbo clean && rm -rf node_modules",
+    "stop": "node -e \"if(process.platform==='win32'){require('child_process').exec('scripts\\\\dev\\\\stop-all.bat')}else{require('child_process').exec('bash scripts/dev/stop-all.sh')}\""
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.2",

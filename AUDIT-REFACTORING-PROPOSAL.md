@@ -1,3 +1,12 @@
+---
+title: Аудит проекта AVG Codex Lab и предложения по рефакторингу
+status: active
+created_date: 2026-05-21
+last_updated: 2026-05-22
+author: AI Audit Assistant
+tags: [audit, refactoring, roadmap, foundation]
+---
+
 # Аудит проекта AVG Codex Lab и предложения по рефакторингу
 
 **Дата:** 21 мая 2026  

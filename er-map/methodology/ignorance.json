@@ -1,0 +1,103 @@
+{
+  "file_type": "methodology",
+  "description": "Невежество как рабство у собственных знаний: методология распознавания и преодоления",
+  "source_refs": ["vol_1_reality_chapter_5"],
+  "items": [
+    {
+      "id": "ignorance_as_slavery",
+      "type": "concept",
+      "label": {
+        "ru": "Невежество как рабство у знаний",
+        "short": "Невежество"
+      },
+      "definition": {
+        "text": "Невежество в ЭР — не отсутствие знаний, а рабство у собственных знаний: ситуация, когда накопленные знания блокируют дальнейшее познание, создавая иллюзию понимания.",
+        "definition_type": "methodological_definition",
+        "source_refs": ["vol_1_reality"]
+      },
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible",
+        "world_subdomain": null
+      },
+      "language_policy": {
+        "allowed_modes": [
+          "operational_description",
+          "conditional_description",
+          "metaphor"
+        ],
+        "forbidden_modes": [
+          "direct_object_description"
+        ],
+        "notes": "Невежество описывается через метафору рабства, подчёркивающую несвободу от собственных убеждений."
+      },
+      "claim_policy": {
+        "default_claim_status": "working_distinction",
+        "positive_claims_allowed": true,
+        "requires_scope_boundary": true,
+        "requires_access_mode": true
+      },
+      "map_safety": {
+        "known_risks": [
+          "term_reification",
+          "strong_word_substitution"
+        ],
+        "anti_substitution_rule": "Не превращать метафору рабства в буквальное описание."
+      }
+    },
+    {
+      "id": "knowledge_trap",
+      "type": "concept",
+      "label": {
+        "ru": "Ловушка знания",
+        "short": "Ловушка"
+      },
+      "definition": {
+        "text": "Ситуация, когда знание становится препятствием для дальнейшего познания. Происходит, когда карта принимается за территорию, и новые данные игнорируются ради сохранения существующей модели.",
+        "definition_type": "operational_definition",
+        "source_refs": ["vol_1_reality"]
+      },
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "subjective",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible",
+        "world_subdomain": null
+      },
+      "claim_policy": {
+        "default_claim_status": "working_distinction",
+        "positive_claims_allowed": true,
+        "requires_scope_boundary": true,
+        "requires_access_mode": true
+      }
+    },
+    {
+      "id": "ignorance_types",
+      "type": "concept",
+      "label": {
+        "ru": "Типы невежества",
+        "short": "Типы"
+      },
+      "definition": {
+        "text": "Простое невежество (незнание) vs. сложное невежество (рабство у знаний). Простое лечится обучением; сложное требует деконструкции существующих убеждений.",
+        "definition_type": "distinction_definition",
+        "source_refs": ["vol_1_reality"]
+      },
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible",
+        "world_subdomain": null
+      },
+      "claim_policy": {
+        "default_claim_status": "working_distinction",
+        "positive_claims_allowed": true,
+        "requires_scope_boundary": true,
+        "requires_access_mode": true
+      }
+    }
+  ]
+}

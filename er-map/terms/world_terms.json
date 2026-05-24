@@ -1,0 +1,159 @@
+{
+  "file_type": "term",
+  "category": "world_terms",
+  "description": "Термины категории Мир: онтологические концепты Мира как целого (твёрдое + нетвёрдое)",
+  "source_refs": ["vol_1_reality_chapter_9", "vol_1_reality_chapter_10", "vol_1_reality_chapter_11"],
+  "items": [
+    {
+      "id": "term_material_world",
+      "label": "материальный мир",
+      "aliases": ["твёрдый Мир", "ОР ∩ ТМ"],
+      "definition": "Пересечение объективной реальности и твёрдого мира. Область материальных объектов, доступная прямой верификации.",
+      "term_role": "distinction_node",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "objective", "hardness_mode": "hard", "access_mode": "knowable"},
+      "allowed_language": ["direct_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_objective_nonmaterial",
+      "label": "объективный нематериальный мир",
+      "aliases": ["ОР ∩ нетвёрдое"],
+      "definition": "Область нематериального, но объективно существующего. Доступна косвенно через операциональные описания.",
+      "term_role": "distinction_node",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "objective", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["operational_description", "conditional_description"],
+      "forbidden_language": ["direct_object_description"]
+    },
+    {
+      "id": "term_subjective_hard",
+      "label": "субъективный твёрдый мир",
+      "aliases": ["СР ∩ ТМ"],
+      "definition": "Область субъективных переживаний, связанных с телесными ощущениями. Доступна через самонаблюдение.",
+      "term_role": "distinction_node",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "subjective", "hardness_mode": "hard", "access_mode": "knowable"},
+      "allowed_language": ["direct_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_subjective_nonhard",
+      "label": "субъективный нетвёрдый мир",
+      "aliases": ["СР ∩ нетвёрдое"],
+      "definition": "Глубинные слои психики и локальные проявления бытийности. Доступны косвенно через условные описания.",
+      "term_role": "distinction_node",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "subjective", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["conditional_description", "operational_description"],
+      "forbidden_language": ["direct_object_description"]
+    },
+    {
+      "id": "term_social_reality",
+      "label": "социальная реальность",
+      "aliases": [],
+      "definition": "Реальность социальных феноменов: нормы, институты, коллективные представления. Смешанный режим объектности.",
+      "term_role": "distinction_node",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "mixed", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["operational_description", "conditional_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_global_definition_areas",
+      "label": "глобальные области определения",
+      "aliases": ["Глобальные ОО", "матрица 2x2"],
+      "definition": "Матрица пересечения осей объективное/субъективное и твёрдое/нетвёрдое. 4 ячейки с разными режимами доступа.",
+      "term_role": "methodological_tool",
+      "coordinates": {"nesting_level": "reality", "objectivity_mode": "mixed", "hardness_mode": "mixed", "access_mode": "mixed"},
+      "allowed_language": ["operational_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_accessibility_zones",
+      "label": "зоны доступности",
+      "aliases": [],
+      "definition": "Классификация областей по режиму доступа: познаваемое, косвенно доступное, непознаваемое.",
+      "term_role": "methodological_tool",
+      "coordinates": {"nesting_level": "reality", "objectivity_mode": "mixed", "hardness_mode": "mixed", "access_mode": "mixed"},
+      "allowed_language": ["operational_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_causality_layers",
+      "label": "слои причинности",
+      "aliases": [],
+      "definition": "Иерархия типов причинности: материальная → психофизиологическая → когнитивная → социальная → нетвёрдая → сущностная → бытийная.",
+      "term_role": "operational_concept",
+      "coordinates": {"nesting_level": "reality", "objectivity_mode": "mixed", "hardness_mode": "mixed", "access_mode": "mixed"},
+      "allowed_language": ["operational_description", "conditional_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_intersection",
+      "label": "пересечение",
+      "aliases": [],
+      "definition": "Операция пересечения областей определения. Пример: твёрдый Мир = ОР ∩ СР.",
+      "term_role": "operational_concept",
+      "coordinates": {"nesting_level": "reality", "objectivity_mode": "mixed", "hardness_mode": "mixed", "access_mode": "mixed"},
+      "allowed_language": ["operational_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_mode_mixing",
+      "label": "смешение режимов",
+      "aliases": [],
+      "definition": "Ошибка смешения режимов доступности или объектности при описании. Ведёт к неадекватным утверждениям.",
+      "term_role": "methodological_tool",
+      "coordinates": {"nesting_level": "reality", "objectivity_mode": "mixed", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["operational_description"],
+      "forbidden_language": [],
+      "common_substitutions": [{"error": "Считать косвенную доступность прямым знанием", "risk": "access_mode_mixing"}]
+    },
+    {
+      "id": "term_operational_description",
+      "label": "операциональное описание",
+      "aliases": [],
+      "definition": "Описание через операции, процедуры, функциональные отношения. Используется для косвенно доступных явлений.",
+      "term_role": "methodological_tool",
+      "coordinates": {"nesting_level": "reality", "objectivity_mode": "mixed", "hardness_mode": "nonhard", "access_mode": "mixed"},
+      "allowed_language": ["operational_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_conditional_description",
+      "label": "условное описание",
+      "aliases": [],
+      "definition": "Описание с явными оговорками об ограничениях, области определения и статусе утверждения.",
+      "term_role": "methodological_tool",
+      "coordinates": {"nesting_level": "reality", "objectivity_mode": "mixed", "hardness_mode": "nonhard", "access_mode": "mixed"},
+      "allowed_language": ["conditional_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_symbolic_pointer",
+      "label": "символический указатель",
+      "aliases": [],
+      "definition": "Символ или указатель, направляющий внимание к области, но не претендующий на исчерпывающее описание.",
+      "term_role": "methodological_tool",
+      "coordinates": {"nesting_level": "metareality", "objectivity_mode": "unknown", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["symbolic_pointer"],
+      "forbidden_language": ["direct_description"]
+    },
+    {
+      "id": "term_silence",
+      "label": "молчание",
+      "aliases": ["требуется молчание"],
+      "definition": "Единственный адекватный режим для областей, где язык принципиально неадекватен. Признание невозможности высказывания.",
+      "term_role": "boundary_marker",
+      "coordinates": {"nesting_level": "reality", "objectivity_mode": "not_applicable", "hardness_mode": "not_applicable", "access_mode": "unknowable"},
+      "allowed_language": ["silence_required"],
+      "forbidden_language": ["direct_description", "total_explanation"]
+    },
+    {
+      "id": "term_boundary_statement",
+      "label": "граничное утверждение",
+      "aliases": [],
+      "definition": "Утверждение, фиксирующее границу области определения или режима доступности. Не описывает объект, а обозначает предел.",
+      "term_role": "boundary_marker",
+      "coordinates": {"nesting_level": "reality", "objectivity_mode": "mixed", "hardness_mode": "nonhard", "access_mode": "mixed"},
+      "allowed_language": ["boundary_statement"],
+      "forbidden_language": []
+    }
+  ]
+}

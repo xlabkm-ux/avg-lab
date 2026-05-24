@@ -5,9 +5,21 @@
 
 ---
 
-## Planned Purpose
+## Activation Criteria
 
-Knowledge loading, vocabularies, seed maps and source references.
+This package should be implemented when:
+
+1. **External knowledge base integration is needed** - When connecting to external document stores or databases
+2. **Vector search is implemented** - When semantic search over knowledge becomes a requirement
+3. **Document embeddings are required** - When AI needs to work with vectorized document representations
+
+## Current State
+
+No external knowledge integration needed for MVP-5. All knowledge is project-local.
+
+## Decision
+
+**Defer indefinitely.** Not needed for MVP-5 or Этап 2. This README documents activation criteria only.
 
 ## Ownership
 

@@ -1,3 +1,12 @@
+---
+title: Testing Guide
+status: active
+created_date: 2026-05-22
+last_updated: 2026-05-22
+author: Project Team
+tags: [testing, qa, e2e, unit-tests, playwright, vitest]
+---
+
 # AVG Lab — Testing Guide
 
 ## Overview

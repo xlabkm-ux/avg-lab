@@ -1,0 +1,129 @@
+{
+  "file_type": "ontology",
+  "description": "Зоны доступности: классификация областей по режиму доступа и соответствующей языковой политике",
+  "source_refs": ["model_avg", "vol_1_reality_chapter_4"],
+  "items": [
+    {
+      "id": "zone_knowable",
+      "type": "concept",
+      "label": {
+        "ru": "Зона познаваемого",
+        "short": "Познаваемое"
+      },
+      "definition": {
+        "text": "Область прямого познания: объекты и явления, доступные наблюдению, измерению или научной верификации. Соответствует access_mode=knowable.",
+        "definition_type": "operational_definition",
+        "source_refs": ["vol_1_reality"]
+      },
+      "coordinates": {
+        "nesting_level": "world",
+        "objectivity_mode": "objective",
+        "hardness_mode": "hard",
+        "access_mode": "knowable",
+        "world_subdomain": "material_world"
+      },
+      "language_policy": {
+        "allowed_modes": [
+          "direct_description",
+          "operational_description"
+        ],
+        "forbidden_modes": [
+          "metaphor",
+          "symbolic_pointer"
+        ],
+        "notes": "Прямое описание адекватно для познаваемых объектов."
+      },
+      "claim_policy": {
+        "default_claim_status": "definition",
+        "positive_claims_allowed": true,
+        "requires_scope_boundary": false,
+        "requires_access_mode": true
+      }
+    },
+    {
+      "id": "zone_indirectly_accessible",
+      "type": "concept",
+      "label": {
+        "ru": "Зона косвенно доступного",
+        "short": "Косвенно доступное"
+      },
+      "definition": {
+        "text": "Область косвенной доступности: явления, недоступные прямому наблюдению, но проявляющиеся через косвенные признаки. Соответствует access_mode=indirectly_accessible.",
+        "definition_type": "operational_definition",
+        "source_refs": ["vol_1_reality"]
+      },
+      "coordinates": {
+        "nesting_level": "world",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible",
+        "world_subdomain": null
+      },
+      "language_policy": {
+        "allowed_modes": [
+          "operational_description",
+          "conditional_description",
+          "indirect_signs"
+        ],
+        "forbidden_modes": [
+          "direct_description",
+          "final_explanation"
+        ],
+        "notes": "Требуется операциональное или условное описание; прямое описание неадекватно."
+      },
+      "claim_policy": {
+        "default_claim_status": "operational_marker",
+        "positive_claims_allowed": false,
+        "requires_scope_boundary": true,
+        "requires_access_mode": true
+      }
+    },
+    {
+      "id": "zone_unknowable",
+      "type": "concept",
+      "label": {
+        "ru": "Зона непознаваемого",
+        "short": "Непознаваемое"
+      },
+      "definition": {
+        "text": "Область принципиальной непознаваемости: где язык и познание достигают своих границ. Соответствует access_mode=unknowable.",
+        "definition_type": "boundary_statement",
+        "source_refs": ["vol_1_reality"]
+      },
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "not_applicable",
+        "hardness_mode": "not_applicable",
+        "access_mode": "unknowable",
+        "world_subdomain": null
+      },
+      "language_policy": {
+        "allowed_modes": [
+          "silence_required",
+          "symbolic_pointer",
+          "boundary_statement"
+        ],
+        "forbidden_modes": [
+          "direct_description",
+          "total_explanation",
+          "objectifying_description"
+        ],
+        "notes": "Единственный адекватный режим — признание невозможности высказывания или символический указатель."
+      },
+      "claim_policy": {
+        "default_claim_status": "prohibited_positive_claim",
+        "positive_claims_allowed": false,
+        "requires_scope_boundary": true,
+        "requires_access_mode": true
+      },
+      "map_safety": {
+        "known_risks": [
+          "fairy_tale",
+          "dogma",
+          "strong_word_substitution"
+        ],
+        "anti_substitution_rule": "Не претендовать на знание непознаваемого."
+      }
+    }
+  ]
+}

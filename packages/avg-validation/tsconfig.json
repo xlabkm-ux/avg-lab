@@ -2,6 +2,7 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "declaration": true,
+    "composite": true,
     "outDir": "dist",
     "rootDir": "src",
     "types": ["node"]

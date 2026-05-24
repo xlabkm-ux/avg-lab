@@ -1,0 +1,13 @@
+id: user-input-interpretation-001
+input: >
+  What is the nature of consciousness?
+expected:
+  must_classify_as_philosophical: true
+  must_not_claim_definitive_answer: true
+  must_offer_multiple_perspectives: true
+  must_include_epistemic_boundary: true
+fail_if_contains:
+  - "consciousness is definitely"
+  - "we know that consciousness"
+  - "the answer is clear"
+  - "this proves"

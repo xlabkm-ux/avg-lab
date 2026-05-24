@@ -1,4 +1,5 @@
-import type { AvgRetrievalHit, AvgGroundedResponse } from '@avg/validation';
+import type { AvgRetrievalHit } from '@avg/retrieval';
+import type { AvgGroundedResponse } from '@avg/validation';
 import type { SearchRequest, SearchResponse, GroundedFlowRequest } from '../types/retrieval';
 
 const API_BASE = import.meta.env.VITE_API_BASE || '/api';

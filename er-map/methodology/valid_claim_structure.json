@@ -1,0 +1,101 @@
+{
+  "file_type": "methodology",
+  "description": "Структура допустимого утверждения: необходимые компоненты корректного высказывания в ЭР",
+  "source_refs": ["model_avg_lines_221-248", "vol_1_reality_chapter_2"],
+  "items": [
+    {
+      "id": "valid_claim_components",
+      "type": "concept",
+      "label": {
+        "ru": "Структура допустимого утверждения",
+        "short": "Допустимое утверждение"
+      },
+      "definition": {
+        "text": "Каждое утверждение в модели ЭР должно содержать явные компоненты: область определения, статус утверждения, режим доступности, координаты (уровень вложенности, объектность, твёрдость). Без этих компонентов утверждение считается некорректным.",
+        "definition_type": "methodological_definition",
+        "source_refs": ["vol_1_reality"]
+      },
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "mixed",
+        "access_mode": "mixed",
+        "world_subdomain": null
+      },
+      "language_policy": {
+        "allowed_modes": [
+          "methodological_statement",
+          "operational_description"
+        ],
+        "forbidden_modes": [],
+        "notes": "Требование явных компонентов — методологическая дисциплина ЭР."
+      },
+      "claim_policy": {
+        "default_claim_status": "definition",
+        "positive_claims_allowed": true,
+        "requires_scope_boundary": true,
+        "requires_access_mode": false
+      },
+      "required_components": [
+        "definition_area",
+        "claim_status",
+        "access_mode",
+        "nesting_level",
+        "objectivity_mode",
+        "hardness_mode"
+      ]
+    },
+    {
+      "id": "claim_status_hierarchy",
+      "type": "concept",
+      "label": {
+        "ru": "Иерархия статусов утверждений",
+        "short": "Статусы"
+      },
+      "definition": {
+        "text": "Статусы утверждений образуют иерархию эпистемической силы: definition > working_distinction > operational_marker > indirect_sign > hypothesis > metaphor_only. Запрещённые положительные утверждения (prohibited_positive_claim) не допускаются.",
+        "definition_type": "methodological_definition",
+        "source_refs": ["vol_1_reality"]
+      },
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible",
+        "world_subdomain": null
+      },
+      "claim_policy": {
+        "default_claim_status": "working_distinction",
+        "positive_claims_allowed": true,
+        "requires_scope_boundary": true,
+        "requires_access_mode": true
+      }
+    },
+    {
+      "id": "scope_boundary_requirement",
+      "type": "concept",
+      "label": {
+        "ru": "Требование границы области",
+        "short": "Граница ОО"
+      },
+      "definition": {
+        "text": "Каждое утверждение должно явно указывать свою область определения. Утверждения без указанной границы ОО считаются некорректными и потенциально опасными (риск level_mixing).",
+        "definition_type": "methodological_definition",
+        "source_refs": ["vol_1_reality"]
+      },
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible",
+        "world_subdomain": null
+      },
+      "claim_policy": {
+        "default_claim_status": "definition",
+        "positive_claims_allowed": true,
+        "requires_scope_boundary": true,
+        "requires_access_mode": true
+      }
+    }
+  ]
+}

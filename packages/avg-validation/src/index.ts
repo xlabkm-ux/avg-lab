@@ -9,6 +9,7 @@ import {
   validateClaim
 } from "@avg/schemas";
 import { normalizeText, dedupe } from "@avg/utils";
+import { type AvgRetrievalHit } from "@avg/retrieval";
 
 export interface ClaimValidationReport {
   schema: ValidationResult;
@@ -51,17 +52,6 @@ export interface ClaimRiskAssessmentReport {
   validation: ClaimValidationReport;
   classification: ClaimClassificationReport;
   shouldRepair: boolean;
-}
-
-export interface AvgRetrievalHit {
-  snippet_id: string;
-  document_id: string;
-  project_id: string;
-  score: number;
-  confidence: "low" | "medium" | "high";
-  citation_id: string;
-  matched_text: string;
-  source_label: string;
 }
 
 export interface AvgCitation {

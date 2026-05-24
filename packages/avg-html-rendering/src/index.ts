@@ -10,9 +10,9 @@ import type { AvgStructuredResponse } from "@avg/schemas";
 import type {
   AvgGroundedResponse,
   AvgGroundedResponseBoundary,
-  AvgRetrievalHit,
   GroundedResponseCompositionReport,
 } from "@avg/validation";
+import type { AvgRetrievalHit } from "@avg/retrieval";
 import { escapeHtml } from "@avg/utils";
 
 // ============================================================================

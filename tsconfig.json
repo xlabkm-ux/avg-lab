@@ -6,6 +6,8 @@
     { "path": "./apps/realtime-gateway" },
     { "path": "./apps/web" },
     { "path": "./apps/worker" },
+    { "path": "./packages/avg-core" },
+    { "path": "./packages/avg-memory" },
     { "path": "./packages/avg-html-rendering" },
     { "path": "./packages/avg-utils" },
     { "path": "./packages/avg-evals" },

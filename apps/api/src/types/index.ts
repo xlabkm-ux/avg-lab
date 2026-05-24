@@ -71,8 +71,11 @@ export interface RenderGroundedProjectRetrievalFlowRequest extends ComposeGround
   sessionId: string;
 }
 
-export interface RenderGroundedProjectDialoguePageRequest extends RenderGroundedProjectDialoguePageInput {
+export interface RenderGroundedProjectDialoguePageRequest {
   query: string;
+  sessionId: string;
+  messages: DialogueMessage[];
+  response?: AvgStructuredResponse;
   limit?: number;
 }
 

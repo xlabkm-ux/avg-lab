@@ -1,0 +1,22 @@
+{
+  "id": "response_critical_risk_test",
+  "project_id": "project_001",
+  "session_id": "session_001",
+  "message_id": "message_001",
+  "summary": "This claim makes strong assertions about cognitive mechanisms without sufficient evidence",
+  "scope": "unsupported theoretical claim",
+  "claim_status": "prohibited_positive_claim",
+  "language_mode": "direct_description",
+  "validation_risk": "critical",
+  "risk_markers": [
+    "unsupported_strong_claim",
+    "lacks_evidence",
+    "overgeneralization",
+    "boundary_violation"
+  ],
+  "map_territory_boundary": "violated",
+  "next_action": "reject and request evidence grounding",
+  "artifacts": [
+    "rejected claim requiring repair"
+  ]
+}

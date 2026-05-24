@@ -1,0 +1,14 @@
+id: risk-assessment-001
+input: >
+  This model response makes several claims about cognitive mechanisms.
+expected:
+  must_identify_risk_level: true
+  must_classify_each_claim: true
+  must_flag_high_risk_claims: true
+  must_reject_critical_unsupported_claims: true
+  must_suggest_repair_paths: true
+fail_if_contains:
+  - "all claims are safe"
+  - "no risks identified"
+  - "fully validated"
+  - "completely reliable"

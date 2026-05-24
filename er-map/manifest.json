@@ -1,0 +1,126 @@
+{
+  "schema": {
+    "name": "ER_Map_Storage",
+    "version": "1.0.0",
+    "purpose": "Хранение модели ЭР как дисциплинированной карты различений, а не как замены Реальности",
+    "core_rule": "Любой элемент карты обязан иметь область определения, режим доступности, границы языка и статус утверждения"
+  },
+  "meta": {
+    "project": "Эзоагностика Реальности",
+    "description": "JSON-модель для хранения онтологии, методологии, терминологии и карт Эзоагностики Реальности",
+    "corpus": [
+      {
+        "id": "vol_1_reality",
+        "title": "Том 1: Реальность",
+        "scope": "Онтология Реальности, методология ЭР, карта уровней, режимы доступности, причинность"
+      },
+      {
+        "id": "vol_2_human",
+        "title": "Том 2: Человек",
+        "scope": "Модель человека: тело, психика, субъективная реальность, МОМ, субмодель, сущностное пространство"
+      }
+    ],
+    "map_status": "working_map",
+    "not_reality_warning": true,
+    "created": "2026-05-20",
+    "total_files_expected": 107
+  },
+  "structure": {
+    "root_files": [
+      "manifest.json",
+      "schema.json",
+      "README.md"
+    ],
+    "directories": {
+      "vocabularies": {
+        "purpose": "Контролируемые словари (справочники)",
+        "files": [
+          "nesting_levels.json",
+          "access_modes.json",
+          "objectivity_modes.json",
+          "hardness_modes.json",
+          "language_modes.json",
+          "claim_statuses.json",
+          "causality_types.json",
+          "adequacy_risks.json",
+          "node_types.json",
+          "relation_types.json"
+        ]
+      },
+      "sources": {
+        "purpose": "Источники и ссылки на тексты",
+        "files": [
+          "sources.json",
+          "vol_1_reality.json",
+          "vol_2_human.json",
+          "source_fragments.json"
+        ]
+      },
+      "ontology": {
+        "purpose": "Онтологические фреймы и структуры",
+        "files": [
+          "reality.json",
+          "universe.json",
+          "world.json",
+          "metareality.json",
+          "global_definition_areas.json",
+          "accessibility_zones.json",
+          "hard_nonhard_map.json",
+          "objective_subjective_map.json",
+          "causality_layers.json"
+        ]
+      },
+      "methodology": {
+        "purpose": "Методологические концепции ЭР",
+        "files": [
+          "adequacy.json",
+          "definition_area.json",
+          "ignorance.json",
+          "map_and_territory.json",
+          "language_limit.json",
+          "valid_claim_structure.json",
+          "substitution_errors.json"
+        ]
+      },
+      "terms": {
+        "purpose": "Терминология по категориям",
+        "files": [
+          "terms_index.json",
+          "reality_terms.json",
+          "methodology_terms.json",
+          "world_terms.json",
+          "being_terms.json",
+          "human_terms.json",
+          "psychology_terms.json",
+          "social_terms.json",
+          "prohibited_or_risky_terms.json"
+        ]
+      },
+      "nodes": {
+        "purpose": "Узлы карты (термины, феномены, процессы)"
+      },
+      "edges": {
+        "purpose": "Связи между узлами"
+      },
+      "maps": {
+        "purpose": "Схемы, матрицы, лестницы"
+      },
+      "validation": {
+        "purpose": "Отчёты валидации и проверки"
+      },
+      "scripts": {
+        "purpose": "Вспомогательные скрипты"
+      }
+    }
+  },
+  "controlled_vocabularies_summary": {
+    "nesting_levels": ["universe", "world", "metareality", "reality"],
+    "access_modes": ["knowable", "indirectly_accessible", "unknowable"],
+    "objectivity_modes": ["objective", "subjective", "mixed", "not_applicable", "unknown"],
+    "hardness_modes": ["hard", "nonhard", "mixed", "not_applicable", "unknown"],
+    "language_modes": ["direct_description", "operational_description", "conditional_description", "metaphor", "symbolic_pointer", "silence_required"],
+    "claim_statuses": ["definition", "working_distinction", "operational_marker", "indirect_sign", "hypothesis", "metaphor_only", "prohibited_positive_claim"],
+    "adequacy_risks": ["term_reification", "scheme_absolutization", "map_territory_substitution", "sign_to_entity_substitution", "level_mixing", "access_mode_mixing", "strong_word_substitution", "reductionism", "fairy_tale", "dogma", "social_confirmation_as_proof"],
+    "causality_types": ["material", "psychophysiological", "cognitive_modeling", "social", "nonhard_world", "essential", "being"]
+  }
+}

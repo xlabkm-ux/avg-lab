@@ -1,0 +1,19 @@
+{
+  "id": "response_definition_test",
+  "project_id": "project_001",
+  "session_id": "session_001",
+  "message_id": "message_001",
+  "summary": "A claim is a statement that asserts something as true within a specified scope",
+  "scope": "terminology definition",
+  "claim_status": "definition",
+  "language_mode": "direct_description",
+  "validation_risk": "low",
+  "risk_markers": [
+    "terminological_agreement"
+  ],
+  "map_territory_boundary": "preserved",
+  "next_action": "use in downstream claims and responses",
+  "artifacts": [
+    "terminological definition"
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "file_type": "methodology",
+  "description": "Ошибки подстановки: типичные способы замены карты территорией и методы их предотвращения",
+  "source_refs": ["model_avg_lines_78-90", "vol_1_reality_chapter_6", "vol_1_reality_chapter_38"],
+  "items": [
+    {
+      "id": "substitution_error_overview",
+      "type": "concept",
+      "label": {
+        "ru": "Ошибки подстановки",
+        "short": "Подстановки"
+      },
+      "definition": {
+        "text": "Ошибки подстановки — типичные способы замены карты (модели, схемы, терминов) самой Реальностью. Ведут к догматизации, реификации и производству невежества вместо адекватности.",
+        "definition_type": "methodological_definition",
+        "source_refs": ["vol_1_reality"]
+      },
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible",
+        "world_subdomain": null
+      },
+      "language_policy": {
+        "allowed_modes": [
+          "operational_description",
+          "conditional_description"
+        ],
+        "forbidden_modes": [],
+        "notes": "Описание ошибок подстановки — методологический инструмент распознавания."
+      },
+      "claim_policy": {
+        "default_claim_status": "definition",
+        "positive_claims_allowed": true,
+        "requires_scope_boundary": true,
+        "requires_access_mode": true
+      },
+      "map_safety": {
+        "known_risks": [
+          "map_territory_substitution",
+          "term_reification",
+          "scheme_absolutization",
+          "sign_to_entity_substitution",
+          "level_mixing",
+          "access_mode_mixing",
+          "strong_word_substitution",
+          "reductionism",
+          "fairy_tale",
+          "dogma",
+          "social_confirmation_as_proof"
+        ],
+        "anti_substitution_rule": "Распознавание ошибок подстановки — ключевая дисциплина ЭР."
+      }
+    },
+    {
+      "id": "term_reification_error",
+      "type": "concept",
+      "label": {
+        "ru": "Реификация термина",
+        "short": "Реификация"
+      },
+      "definition": {
+        "text": "Ошибка превращения термина (узла различения) в самостоятельный объект. Термин — инструмент проведения различий, не вещь. Пример реификации: восприятие 'нетвёрдого' как невидимой субстанции.",
+        "definition_type": "operational_definition",
+        "source_refs": ["vol_1_reality"]
+      },
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible",
+        "world_subdomain": null
+      },
+      "claim_policy": {
+        "default_claim_status": "working_distinction",
+        "positive_claims_allowed": true,
+        "requires_scope_boundary": true,
+        "requires_access_mode": true
+      },
+      "risk_type": "term_reification"
+    },
+    {
+      "id": "scheme_absolutization_error",
+      "type": "concept",
+      "label": {
+        "ru": "Абсолютизация схемы",
+        "short": "Абсолютизация"
+      },
+      "definition": {
+        "text": "Ошибка восприятия рабочей схемы как абсолютной истины. Все схемы в ЭР — рабочие инструменты навигации, подлежащие пересмотру при получении новых данных.",
+        "definition_type": "operational_definition",
+        "source_refs": ["vol_1_reality"]
+      },
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible",
+        "world_subdomain": null
+      },
+      "claim_policy": {
+        "default_claim_status": "working_distinction",
+        "positive_claims_allowed": true,
+        "requires_scope_boundary": true,
+        "requires_access_mode": true
+      },
+      "risk_type": "scheme_absolutization"
+    },
+    {
+      "id": "level_mixing_error",
+      "type": "concept",
+      "label": {
+        "ru": "Смешение уровней",
+        "short": "Смешение уровней"
+      },
+      "definition": {
+        "text": "Ошибка смешения утверждений разных уровней вложенности (universe/world/metareality/reality). Каждый уровень имеет свои правила доступа, языка и статусов утверждений.",
+        "definition_type": "operational_definition",
+        "source_refs": ["vol_1_reality"]
+      },
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible",
+        "world_subdomain": null
+      },
+      "claim_policy": {
+        "default_claim_status": "working_distinction",
+        "positive_claims_allowed": true,
+        "requires_scope_boundary": true,
+        "requires_access_mode": true
+      },
+      "risk_type": "level_mixing"
+    },
+    {
+      "id": "strong_word_error",
+      "type": "concept",
+      "label": {
+        "ru": "Подстановка сильным словом",
+        "short": "Сильное слово"
+      },
+      "definition": {
+        "text": "Ошибка усиления статуса утверждения beyond его действительных оснований. Пример: выдача гипотезы за доказанный факт, метафоры за буквальное описание.",
+        "definition_type": "operational_definition",
+        "source_refs": ["vol_1_reality"]
+      },
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible",
+        "world_subdomain": null
+      },
+      "claim_policy": {
+        "default_claim_status": "working_distinction",
+        "positive_claims_allowed": true,
+        "requires_scope_boundary": true,
+        "requires_access_mode": true
+      },
+      "risk_type": "strong_word_substitution"
+    }
+  ]
+}

@@ -1,0 +1,239 @@
+{
+  "file_type": "term",
+  "category": "methodology_terms",
+  "description": "Термины методологии ЭР: концепты дисциплины познания Реальности",
+  "source_refs": ["vol_1_reality_chapter_1", "vol_1_reality_chapter_2", "vol_1_reality_chapter_5", "vol_1_reality_chapter_6"],
+  "items": [
+    {
+      "id": "term_adequacy",
+      "label": "адекватность",
+      "aliases": [],
+      "definition": "Минимизация искажений мышления и поведения относительно реальной конфигурации. Локальная задача.",
+      "term_role": "methodological_tool",
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "mixed",
+        "access_mode": "mixed"
+      },
+      "allowed_language": ["operational_description", "conditional_description"],
+      "forbidden_language": ["total_explanation"]
+    },
+    {
+      "id": "term_definition_area",
+      "label": "область определения",
+      "aliases": ["ОО", "границы корректности"],
+      "definition": "Границы, в которых утверждение, термин или схема сохраняют свою корректность и адекватность.",
+      "term_role": "methodological_tool",
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "mixed",
+        "access_mode": "mixed"
+      },
+      "allowed_language": ["operational_description", "boundary_statement"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_ignorance",
+      "label": "невежество",
+      "aliases": ["рабство у знаний"],
+      "definition": "Не отсутствие знаний, а рабство у собственных знаний: когда накопленные знания блокируют дальнейшее познание.",
+      "term_role": "distinction_node",
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible"
+      },
+      "allowed_language": ["operational_description", "metaphor"],
+      "forbidden_language": ["direct_object_description"]
+    },
+    {
+      "id": "term_map",
+      "label": "карта",
+      "aliases": ["модель", "схема"],
+      "definition": "Инструмент навигации по Реальности. Карта нужна, но обязана помнить, что она карта.",
+      "term_role": "methodological_tool",
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "nonhard",
+        "access_mode": "mixed"
+      },
+      "allowed_language": ["metaphor", "operational_description"],
+      "forbidden_language": ["objectifying_description"],
+      "common_substitutions": [
+        {"error": "Принять карту за саму Реальность", "risk": "map_territory_substitution"}
+      ]
+    },
+    {
+      "id": "term_territory",
+      "label": "территория",
+      "aliases": ["Реальность", "сама вещь"],
+      "definition": "Сама Реальность, в отличие от карты (модели). Территория никогда не может быть полностью захвачена картой.",
+      "term_role": "boundary_marker",
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "not_applicable",
+        "hardness_mode": "not_applicable",
+        "access_mode": "mixed"
+      },
+      "allowed_language": ["metaphor", "boundary_statement"],
+      "forbidden_language": ["direct_description"]
+    },
+    {
+      "id": "term_language_limit",
+      "label": "границы языка",
+      "aliases": [],
+      "definition": "Принципиальные границы применимости языка. Где язык адекватен, где требует ограничений, где необходимо молчание.",
+      "term_role": "boundary_marker",
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "mixed",
+        "access_mode": "mixed"
+      },
+      "allowed_language": ["boundary_statement", "silence_required"],
+      "forbidden_language": ["total_explanation"]
+    },
+    {
+      "id": "term_claim_status",
+      "label": "статус утверждения",
+      "aliases": [],
+      "definition": "Эпистемический статус утверждения: definition, working_distinction, operational_marker, indirect_sign, hypothesis, metaphor_only, prohibited_positive_claim.",
+      "term_role": "methodological_tool",
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "nonhard",
+        "access_mode": "mixed"
+      },
+      "allowed_language": ["operational_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_access_mode",
+      "label": "режим доступности",
+      "aliases": [],
+      "definition": "Классификация способов доступа: knowable (познаваемое), indirectly_accessible (косвенно доступное), unknowable (непознаваемое).",
+      "term_role": "methodological_tool",
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "mixed",
+        "access_mode": "mixed"
+      },
+      "allowed_language": ["operational_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_substitution_error",
+      "label": "ошибка подстановки",
+      "aliases": [],
+      "definition": "Типичные способы замены карты территорией: реификация термина, абсолютизация схемы, смешение уровней, и др.",
+      "term_role": "methodological_tool",
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible"
+      },
+      "allowed_language": ["operational_description", "conditional_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_term_reification",
+      "label": "реификация термина",
+      "aliases": [],
+      "definition": "Ошибка превращения термина (узла различения) в самостоятельный объект. Термин — не вещь, а инструмент.",
+      "term_role": "methodological_tool",
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible"
+      },
+      "allowed_language": ["operational_description"],
+      "forbidden_language": [],
+      "common_substitutions": [
+        {"error": "Воспринимать термин как объект", "risk": "term_reification"}
+      ]
+    },
+    {
+      "id": "term_scheme_absolutization",
+      "label": "абсолютизация схемы",
+      "aliases": [],
+      "definition": "Ошибка восприятия рабочей схемы как абсолютной истины. Все схемы — рабочие инструменты.",
+      "term_role": "methodological_tool",
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible"
+      },
+      "allowed_language": ["operational_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_level_mixing",
+      "label": "смешение уровней",
+      "aliases": [],
+      "definition": "Ошибка смешения утверждений разных уровней вложенности (universe/world/metareality/reality).",
+      "term_role": "methodological_tool",
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible"
+      },
+      "allowed_language": ["operational_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_strong_word",
+      "label": "сильное слово",
+      "aliases": ["подстановка сильным словом"],
+      "definition": "Ошибка усиления статуса утверждения beyond его действительных оснований. Пример: гипотеза как факт.",
+      "term_role": "methodological_tool",
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible"
+      },
+      "allowed_language": ["operational_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_reductionism",
+      "label": "редукционизм",
+      "aliases": [],
+      "definition": "Ошибка сведения сложных явлений к более простым уровням. Пример: сведение психики к нейрофизиологии.",
+      "term_role": "methodological_tool",
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible"
+      },
+      "allowed_language": ["operational_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_dogma",
+      "label": "догма",
+      "aliases": ["догматизация"],
+      "definition": "Превращение рабочего утверждения в непререкаемую истину. Заблокированная от пересмотра позиция.",
+      "term_role": "methodological_tool",
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible"
+      },
+      "allowed_language": ["operational_description"],
+      "forbidden_language": []
+    }
+  ]
+}

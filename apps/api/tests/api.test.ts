@@ -343,10 +343,13 @@ describe("api app smoke surface", () => {
     );
 
     expect(routeResponse.statusCode).toBe(200);
-    expect(routeResponse.headers["content-type"]).toContain("text/html");
-    expect(routeResponse.body).toContain('data-page="dialogue-flow-page"');
-    expect(routeResponse.body).toContain("Route-rendered grounded response");
-    expect(routeResponse.body).toContain("The HTTP route should render the grounded page.");
+    expect(routeResponse.headers["content-type"]).toContain("application/json");
+    const parsed = JSON.parse(routeResponse.body);
+    expect(parsed).toHaveProperty("html");
+    expect(parsed).toHaveProperty("structuredResponse");
+    expect(parsed.html).toContain('data-page="dialogue-flow-page"');
+    expect(parsed.html).toContain("Route-rendered grounded response");
+    expect(parsed.html).toContain("The HTTP route should render the grounded page.");
   });
 
   it("serves the grounded retrieval flow route and keeps missing evidence visible", () => {
@@ -377,12 +380,15 @@ describe("api app smoke surface", () => {
     );
 
     expect(routeResponse.statusCode).toBe(200);
-    expect(routeResponse.headers["content-type"]).toContain("text/html");
-    expect(routeResponse.body).toContain('data-surface="grounded-retrieval-flow"');
-    expect(routeResponse.body).toContain('data-retrieval-status="missing_evidence"');
-    expect(routeResponse.body).toContain('data-retrieval-confidence="none"');
-    expect(routeResponse.body).toContain("No registered snippets matched this question.");
-    expect(routeResponse.body).toContain("unsupported working map");
+    expect(routeResponse.headers["content-type"]).toContain("application/json");
+    const parsed = JSON.parse(routeResponse.body);
+    expect(parsed).toHaveProperty("retrieval");
+    expect(parsed).toHaveProperty("report");
+    expect(parsed.retrieval.hits).toEqual([]);
+    expect(parsed.retrieval.retrieval_confidence).toBe("none");
+    expect(parsed.report.boundaryNotes).toContainEqual(
+      expect.stringContaining("retrieval evidence")
+    );
   });
 
   it("serves document registration and retrieval search routes over the API boundary", () => {
@@ -467,14 +473,10 @@ describe("api app smoke surface", () => {
       })
     );
 
-    expect(emptySearch.statusCode).toBe(404);
+    expect(emptySearch.statusCode).toBe(200);
     expect(JSON.parse(emptySearch.body)).toMatchObject({
-      status: "error",
-      code: "RETRIEVAL_NO_EVIDENCE",
-      details: {
-        hits: [],
-        retrieval_confidence: "none"
-      }
+      hits: [],
+      retrieval_confidence: "none"
     });
   });
 

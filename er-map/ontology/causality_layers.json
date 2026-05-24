@@ -1,0 +1,211 @@
+{
+  "file_type": "ontology",
+  "description": "Слои причинности в модели ЭР: от материальной до бытийной причинности",
+  "source_refs": ["model_avg_lines_91-99", "vol_1_reality_chapter_13"],
+  "items": [
+    {
+      "id": "causality_material",
+      "type": "concept",
+      "label": {
+        "ru": "Материальная причинность",
+        "short": "Материальная"
+      },
+      "definition": {
+        "text": "Классическая физическая причинность: причины и следствия в материальной Вселенной. Поддаётся научному исследованию и верификации.",
+        "definition_type": "operational_definition",
+        "source_refs": ["vol_1_reality"]
+      },
+      "coordinates": {
+        "nesting_level": "universe",
+        "objectivity_mode": "objective",
+        "hardness_mode": "hard",
+        "access_mode": "knowable",
+        "world_subdomain": "material_world"
+      },
+      "causality_type": "material",
+      "claim_policy": {
+        "default_claim_status": "definition",
+        "positive_claims_allowed": true,
+        "requires_scope_boundary": false,
+        "requires_access_mode": true
+      }
+    },
+    {
+      "id": "causality_psychophysiological",
+      "type": "concept",
+      "label": {
+        "ru": "Психофизиологическая причинность",
+        "short": "Психофизиологическая"
+      },
+      "definition": {
+        "text": "Связи между психическими и физиологическими процессами. Пример: влияние мыслей на телесные состояния, психосоматика.",
+        "definition_type": "operational_definition",
+        "source_refs": ["vol_1_reality"]
+      },
+      "coordinates": {
+        "nesting_level": "world",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "mixed",
+        "access_mode": "mixed",
+        "world_subdomain": null
+      },
+      "causality_type": "psychophysiological",
+      "claim_policy": {
+        "default_claim_status": "working_distinction",
+        "positive_claims_allowed": true,
+        "requires_scope_boundary": true,
+        "requires_access_mode": true
+      }
+    },
+    {
+      "id": "causality_cognitive_modeling",
+      "type": "concept",
+      "label": {
+        "ru": "Причинность через когнитивное моделирование",
+        "short": "Когнитивная"
+      },
+      "definition": {
+        "text": "Причинность через когнитивные модели: карта влияет на восприятие территории. Убеждения формируют поведение и интерпретацию событий.",
+        "definition_type": "operational_definition",
+        "source_refs": ["vol_1_reality"]
+      },
+      "coordinates": {
+        "nesting_level": "world",
+        "objectivity_mode": "subjective",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible",
+        "world_subdomain": null
+      },
+      "causality_type": "cognitive_modeling",
+      "claim_policy": {
+        "default_claim_status": "working_distinction",
+        "positive_claims_allowed": true,
+        "requires_scope_boundary": true,
+        "requires_access_mode": true
+      }
+    },
+    {
+      "id": "causality_social",
+      "type": "concept",
+      "label": {
+        "ru": "Социальная причинность",
+        "short": "Социальная"
+      },
+      "definition": {
+        "text": "Причинность в социальной реальности: нормы, институты, коллективные представления влияют на индивидуальное поведение.",
+        "definition_type": "operational_definition",
+        "source_refs": ["vol_1_reality"]
+      },
+      "coordinates": {
+        "nesting_level": "world",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible",
+        "world_subdomain": "social_reality"
+      },
+      "causality_type": "social",
+      "claim_policy": {
+        "default_claim_status": "working_distinction",
+        "positive_claims_allowed": true,
+        "requires_scope_boundary": true,
+        "requires_access_mode": true
+      }
+    },
+    {
+      "id": "causality_nonhard_world",
+      "type": "concept",
+      "label": {
+        "ru": "Причинность нетвёрдого Мира",
+        "short": "Нетвёрдая"
+      },
+      "definition": {
+        "text": "Причинные связи в нематериальной части Мира. Доступны только косвенно, через операциональные описания и косвенные признаки.",
+        "definition_type": "operational_definition",
+        "source_refs": ["vol_1_reality"]
+      },
+      "coordinates": {
+        "nesting_level": "world",
+        "objectivity_mode": "unknown",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible",
+        "world_subdomain": null
+      },
+      "causality_type": "nonhard_world",
+      "claim_policy": {
+        "default_claim_status": "hypothesis",
+        "positive_claims_allowed": false,
+        "requires_scope_boundary": true,
+        "requires_access_mode": true
+      },
+      "map_safety": {
+        "known_risks": [
+          "fairy_tale",
+          "strong_word_substitution"
+        ],
+        "anti_substitution_rule": "Не выдавать гипотезы о нетвёрдой причинности за установленные факты."
+      }
+    },
+    {
+      "id": "causality_essential",
+      "type": "concept",
+      "label": {
+        "ru": "Сущностная причинность",
+        "short": "Сущностная"
+      },
+      "definition": {
+        "text": "Причинность в сущностном пространстве человека. Связана с being и глубинными структурами субъективности. Проявляется через сущностный запрос и трансформации.",
+        "definition_type": "operational_definition",
+        "source_refs": ["vol_1_reality", "vol_2_human"]
+      },
+      "coordinates": {
+        "nesting_level": "world",
+        "objectivity_mode": "subjective",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible",
+        "world_subdomain": "essential_space"
+      },
+      "causality_type": "essential",
+      "claim_policy": {
+        "default_claim_status": "working_distinction",
+        "positive_claims_allowed": false,
+        "requires_scope_boundary": true,
+        "requires_access_mode": true
+      }
+    },
+    {
+      "id": "causality_being",
+      "type": "concept",
+      "label": {
+        "ru": "Бытийная причинность",
+        "short": "Бытийная"
+      },
+      "definition": {
+        "text": "Причинность на уровне Бытия. Высший тип, связанный с линиями being и трансформациями сознания. Проявляется как бытийный мандат и уровневые переходы.",
+        "definition_type": "boundary_statement",
+        "source_refs": ["vol_1_reality"]
+      },
+      "coordinates": {
+        "nesting_level": "metareality",
+        "objectivity_mode": "unknown",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible",
+        "world_subdomain": null
+      },
+      "causality_type": "being",
+      "claim_policy": {
+        "default_claim_status": "hypothesis",
+        "positive_claims_allowed": false,
+        "requires_scope_boundary": true,
+        "requires_access_mode": true
+      },
+      "map_safety": {
+        "known_risks": [
+          "fairy_tale",
+          "dogma",
+          "strong_word_substitution"
+        ],
+        "anti_substitution_rule": "Бытийная причинность — рабочая гипотеза, не доказанный механизм."
+      }
+    }
+  ]
+}

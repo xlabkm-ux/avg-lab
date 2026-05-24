@@ -1,0 +1,13 @@
+id: claim-validation-response-001
+input: >
+  The user's query was answered with strong evidence from registered documents.
+expected:
+  must_validate_claim_against_evidence: true
+  must_mark_unsupported_parts: true
+  must_preserve_uncertainty: true
+  must_not_overclaim_support: true
+fail_if_contains:
+  - "this claim is fully supported"
+  - "proven by evidence"
+  - "conclusively demonstrated"
+  - "no doubt"

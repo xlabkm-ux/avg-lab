@@ -1,0 +1,90 @@
+{
+  "file_type": "ontology",
+  "description": "Глобальные области определения: матрица пересечения объективного/субъективного и твёрдого/нетвёрдого",
+  "source_refs": ["model_avg_lines_254-306", "vol_1_reality_chapter_3"],
+  "items": [
+    {
+      "id": "map_global_definition_areas",
+      "type": "scheme",
+      "label": {
+        "ru": "Глобальные области определения",
+        "short": "Глобальные ОО"
+      },
+      "definition": {
+        "text": "Матрица 2x2 глобальных областей определения: пересечение осей объективное/субъективное и твёрдое/нетвёрдое. Определяет режимы доступности и языка для каждой ячейки.",
+        "definition_type": "operational_definition",
+        "source_refs": ["vol_1_reality"]
+      },
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "mixed",
+        "access_mode": "mixed",
+        "world_subdomain": null
+      },
+      "map_structure": {
+        "type": "matrix",
+        "axes": [
+          {
+            "id": "axis_objective_subjective",
+            "label": "Объективное / Субъективное",
+            "values": ["objective", "subjective"]
+          },
+          {
+            "id": "axis_hard_nonhard",
+            "label": "Твёрдое / Нетвёрдое",
+            "values": ["hard", "nonhard"]
+          }
+        ],
+        "cells": [
+          {
+            "id": "cell_objective_hard",
+            "label": "ОР ∩ ТМ",
+            "full_label": "Объективная Реальность ∩ Твёрдый Мир",
+            "contains": ["material_world", "physical_objects"],
+            "access_mode_default": "knowable",
+            "language_mode_default": "direct_description",
+            "description": "Область материального мира, доступная прямой научной верификации."
+          },
+          {
+            "id": "cell_objective_nonhard",
+            "label": "ОР ∩ нетвёрдое",
+            "full_label": "Объективная Реальность ∩ Нетвёрдое",
+            "contains": ["objective_nonmaterial_world", "being_line_parts"],
+            "access_mode_default": "indirectly_accessible",
+            "language_mode_default": "operational_description",
+            "description": "Область нематериального, но объективно существующего. Доступна косвенно через операциональные описания."
+          },
+          {
+            "id": "cell_subjective_hard",
+            "label": "СР ∩ ТМ",
+            "full_label": "Субъективная Реальность ∩ Твёрдый Мир",
+            "contains": ["observable_psychic_content", "bodily_sensations"],
+            "access_mode_default": "knowable",
+            "language_mode_default": "direct_description",
+            "description": "Область субъективных переживаний, связанных с телесными ощущениями. Доступна через самонаблюдение."
+          },
+          {
+            "id": "cell_subjective_nonhard",
+            "label": "СР ∩ нетвёрдое",
+            "full_label": "Субъективная Реальность ∩ Нетвёрдое",
+            "contains": ["deep_psychic_layers", "some_local_being_manifestations"],
+            "access_mode_default": "indirectly_accessible",
+            "language_mode_default": "conditional_description",
+            "description": "Глубинные слои психики и локальные проявления бытийности. Доступны косвенно через условные описания."
+          }
+        ]
+      },
+      "map_safety": {
+        "status": "working_map",
+        "not_proof": true,
+        "known_risks": [
+          "scheme_absolutization",
+          "level_mixing",
+          "access_mode_mixing"
+        ],
+        "anti_substitution_rule": "Матрица — рабочий инструмент навигации, не абсолютная структура Реальности."
+      }
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import type { AvgRetrievalHit } from '@avg/validation';
+import type { AvgRetrievalHit } from '@avg/retrieval';
 import type { AvgStructuredResponse } from '@avg/schemas';
 import { groundedRetrievalFlow } from '../api/retrieval';
 import type { GroundedFlowRequest } from '../types/retrieval';

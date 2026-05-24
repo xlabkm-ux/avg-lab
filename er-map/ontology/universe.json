@@ -1,0 +1,48 @@
+{
+  "file_type": "ontology",
+  "description": "Материальная Вселенная: вещество, поля, пространство-время",
+  "source_refs": ["model_avg_lines_665-670", "vol_1_reality_chapter_8"],
+  "items": [
+    {
+      "id": "universe",
+      "type": "ontological_frame",
+      "label": {
+        "ru": "Вселенная",
+        "short": "Вселенная"
+      },
+      "definition": {
+        "text": "Материальная вселенная: вещество, поля, пространство-время. Поддаётся научной верификации. Самый нижний уровень вложенности в модели ЭР.",
+        "definition_type": "working_boundary_definition",
+        "source_refs": ["vol_1_reality"]
+      },
+      "coordinates": {
+        "nesting_level": "universe",
+        "objectivity_mode": "objective",
+        "hardness_mode": "hard",
+        "access_mode": "knowable",
+        "world_subdomain": "material_world"
+      },
+      "language_policy": {
+        "allowed_modes": [
+          "direct_description",
+          "operational_description"
+        ],
+        "forbidden_modes": [],
+        "notes": "Вселенная доступна прямому научному описанию и верификации."
+      },
+      "claim_policy": {
+        "default_claim_status": "definition",
+        "positive_claims_allowed": true,
+        "requires_scope_boundary": false,
+        "requires_access_mode": true
+      },
+      "map_safety": {
+        "known_risks": [
+          "reductionism",
+          "scheme_absolutization"
+        ],
+        "anti_substitution_rule": "Не сводить всю Реальность к материальной Вселенной."
+      }
+    }
+  ]
+}

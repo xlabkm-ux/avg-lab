@@ -1,0 +1,315 @@
+{
+  "file_type": "term",
+  "category": "reality_terms",
+  "description": "Термины категории Реальность: онтологические концепты и различения Тома 1",
+  "source_refs": ["vol_1_reality", "model_avg_lines_185-215"],
+  "items": [
+    {
+      "id": "term_reality",
+      "label": "Реальность",
+      "aliases": ["предельная рамка"],
+      "definition": "Предельная рамка ЭР: всё, что есть, и то, чего нет. Не объект, а граница различения.",
+      "term_role": "distinction_node",
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "not_applicable",
+        "hardness_mode": "not_applicable",
+        "access_mode": "mixed"
+      },
+      "allowed_language": ["working_distinction", "boundary_statement"],
+      "forbidden_language": ["direct_object_description", "total_explanation"],
+      "common_substitutions": [
+        {"error": "Превратить Реальность в объяснение устройства всего", "risk": "map_territory_substitution"}
+      ]
+    },
+    {
+      "id": "term_metareality",
+      "label": "МетаРеальность",
+      "aliases": [],
+      "definition": "Область за пределами непосредственной доступности, но влияющая на Реальность. Третий уровень вложенности.",
+      "term_role": "distinction_node",
+      "coordinates": {
+        "nesting_level": "metareality",
+        "objectivity_mode": "unknown",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible"
+      },
+      "allowed_language": ["conditional_description", "metaphor", "symbolic_pointer"],
+      "forbidden_language": ["direct_description", "objectifying_description"]
+    },
+    {
+      "id": "term_world",
+      "label": "Мир",
+      "aliases": ["целое"],
+      "definition": "Мир как целое: твёрдое (материальное) + нетвёрдое (нематериальное). Включает Вселенную.",
+      "term_role": "distinction_node",
+      "coordinates": {
+        "nesting_level": "world",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "mixed",
+        "access_mode": "mixed"
+      },
+      "allowed_language": ["direct_description", "operational_description", "conditional_description"],
+      "forbidden_language": ["total_explanation"]
+    },
+    {
+      "id": "term_universe",
+      "label": "Вселенная",
+      "aliases": ["материальная вселенная"],
+      "definition": "Материальная вселенная: вещество, поля, пространство-время. Поддаётся научной верификации.",
+      "term_role": "distinction_node",
+      "coordinates": {
+        "nesting_level": "universe",
+        "objectivity_mode": "objective",
+        "hardness_mode": "hard",
+        "access_mode": "knowable"
+      },
+      "allowed_language": ["direct_description", "operational_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_nonhard",
+      "label": "нетвёрдое",
+      "aliases": ["нетвёрдая часть", "нетвёрдое Мира"],
+      "definition": "Принцип существования без прямой воспринимаемости и без обязательной объектности.",
+      "term_role": "distinction_node",
+      "coordinates": {
+        "nesting_level": "world",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible"
+      },
+      "allowed_language": ["operational_description", "conditional_description", "indirect_signs"],
+      "forbidden_language": ["direct_object_description", "final_explanation"],
+      "common_substitutions": [
+        {"error": "Превратить нетвёрдое в невидимый твёрдый объект", "risk": "term_reification"},
+        {"error": "Считать косвенную доступность знанием", "risk": "access_mode_mixing"}
+      ]
+    },
+    {
+      "id": "term_hard",
+      "label": "твёрдое",
+      "aliases": ["материальное", "твёрдый Мир"],
+      "definition": "Материальное, объектифицируемое, с прямой воспринимаемостью. Пересечение ОР и ТМ.",
+      "term_role": "distinction_node",
+      "coordinates": {
+        "nesting_level": "world",
+        "objectivity_mode": "objective",
+        "hardness_mode": "hard",
+        "access_mode": "knowable"
+      },
+      "allowed_language": ["direct_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_nesting",
+      "label": "вложенность",
+      "aliases": ["уровни вложенности"],
+      "definition": "Иерархия уровней: universe → world → metareality → reality. Каждый уровень имеет свои правила.",
+      "term_role": "operational_concept",
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "mixed",
+        "access_mode": "mixed"
+      },
+      "allowed_language": ["operational_description", "boundary_statement"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_objective_reality",
+      "label": "Объективная Реальность",
+      "aliases": ["ОР"],
+      "definition": "Режим описания, предполагающий существование независимо от наблюдателя.",
+      "term_role": "distinction_node",
+      "coordinates": {
+        "nesting_level": "world",
+        "objectivity_mode": "objective",
+        "hardness_mode": "mixed",
+        "access_mode": "mixed"
+      },
+      "allowed_language": ["direct_description", "operational_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_subjective_reality",
+      "label": "Субъективная Реальность",
+      "aliases": ["СР"],
+      "definition": "Режим описания, зависящий от наблюдателя/субъекта. Включает переживания, смыслы, интерпретации.",
+      "term_role": "distinction_node",
+      "coordinates": {
+        "nesting_level": "world",
+        "objectivity_mode": "subjective",
+        "hardness_mode": "mixed",
+        "access_mode": "mixed"
+      },
+      "allowed_language": ["direct_description", "conditional_description"],
+      "forbidden_language": ["objectifying_description"]
+    },
+    {
+      "id": "term_life",
+      "label": "Жизнь",
+      "aliases": ["феномен Жизни"],
+      "definition": "Не биология, а феномен качества Реальности. Присутствие Жизни в форме.",
+      "term_role": "distinction_node",
+      "coordinates": {
+        "nesting_level": "world",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible"
+      },
+      "allowed_language": ["operational_description", "conditional_description", "metaphor"],
+      "forbidden_language": ["direct_object_description"]
+    },
+    {
+      "id": "term_quantity_of_life",
+      "label": "количество жизни",
+      "aliases": [],
+      "definition": "Нематериальная мера присутствия Жизни в форме. Не физическая величина.",
+      "term_role": "operational_concept",
+      "coordinates": {
+        "nesting_level": "world",
+        "objectivity_mode": "subjective",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible"
+      },
+      "allowed_language": ["operational_description", "conditional_description"],
+      "forbidden_language": ["direct_object_description"]
+    },
+    {
+      "id": "term_harmoniousness",
+      "label": "гармоничность",
+      "aliases": ["закон связности"],
+      "definition": "Закон связности с целым. Мера соответствия формы целостной конфигурации.",
+      "term_role": "operational_concept",
+      "coordinates": {
+        "nesting_level": "world",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible"
+      },
+      "allowed_language": ["operational_description", "conditional_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_beingness",
+      "label": "Бытийность",
+      "aliases": [],
+      "definition": "Процесс гармонизации Жизни с нетвёрдым. Вертикаль крестика жизни.",
+      "term_role": "distinction_node",
+      "coordinates": {
+        "nesting_level": "metareality",
+        "objectivity_mode": "unknown",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible"
+      },
+      "allowed_language": ["conditional_description", "metaphor", "symbolic_pointer"],
+      "forbidden_language": ["direct_description"]
+    },
+    {
+      "id": "term_life_cross",
+      "label": "крестик жизни",
+      "aliases": ["метасхема"],
+      "definition": "Метасхема феномена Жизни. Вертикаль Бытийность-Разумность как два предела.",
+      "term_role": "operational_concept",
+      "coordinates": {
+        "nesting_level": "world",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible"
+      },
+      "allowed_language": ["metaphor", "symbolic_pointer", "operational_description"],
+      "forbidden_language": ["direct_object_description"]
+    },
+    {
+      "id": "term_other_beingness",
+      "label": "ИноБытийность",
+      "aliases": ["предельная непроявленность"],
+      "definition": "Предельная непроявленность: граница языка и граница доступа.",
+      "term_role": "boundary_marker",
+      "coordinates": {
+        "nesting_level": "metareality",
+        "objectivity_mode": "unknown",
+        "hardness_mode": "nonhard",
+        "access_mode": "unknowable"
+      },
+      "allowed_language": ["silence_required", "symbolic_pointer"],
+      "forbidden_language": ["direct_description", "total_explanation"]
+    },
+    {
+      "id": "term_local_beingness",
+      "label": "Локальная Бытийность",
+      "aliases": ["ЛБ"],
+      "definition": "Устойчивое локальное поле бытийности. Проявление Бытийности в конкретной области.",
+      "term_role": "operational_concept",
+      "coordinates": {
+        "nesting_level": "world",
+        "objectivity_mode": "subjective",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible"
+      },
+      "allowed_language": ["conditional_description", "operational_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_lbpo",
+      "label": "ЛБПО",
+      "aliases": ["локальное бытийное пространство общности"],
+      "definition": "Локальное бытийное пространство общности — универсальная конструкция сопряжения Бытийности с человеком.",
+      "term_role": "operational_concept",
+      "coordinates": {
+        "nesting_level": "world",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible"
+      },
+      "allowed_language": ["operational_description", "conditional_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_lpo",
+      "label": "ЛПО",
+      "aliases": ["локальное пространство общности"],
+      "definition": "Локальное пространство общности внутри ЛБПО. Наполняется сущностным взаимодействием людей.",
+      "term_role": "operational_concept",
+      "coordinates": {
+        "nesting_level": "world",
+        "objectivity_mode": "subjective",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible"
+      },
+      "allowed_language": ["operational_description", "conditional_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_being_temple",
+      "label": "Бытийный Храм",
+      "aliases": [],
+      "definition": "Онтология явления Бытийного Храма в Реальности. Феномен сопряжения с высшими уровнями.",
+      "term_role": "distinction_node",
+      "coordinates": {
+        "nesting_level": "metareality",
+        "objectivity_mode": "unknown",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible"
+      },
+      "allowed_language": ["conditional_description", "metaphor"],
+      "forbidden_language": ["direct_description"]
+    },
+    {
+      "id": "term_being_mandate",
+      "label": "бытийный мандат",
+      "aliases": [],
+      "definition": "Когда Реальность наделяет правом. Состояние授权 от высших уровней для действия в Мире.",
+      "term_role": "operational_concept",
+      "coordinates": {
+        "nesting_level": "metareality",
+        "objectivity_mode": "unknown",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible"
+      },
+      "allowed_language": ["conditional_description", "metaphor"],
+      "forbidden_language": ["direct_description", "objectifying_description"]
+    }
+  ]
+}

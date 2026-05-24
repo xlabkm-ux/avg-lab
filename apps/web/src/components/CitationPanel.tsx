@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { AvgRetrievalHit } from '@avg/validation';
+import type { AvgRetrievalHit } from '@avg/retrieval';
 
 interface CitationPanelProps {
   hits: AvgRetrievalHit[];

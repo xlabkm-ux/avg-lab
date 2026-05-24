@@ -32,11 +32,11 @@ This backlog is structured for **budget control**:
 | Этап | Plan Tokens | Actual Tokens | Variance | Status |
 |------|-------------|---------------|----------|--------|
 | Planning: UTS Expanded Plan & Specs | 90,000 | 92,000 | +2,000 | completed |
-| Этап 1: MVP-5 Interface | 117,000 | 97,300 | -19,700 | in_progress (83%) |
+| Этап 1: MVP-5 Interface | 120,500 | 100,400 | -20,100 | in_progress (83%) |
 | Этап 2: Tech Leadership | 43,000 | — | — | pending |
 | Этап 3: Market Positioning | 26,000 | — | — | pending |
 | Этап 4: Unified Task System | 1,110,000 | — | — | pending |
-| **TOTAL** | **1,386,000** | **189,300** | **-17,700** | **14%** |
+| **TOTAL** | **1,389,500** | **192,400** | **-18,100** | **14%** |
 
 ---
 
@@ -69,6 +69,55 @@ This backlog is structured for **budget control**:
 ---
 
 ## ЭТАП 1: MVP-5 Working Interface
+
+### Спринт 1.7: Documentation Refactoring & Code Cleanup
+
+**Goal:** Archive outdated documents, implement doc status system, remove avg-ui package  
+**Status:** completed  
+**Dependencies:** Sprint 1.6 completion
+
+| Task ID | Описание | Plan Tokens | Actual Tokens | Variance | Status | Notes |
+|---------|----------|-------------|---------------|----------|--------|-------|
+| AVG-725 | Archive outdated documents | 2,000 | 1,800 | -200 | completed | Moved 11 documents to docs/90_archive/2026-05-22_initial-audit/. All marked with status: archived frontmatter. Created archive README.md index. |
+| AVG-726 | Implement document status system | 1,000 | 900 | -100 | completed | Added status frontmatter (active/archived/review) to all root docs and archived docs. Established archival process and policy. |
+| AVG-727 | Remove avg-ui package | 500 | 400 | -100 | completed | Deleted packages/avg-ui/ (was placeholder). Updated docs/01-architecture/package-map.md. No tsconfig.json changes needed. |
+| **Спринт 1.7 Total** | | **3,500** | **3,100** | **-400** | | |
+
+**Exit Criteria:**
+- [x] 11 outdated documents archived to docs/90_archive/2026-05-22_initial-audit/
+- [x] All documents have status frontmatter (active/archived/review)
+- [x] docs/90_archive/README.md created with complete index
+- [x] avg-ui package deleted
+- [x] package-map.md updated to reflect avg-ui removal
+- [x] No broken references in active documents
+
+**Files Created:**
+- `docs/90_archive/README.md` — Archive index with search guidance, status definitions, archival process
+- `docs/90_archive/2026-05-22_initial-audit/` — 11 archived documents (see archive README for full list)
+
+**Files Modified:**
+- `AUDIT-REFACTORING-PROPOSAL.md` — Added status: active frontmatter
+- `INFRASTRUCTURE.md` — Added status: active frontmatter
+- `SETUP.md` — Added status: active frontmatter
+- `TESTING-GUIDE.md` — Added status: active frontmatter
+- `docs/01-architecture/package-map.md` — Updated with status column, marked avg-ui as removed, added avg-html-rendering and avg-utils
+- `docs/88-project-plan/refactoring-implementation-plan.md` — Created detailed implementation plan
+
+**Files Deleted:**
+- `docs/99-doc/DeepSeek Аудит.md` → archived
+- `docs/99-doc/Open AI Концепт.md` → archived
+- `docs/99-doc/Open AI программное обеспечение.md` → archived
+- `docs/99-doc/Open AI технологии реализации.md` → archived
+- `docs/99-doc/Open AI Codex.md` → archived
+- `docs/99-doc/Open AI CONCEPT + PLAN.md` → archived
+- `docs/99-doc/Google Архитектурные Спецификации AVG.md` → archived
+- `docs/99-doc/Google Аудит концепции AVG.md` → archived
+- `DEVIATION-ANALYSIS.md` → archived
+- `GAP-ANALYSIS.md` → archived
+- `ENV-VALIDATION-REPORT.md` → archived
+- `packages/avg-ui/` — Removed (absorbed by apps/web)
+
+---
 
 **Goal:** Ship first user-testable version with complete UI connected to existing backend  
 **Scope:** Browser workspace, document management, retrieval, validation, concept map, export  
@@ -269,9 +318,10 @@ This backlog is structured for **budget control**:
 | Спринт 1.2: Dialogue & Retrieval | 18,000 | 23,700 | +5,700 |
 | Спринт 1.3: Validation & Map | 19,000 | 16,700 | -2,300 |
 | Спринт 1.6: Refactoring Audit | 29,000 | 26,300 | -2,700 |
+| Спринт 1.7: Doc Refactoring & Cleanup | 3,500 | 3,100 | -400 |
 | Спринт 1.4: Export & Polish | 14,000 | 15,500 | +1,500 |
 | Спринт 1.5: Quality Gates | 21,000 | — | — |
-| **Этап 1 Total** | **117,000** | **97,300** | **-19,700** |
+| **Этап 1 Total** | **120,500** | **100,400** | **-20,100** |
 
 ---
 

@@ -15,7 +15,8 @@
   "dependencies": {
     "@avg/schemas": "workspace:*",
     "@avg/validation": "workspace:*",
-    "@avg/utils": "workspace:*"
+    "@avg/utils": "workspace:*",
+    "@avg/retrieval": "workspace:*"
   },
   "devDependencies": {
     "typescript": "6.0.3"

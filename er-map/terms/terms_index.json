@@ -1,0 +1,61 @@
+{
+  "file_type": "index",
+  "description": "Главный индекс всех терминов модели ЭР с ссылками на файлы категорий",
+  "source_refs": ["model_avg_lines_181-216"],
+  "total_terms_expected": 135,
+  "categories": [
+    {
+      "id": "reality_terms",
+      "label": "Термины Реальности",
+      "file": "terms/reality_terms.json",
+      "term_count": 20
+    },
+    {
+      "id": "methodology_terms",
+      "label": "Термины методологии",
+      "file": "terms/methodology_terms.json",
+      "term_count": 15
+    },
+    {
+      "id": "world_terms",
+      "label": "Термины Мира",
+      "file": "terms/world_terms.json",
+      "term_count": 15
+    },
+    {
+      "id": "being_terms",
+      "label": "Термины Бытия",
+      "file": "terms/being_terms.json",
+      "term_count": 15
+    },
+    {
+      "id": "human_terms",
+      "label": "Термины Человека",
+      "file": "terms/human_terms.json",
+      "term_count": 25
+    },
+    {
+      "id": "psychology_terms",
+      "label": "Термины психологии",
+      "file": "terms/psychology_terms.json",
+      "term_count": 20
+    },
+    {
+      "id": "social_terms",
+      "label": "Социальные термины",
+      "file": "terms/social_terms.json",
+      "term_count": 10
+    },
+    {
+      "id": "prohibited_or_risky_terms",
+      "label": "Запрещённые/рискованные термины",
+      "file": "terms/prohibited_or_risky_terms.json",
+      "term_count": 15
+    }
+  ],
+  "metadata": {
+    "created": "2026-05-20",
+    "version": "1.0.0",
+    "status": "working_index"
+  }
+}

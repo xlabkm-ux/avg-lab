@@ -1,0 +1,158 @@
+{
+  "file_type": "term",
+  "category": "being_terms",
+  "description": "Термины категории Бытие: концепты бытийности, ИноБытийности, локальной бытийности",
+  "source_refs": ["vol_1_reality_chapter_17", "vol_1_reality_chapter_19", "vol_1_reality_chapter_20", "vol_1_reality_chapter_21", "vol_1_reality_chapter_22", "vol_1_reality_chapter_23"],
+  "items": [
+    {
+      "id": "term_being",
+      "label": "Бытие",
+      "aliases": ["being"],
+      "definition": "Высший уровень онтологии ЭР. Область бытийной причинности и трансформаций сознания.",
+      "term_role": "distinction_node",
+      "coordinates": {"nesting_level": "metareality", "objectivity_mode": "unknown", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["conditional_description", "metaphor", "symbolic_pointer"],
+      "forbidden_language": ["direct_description", "objectifying_description"]
+    },
+    {
+      "id": "term_being_line",
+      "label": "линия Бытия",
+      "aliases": ["being_line"],
+      "definition": "Вертикальная ось бытийных состояний и трансформаций. Часть крестика жизни.",
+      "term_role": "operational_concept",
+      "coordinates": {"nesting_level": "metareality", "objectivity_mode": "unknown", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["conditional_description", "metaphor"],
+      "forbidden_language": ["direct_description"]
+    },
+    {
+      "id": "term_reasonability",
+      "label": "Разумность",
+      "aliases": [],
+      "definition": "Второй предел феномена Жизни в онтологии Реальности. Вертикаль крестика жизни вместе с Бытийностью.",
+      "term_role": "distinction_node",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "mixed", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["conditional_description", "operational_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_harmony_scale",
+      "label": "шкала гармоничности",
+      "aliases": ["понижение масштаба"],
+      "definition": "Язык переходов между ИноБытийностью, Бытийностью и локальной Бытийностью через изменение масштаба гармоничности.",
+      "term_role": "operational_concept",
+      "coordinates": {"nesting_level": "metareality", "objectivity_mode": "unknown", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["conditional_description", "metaphor"],
+      "forbidden_language": ["direct_description"]
+    },
+    {
+      "id": "term_manifestation",
+      "label": "проявленность",
+      "aliases": [],
+      "definition": "Степень проявления бытийных качеств в Мире. От предельной непроявленности (ИноБытийность) до полной проявленности.",
+      "term_role": "operational_concept",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "mixed", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["conditional_description", "operational_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_coupling",
+      "label": "сопряжение",
+      "aliases": ["сопряжение Бытийности с Миром"],
+      "definition": "Механизмы соединения бытийных состояний с человеческой формой и Миром. Общий обзор механизмов и их классов.",
+      "term_role": "operational_concept",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "mixed", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["operational_description", "conditional_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_community",
+      "label": "общность",
+      "aliases": [],
+      "definition": "Наполнение ЛПО сущностным взаимодействием людей. Режим совместного бытийного присутствия.",
+      "term_role": "operational_concept",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "subjective", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["operational_description", "conditional_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_tradition_tree",
+      "label": "Дерево Традиций",
+      "aliases": [],
+      "definition": "Множественность традиционных линий в одном ЛБПО. Структура передачи бытийного опыта.",
+      "term_role": "operational_concept",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "mixed", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["operational_description", "conditional_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_tradition_bearer",
+      "label": "носитель Традиции",
+      "aliases": [],
+      "definition": "Живая ось: Традиция выводится из Реальности через носителя. Человек как канал передачи бытийного знания.",
+      "term_role": "operational_concept",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "subjective", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["conditional_description", "metaphor"],
+      "forbidden_language": ["direct_description"]
+    },
+    {
+      "id": "term_essence_pyramid",
+      "label": "пирамидка сущностных типов",
+      "aliases": [],
+      "definition": "Карта уровней взаимодействия с Реальностью. Иерархия сущностных типов от Народа до шаманского контура.",
+      "term_role": "operational_concept",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "mixed", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["operational_description", "conditional_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_shaman_level",
+      "label": "шестой уровень пирамидки",
+      "aliases": ["шаманы", "шаманский контур"],
+      "definition": "Шаманы и шаманский контур Мира — особый уровень взаимодействия с нетвёрдым.",
+      "term_role": "operational_concept",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "subjective", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["conditional_description", "metaphor"],
+      "forbidden_language": ["direct_description"]
+    },
+    {
+      "id": "term_seventh_law",
+      "label": "седьмой уровень законов Мира",
+      "aliases": ["сельмой уровень"],
+      "definition": "Уровень законов Мира, следующий за пирамидкой сущностных типов.",
+      "term_role": "boundary_marker",
+      "coordinates": {"nesting_level": "metareality", "objectivity_mode": "unknown", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["conditional_description", "symbolic_pointer"],
+      "forbidden_language": ["direct_description"]
+    },
+    {
+      "id": "term_technical_levels",
+      "label": "технические уровни",
+      "aliases": ["уровни 8, 9, 10"],
+      "definition": "Технические уровни пирамидки: 8, 9 и 10. Специфические режимы взаимодействия с Реальностью.",
+      "term_role": "operational_concept",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "mixed", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["conditional_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_eleventh_level",
+      "label": "одиннадцатый уровень",
+      "aliases": [],
+      "definition": "Одиннадцатый уровень пирамидки — высший технический уровень взаимодействия.",
+      "term_role": "boundary_marker",
+      "coordinates": {"nesting_level": "metareality", "objectivity_mode": "unknown", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["symbolic_pointer"],
+      "forbidden_language": ["direct_description"]
+    },
+    {
+      "id": "term_beast_types",
+      "label": "типы зверей",
+      "aliases": ["звери"],
+      "definition": "Базовые силы сущностного пространства человека. Иной механизм сопряжения Бытийности с человеком.",
+      "term_role": "operational_concept",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "subjective", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["metaphor", "conditional_description"],
+      "forbidden_language": ["direct_object_description"]
+    }
+  ]
+}

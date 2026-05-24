@@ -1,9 +1,11 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { WorkspaceShell } from './components/WorkspaceShell';
 import { LandingPage } from './components/LandingPage';
+import { ProjectCreationForm } from './components/ProjectCreationForm';
 import type { WorkspaceSurface } from './index';
 import type { AvgClaim } from '@avg/schemas';
 import type { GraphSnapshot } from '@avg/graph';
+import type { DialogueMessage } from '@avg/html-rendering';
 
 const sampleClaims: AvgClaim[] = [
   {
@@ -115,21 +117,80 @@ export function App() {
   const [sessionId, setSessionId] = useState<string>('');
   const [projectTitle, setProjectTitle] = useState<string>('');
   const [selectedSurface, setSelectedSurface] = useState<WorkspaceSurface>('dialogue');
+  const [showCreationForm, setShowCreationForm] = useState(false);
+  const [claims, setClaims] = useState<AvgClaim[]>(sampleClaims);
+  const [dialogueMessages, setDialogueMessages] = useState<DialogueMessage[]>([]);
 
-  const handleCreateProject = useCallback(() => {
+  // Load workspace from localStorage on mount
+  useEffect(() => {
+    try {
+      const savedWorkspace = localStorage.getItem('avg.workspace');
+      if (savedWorkspace) {
+        const workspace = JSON.parse(savedWorkspace);
+        if (workspace.projectId && workspace.sessionId && workspace.projectTitle) {
+          setProjectId(workspace.projectId);
+          setSessionId(workspace.sessionId);
+          setProjectTitle(workspace.projectTitle);
+        }
+      }
+    } catch {
+      // Ignore parse errors, start fresh
+    }
+  }, []);
+
+  // Save workspace to localStorage when changed
+  useEffect(() => {
+    if (projectId && sessionId && projectTitle) {
+      try {
+        localStorage.setItem('avg.workspace', JSON.stringify({
+          projectId,
+          sessionId,
+          projectTitle,
+        }));
+      } catch {
+        // Ignore storage errors
+      }
+    }
+  }, [projectId, sessionId, projectTitle]);
+
+  const handleRequestProjectCreation = useCallback(() => {
+    setShowCreationForm(true);
+  }, []);
+
+  const handleCreateProject = useCallback((title: string) => {
     const newProjectId = `project-${Date.now()}`;
     const newSessionId = `session-${Date.now()}`;
     setProjectId(newProjectId);
     setSessionId(newSessionId);
-    setProjectTitle('My AVG Project');
+    setProjectTitle(title);
+    setShowCreationForm(false);
   }, []);
 
   const handleSurfaceChange = useCallback((surface: WorkspaceSurface) => {
     setSelectedSurface(surface);
   }, []);
 
+  const handleClaimsUpdate = useCallback((newClaims: AvgClaim[]) => {
+    setClaims((prevClaims) => {
+      // Merge new claims with existing ones, avoiding duplicates by ID
+      const existingIds = new Set(prevClaims.map((c) => c.id));
+      const uniqueNewClaims = newClaims.filter((c) => !existingIds.has(c.id));
+      return [...prevClaims, ...uniqueNewClaims];
+    });
+  }, []);
+
+  const handleMessagesChange = useCallback((messages: DialogueMessage[]) => {
+    setDialogueMessages(messages);
+  }, []);
+
+  // Show project creation form
+  if (showCreationForm) {
+    return <ProjectCreationForm onCreateProject={handleCreateProject} />;
+  }
+
+  // Show landing page if no project
   if (!projectId || !sessionId) {
-    return <LandingPage onCreateProject={handleCreateProject} />;
+    return <LandingPage onCreateProject={handleRequestProjectCreation} />;
   }
 
   return (
@@ -139,8 +200,11 @@ export function App() {
       projectTitle={projectTitle}
       selectedSurface={selectedSurface}
       onSurfaceChange={handleSurfaceChange}
-      claims={sampleClaims}
+      claims={claims}
+      onClaimsUpdate={handleClaimsUpdate}
       mapSnapshot={sampleMapSnapshot}
+      dialogueMessages={dialogueMessages}
+      onMessagesChange={handleMessagesChange}
     />
   );
 }

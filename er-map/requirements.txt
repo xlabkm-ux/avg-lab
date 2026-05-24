@@ -1,0 +1,16 @@
+# Python dependencies for ER (Ezognostics of Reality) JSON Model project
+
+# Document processing
+python-docx>=1.2.0
+
+# JSON validation
+jsonschema>=4.20.0
+
+# Token counting for context monitoring
+tiktoken>=0.5.0
+
+# Data processing
+pydantic>=2.5.0
+
+# Utilities
+tqdm>=4.66.0

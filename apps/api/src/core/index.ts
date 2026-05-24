@@ -16,6 +16,15 @@ import {
   renderDialogueFlowPageFromGroundedReport,
   renderGroundedRetrievalFlow
 } from "@avg/html-rendering";
+import {
+  loadErMap,
+  createErMapIndex,
+  generateDialogueResponse,
+  type ErMapIndex
+} from "@avg/knowledge";
+import type { AvgStructuredResponse } from "@avg/schemas";
+import { resolve, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 import type {
   ProjectRecord,
   SessionRecord,
@@ -42,6 +51,37 @@ const sessions = new Map<string, SessionRecord>();
 const messages = new Map<string, MessageRecord>();
 const documentRepository = createDocumentRepository();
 
+// ─── er-map Knowledge Index ──────────────────────────────────────────────────
+
+let erMapIndex: ErMapIndex | null = null;
+
+function getErMapIndex(): ErMapIndex {
+  if (!erMapIndex) {
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = dirname(__filename);
+    const projectRoot = resolve(__dirname, "../../../..");
+    const erMapRoot = resolve(projectRoot, "er-map");
+    const { entries } = loadErMap(erMapRoot);
+    erMapIndex = createErMapIndex(entries);
+  }
+  return erMapIndex;
+}
+
+// ─── Public: Dialogue Engine ─────────────────────────────────────────────────
+
+export function generateProjectDialogueResponse(
+  projectId: string,
+  sessionId: string,
+  query: string,
+  messageId: string
+): AvgStructuredResponse {
+  const index = getErMapIndex();
+  return generateDialogueResponse(
+    { query, projectId, sessionId, messageId },
+    index
+  );
+}
+
 function nextId(prefix: IdPrefix): string {
   counters[prefix] += 1;
   return `${prefix}_${String(counters[prefix]).padStart(3, "0")}`;
@@ -62,6 +102,12 @@ export function createProject(name = "Untitled project"): ProjectRecord {
 
   projects.set(project.id, project);
   return project;
+}
+
+export function ensureProjectExists(projectId: string): void {
+  if (!projects.has(projectId)) {
+    projects.set(projectId, { id: projectId, name: projectId });
+  }
 }
 
 export function createSession(projectId: string, title = "Conversation session"): SessionRecord {

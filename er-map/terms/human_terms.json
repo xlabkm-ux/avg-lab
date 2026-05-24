@@ -1,0 +1,260 @@
+{
+  "file_type": "term",
+  "category": "human_terms",
+  "description": "Термины категории Человек: модель человека в ЭР (тело, психика, сущность, МОМ, субмодель)",
+  "source_refs": ["vol_2_human"],
+  "items": [
+    {
+      "id": "term_human_model",
+      "label": "модель человека",
+      "aliases": ["человек в ЭР"],
+      "definition": "Модель человека в ЭР: тело (твёрдая рамка), психика (субъективная реальность), сущностное пространство (нетвёрдая часть воплощения).",
+      "term_role": "distinction_node",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "mixed", "hardness_mode": "mixed", "access_mode": "mixed"},
+      "allowed_language": ["operational_description", "conditional_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_body",
+      "label": "тело",
+      "aliases": ["нервная система", "субстрат"],
+      "definition": "Тело и нервная система как субстрат человеческой формы. Твёрдая рамка человека.",
+      "term_role": "distinction_node",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "objective", "hardness_mode": "hard", "access_mode": "knowable"},
+      "allowed_language": ["direct_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_psyche",
+      "label": "психика",
+      "aliases": ["личность"],
+      "definition": "Психика и личность в обычной психологии: что ЭР заимствует и почему этого мало для полной модели человека.",
+      "term_role": "distinction_node",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "subjective", "hardness_mode": "mixed", "access_mode": "mixed"},
+      "allowed_language": ["operational_description", "conditional_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_internal_drivers",
+      "label": "внутренние драйверы",
+      "aliases": [],
+      "definition": "Внутренние драйверы человеческой формы: мотивации, потребности, импульсы, управляющие поведением.",
+      "term_role": "operational_concept",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "subjective", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["operational_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_memory_attention",
+      "label": "память и внимание",
+      "aliases": [],
+      "definition": "Память и внимание как механика сборки 'я': почему субъективность всегда реконструкция, а не прямое отражение.",
+      "term_role": "operational_concept",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "subjective", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["operational_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_evaluator",
+      "label": "оценщик",
+      "aliases": [],
+      "definition": "Функциональный узел личности: нормирование, самооправдание и удержание маски. Часть картины мира.",
+      "term_role": "operational_concept",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "subjective", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["operational_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_mom",
+      "label": "МОМ",
+      "aliases": ["Механизм Описания Мира"],
+      "definition": "МОМ — Механизм Описания Мира: первичная целостность потока восприятия. Создаёт сырой структурный каркас сцены без смысла.",
+      "term_role": "operational_concept",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "subjective", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["operational_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_submodel",
+      "label": "субмодель",
+      "aliases": [],
+      "definition": "Субмодель и сознание: почему сознание отражает не Реальность, а модель. Распознаёт объекты и явления, собирает первичный фильм.",
+      "term_role": "operational_concept",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "subjective", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["operational_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_world_picture",
+      "label": "картина мира",
+      "aliases": ["рабство"],
+      "definition": "Картина мира как 'рабство': самоподдерживающаяся конструкция субъективности. Конкретизирует смыслы и встраивает их в устойчивую систему объяснений.",
+      "term_role": "operational_concept",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "subjective", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["operational_description", "metaphor"],
+      "forbidden_language": [],
+      "common_substitutions": [{"error": "Принять картину мира за Реальность", "risk": "map_territory_substitution"}]
+    },
+    {
+      "id": "term_rigidity_ladder",
+      "label": "лестница жёсткости",
+      "aliases": [],
+      "definition": "Лестница жёсткости внутренних уровней: от мнений к описанию мира. Иерархия убеждений по степени фиксированности.",
+      "term_role": "operational_concept",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "subjective", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["operational_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_language_meaning",
+      "label": "язык и смысл",
+      "aliases": [],
+      "definition": "Почему 'названное' начинает казаться реальным: механизм языковой реификации в картине мира.",
+      "term_role": "operational_concept",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "subjective", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["operational_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_extended_mom",
+      "label": "расширенный МОМ",
+      "aliases": ["расширенная субмодель"],
+      "definition": "Расширенный МОМ и расширенная субмодель: многоплановость как редкая врождённая настройка восприятия.",
+      "term_role": "operational_concept",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "subjective", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["operational_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_essential_space_human",
+      "label": "сущностное пространство человека",
+      "aliases": [],
+      "definition": "Сущностное пространство: нетвёрдая часть воплощения человека. Содержит сущностный запрос, инструменты, зверей, крестик жизни.",
+      "term_role": "distinction_node",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "subjective", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["conditional_description", "operational_description"],
+      "forbidden_language": ["direct_object_description"]
+    },
+    {
+      "id": "term_essential_request",
+      "label": "сущностный запрос",
+      "aliases": [],
+      "definition": "Сущностный запрос: как 'там' давит на 'здесь'. Импульс из сущностного пространства, направляющий развитие.",
+      "term_role": "operational_concept",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "subjective", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["conditional_description", "operational_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_direct_experience",
+      "label": "прямое проживание",
+      "aliases": ["осознанность"],
+      "definition": "Прямое проживание и осознанность: состояние непосредственного контакта с опытом без фильтрации картиной мира.",
+      "term_role": "operational_concept",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "subjective", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["operational_description", "conditional_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_self_awareness",
+      "label": "СамоОсознанность",
+      "aliases": ["КТО Я"],
+      "definition": "СамоОсознанность и направление 'КТО Я': глубинный запрос на идентификацию за пределами личности.",
+      "term_role": "operational_concept",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "subjective", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["conditional_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_depth",
+      "label": "Глубина",
+      "aliases": [],
+      "definition": "Глубина: пограничная область и интерфейс нетвёрдого. Отличие от психологической глубины.",
+      "term_role": "distinction_node",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "subjective", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["conditional_description", "metaphor"],
+      "forbidden_language": ["direct_description"]
+    },
+    {
+      "id": "term_essential_tools",
+      "label": "сущностные инструменты",
+      "aliases": ["то, чего нет"],
+      "definition": "Сущностные инструменты: 'то, чего нет' как действующая часть человека. Нематериальные способности сущностного пространства.",
+      "term_role": "operational_concept",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "subjective", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["conditional_description", "operational_description"],
+      "forbidden_language": ["direct_object_description"]
+    },
+    {
+      "id": "term_essential_empathy",
+      "label": "сущностная эмпатия",
+      "aliases": [],
+      "definition": "Сущностная эмпатия и её отличие от психологической эмпатии. Прямое сущностное резонирование.",
+      "term_role": "operational_concept",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "subjective", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["conditional_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_shaktial",
+      "label": "шактиальные взаимодействия",
+      "aliases": [],
+      "definition": "Шактиальные взаимодействия: типы, границы, эффекты и риск подмены 'контакта' фантазией.",
+      "term_role": "operational_concept",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "subjective", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["conditional_description", "metaphor"],
+      "forbidden_language": ["direct_description"]
+    },
+    {
+      "id": "term_psychic_transparency",
+      "label": "прозрачность психики",
+      "aliases": [],
+      "definition": "Прозрачность психики как следствие, а не техника. Результат работы с сущностным пространством.",
+      "term_role": "operational_concept",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "subjective", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["conditional_description"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_psychological_depth",
+      "label": "психологическая глубина",
+      "aliases": [],
+      "definition": "Психологическая глубина и Глубина: два разных понятия. Психологическая — внутри психики; Глубина — интерфейс нетвёрдого.",
+      "term_role": "distinction_node",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "subjective", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["conditional_description"],
+      "forbidden_language": [],
+      "common_substitutions": [{"error": "Смешать психологическую глубину с Глубиной", "risk": "level_mixing"}]
+    },
+    {
+      "id": "term_life_cross_human",
+      "label": "крестик жизни человека",
+      "aliases": [],
+      "definition": "Крестик жизни как схема внутренней архитектуры человека. Вертикаль being-reasonability и горизонталь сущностных сил.",
+      "term_role": "operational_concept",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "subjective", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["metaphor", "conditional_description"],
+      "forbidden_language": ["direct_object_description"]
+    },
+    {
+      "id": "term_beast_balance",
+      "label": "равновесие зверей",
+      "aliases": ["одинаковая важность"],
+      "definition": "Равновесие зверей и принцип одинаковой важности. Баланс базовых сил сущностного пространства.",
+      "term_role": "operational_concept",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "subjective", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["conditional_description", "metaphor"],
+      "forbidden_language": []
+    },
+    {
+      "id": "term_anima_animus",
+      "label": "анима/анимус",
+      "aliases": ["пол"],
+      "definition": "Пол, анима/анимус и звери: границы применимости половой символики в модели сущностного пространства.",
+      "term_role": "operational_concept",
+      "coordinates": {"nesting_level": "world", "objectivity_mode": "subjective", "hardness_mode": "nonhard", "access_mode": "indirectly_accessible"},
+      "allowed_language": ["conditional_description", "metaphor"],
+      "forbidden_language": ["direct_object_description"]
+    }
+  ]
+}

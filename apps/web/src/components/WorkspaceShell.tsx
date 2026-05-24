@@ -1,9 +1,16 @@
 import { GroundedRetrievalFlow } from './GroundedRetrievalFlow';
+import { DialogueSurface } from './DialogueSurface';
 import { ClaimReviewPanel } from './ClaimReviewPanel';
 import { ConceptMapPanel } from './ConceptMapPanel';
+import { DocumentRegistrationPanel } from './DocumentRegistrationPanel';
+import { ArtifactWorkspacePanel } from './ArtifactWorkspacePanel';
 import type { WorkspaceSurface } from '../index';
 import type { AvgClaim } from '@avg/schemas';
 import type { GraphSnapshot } from '@avg/graph';
+import type { DialogueMessage } from '@avg/html-rendering';
+import type { AvgRetrievalHit } from '@avg/retrieval';
+import type { AvgStructuredResponse } from '@avg/schemas';
+import type { AvgGroundedResponseBoundary } from '@avg/validation';
 
 interface WorkspaceShellProps {
   projectId: string;
@@ -13,6 +20,12 @@ interface WorkspaceShellProps {
   onSurfaceChange: (surface: WorkspaceSurface) => void;
   claims?: AvgClaim[];
   mapSnapshot?: GraphSnapshot;
+  onClaimsUpdate?: (claims: AvgClaim[]) => void;
+  dialogueMessages?: DialogueMessage[];
+  onMessagesChange?: (messages: DialogueMessage[]) => void;
+  retrievalHits?: AvgRetrievalHit[];
+  lastGroundedResponse?: AvgStructuredResponse | null;
+  lastGrounding?: AvgGroundedResponseBoundary | null;
 }
 
 const navigationItems: { surface: WorkspaceSurface; label: string }[] = [
@@ -32,6 +45,12 @@ export function WorkspaceShell({
   onSurfaceChange,
   claims = [],
   mapSnapshot,
+  onClaimsUpdate,
+  dialogueMessages = [],
+  onMessagesChange,
+  retrievalHits = [],
+  lastGroundedResponse,
+  lastGrounding,
 }: WorkspaceShellProps) {
   return (
     <main className="workspace-shell" data-project-id={projectId} data-session-id={sessionId}>
@@ -79,17 +98,20 @@ export function WorkspaceShell({
         )}
 
         {selectedSurface === 'dialogue' && (
-          <div className="surface-placeholder">
-            <h2>Dialogue surface</h2>
-            <p>Structured dialogue with claim status, risk, and boundary display.</p>
-          </div>
+          <DialogueSurface
+            projectId={projectId}
+            sessionId={sessionId}
+            onResponseReceived={(_response, newClaims) => {
+              if (onClaimsUpdate) {
+                onClaimsUpdate([...claims, ...newClaims]);
+              }
+            }}
+            {...(onMessagesChange && { onMessagesChange })}
+          />
         )}
 
         {selectedSurface === 'documents' && (
-          <div className="surface-placeholder">
-            <h2>Documents surface</h2>
-            <p>Register and manage project-local evidence documents.</p>
-          </div>
+          <DocumentRegistrationPanel projectId={projectId} />
         )}
 
         {selectedSurface === 'claim-review' && (
@@ -116,10 +138,17 @@ export function WorkspaceShell({
         )}
 
         {selectedSurface === 'artifacts' && (
-          <div className="surface-placeholder">
-            <h2>Artifacts surface</h2>
-            <p>Export session summaries, citations, and map snapshots.</p>
-          </div>
+          <ArtifactWorkspacePanel
+            projectId={projectId}
+            sessionId={sessionId}
+            projectTitle={projectTitle}
+            claims={claims}
+            {...(mapSnapshot && { mapSnapshot })}
+            dialogueMessages={dialogueMessages}
+            {...(retrievalHits && { retrievalHits })}
+            lastGroundedResponse={lastGroundedResponse ?? null}
+            lastGrounding={lastGrounding ?? null}
+          />
         )}
       </section>
     </main>

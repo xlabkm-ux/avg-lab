@@ -1,0 +1,104 @@
+{
+  "file_type": "methodology",
+  "description": "Карта и территория: различение модели и реальности, предотвращение подмены",
+  "source_refs": ["model_avg_lines_1-7", "vol_1_reality_chapter_6"],
+  "items": [
+    {
+      "id": "map_territory_distinction",
+      "type": "concept",
+      "label": {
+        "ru": "Карта и территория",
+        "short": "Карта ≠ Территория"
+      },
+      "definition": {
+        "text": "Фундаментальное различение: карта (модель, схема, язык) не есть территория (сама Реальность). Карта нужна для навигации, но обязана помнить, что она карта; иначе она превращается в догму.",
+        "definition_type": "methodological_definition",
+        "source_refs": ["vol_1_reality"]
+      },
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "mixed",
+        "access_mode": "mixed",
+        "world_subdomain": null
+      },
+      "language_policy": {
+        "allowed_modes": [
+          "metaphor",
+          "operational_description",
+          "boundary_statement"
+        ],
+        "forbidden_modes": [
+          "objectifying_description"
+        ],
+        "notes": "Используется метафора карты/территории из общей семантики (Korzybski)."
+      },
+      "claim_policy": {
+        "default_claim_status": "definition",
+        "positive_claims_allowed": true,
+        "requires_scope_boundary": true,
+        "requires_access_mode": false
+      },
+      "map_safety": {
+        "known_risks": [
+          "map_territory_substitution",
+          "scheme_absolutization",
+          "dogma"
+        ],
+        "anti_substitution_rule": "Карта — инструмент навигации, не замена Реальности."
+      }
+    },
+    {
+      "id": "substitution_error",
+      "type": "concept",
+      "label": {
+        "ru": "Ошибка подмены",
+        "short": "Подмена"
+      },
+      "definition": {
+        "text": "Ошибка принятия карты за территорию: когда модель, схема или терминология начинают восприниматься как сама Реальность. Ведёт к догматизации и производству невежества.",
+        "definition_type": "operational_definition",
+        "source_refs": ["vol_1_reality"]
+      },
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible",
+        "world_subdomain": null
+      },
+      "claim_policy": {
+        "default_claim_status": "working_distinction",
+        "positive_claims_allowed": true,
+        "requires_scope_boundary": true,
+        "requires_access_mode": true
+      }
+    },
+    {
+      "id": "map_discipline",
+      "type": "concept",
+      "label": {
+        "ru": "Дисциплина карты",
+        "short": "Дисциплина"
+      },
+      "definition": {
+        "text": "Методологическая дисциплина поддержания осознавания, что любая модель — лишь карта. Включает регулярную проверку границ ОО, статусов утверждений и режимов доступности.",
+        "definition_type": "methodological_definition",
+        "source_refs": ["vol_1_reality"]
+      },
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible",
+        "world_subdomain": null
+      },
+      "claim_policy": {
+        "default_claim_status": "working_distinction",
+        "positive_claims_allowed": true,
+        "requires_scope_boundary": true,
+        "requires_access_mode": true
+      }
+    }
+  ]
+}

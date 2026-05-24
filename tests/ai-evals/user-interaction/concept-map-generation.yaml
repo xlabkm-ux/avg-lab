@@ -1,0 +1,13 @@
+id: concept-map-generation-001
+input: >
+  Create a concept map showing the relationships between memory, learning, and neural plasticity.
+expected:
+  must_generate_multiple_nodes: true
+  must_define_relationships_explicitly: true
+  must_mark_hypothetical_links: true
+  must_not_assert_unverified_connections: true
+  must_include_boundary_statement: true
+fail_if_contains:
+  - "these connections are proven"
+  - "this is the definitive map"
+  - "all relationships are established"

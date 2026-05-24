@@ -90,7 +90,7 @@ export function registerDocumentViaApi(
   sourceKind: "local_text" | "local_markdown" | "local_document",
   text: string,
 ): Promise<RegisteredDocumentSummary> {
-  return fetch(`/projects/${encodeURIComponent(projectId)}/documents`, {
+  return fetch(`/api/projects/${encodeURIComponent(projectId)}/documents`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -123,7 +123,7 @@ export function registerDocumentViaApi(
 }
 
 export function listDocumentsViaApi(projectId: string): Promise<RegisteredDocumentSummary[]> {
-  return fetch(`/projects/${encodeURIComponent(projectId)}/documents`)
+  return fetch(`/api/projects/${encodeURIComponent(projectId)}/documents`)
     .then((response) => {
       if (!response.ok) {
         return [];
@@ -135,7 +135,7 @@ export function listDocumentsViaApi(projectId: string): Promise<RegisteredDocume
         documents.map(async (doc) => {
           try {
             const snippetsResponse = await fetch(
-              `/projects/${encodeURIComponent(projectId)}/documents/${encodeURIComponent(doc.id)}/snippets`
+              `/api/projects/${encodeURIComponent(projectId)}/documents/${encodeURIComponent(doc.id)}/snippets`
             );
             const snippets = snippetsResponse.ok ? await snippetsResponse.json() : [];
             const snippetCount = snippets.length;
@@ -169,8 +169,8 @@ export function getDocumentDetailWithSnippets(
   documentId: string,
 ): Promise<DocumentDetailWithSnippets> {
   return Promise.all([
-    fetch(`/projects/${encodeURIComponent(projectId)}/documents/${encodeURIComponent(documentId)}`).then((r) => r.json()),
-    fetch(`/projects/${encodeURIComponent(projectId)}/documents/${encodeURIComponent(documentId)}/snippets`).then((r) => r.json()),
+    fetch(`/api/projects/${encodeURIComponent(projectId)}/documents/${encodeURIComponent(documentId)}`).then((r) => r.json()),
+    fetch(`/api/projects/${encodeURIComponent(projectId)}/documents/${encodeURIComponent(documentId)}/snippets`).then((r) => r.json()),
   ]).then(([document, snippets]) => {
     const tokenEstimate = snippets.reduce(
       (sum: number, snip: AvgSourceSnippet) => sum + estimateTokenCount(snip.text),

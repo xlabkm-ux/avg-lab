@@ -1,3 +1,12 @@
+---
+title: Infrastructure Overview
+status: active
+created_date: 2026-05-22
+last_updated: 2026-05-22
+author: Project Team
+tags: [infrastructure, docker, postgresql, neo4j, redis, monorepo]
+---
+
 # AVG Lab — Infrastructure Overview
 
 ## Architecture

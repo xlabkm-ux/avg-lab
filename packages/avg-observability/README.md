@@ -5,9 +5,21 @@
 
 ---
 
-## Planned Purpose
+## Activation Criteria
 
-Tracing, metrics, cost tracking, LLM event logging.
+This package should be implemented when:
+
+1. **Production deployment is planned** - When moving beyond local development
+2. **Structured logging is required for debugging** - When basic console logs become insufficient for tracing
+3. **Metrics collection is needed for capacity planning** - When performance monitoring and scaling decisions require data
+
+## Current State
+
+Basic file-based error logging exists in API. Sufficient for MVP-5 and development.
+
+## Decision
+
+**Defer until Этап 2.** This README documents activation criteria only. No implementation needed yet.
 
 ## Ownership
 

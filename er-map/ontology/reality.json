@@ -1,0 +1,54 @@
+{
+  "file_type": "ontology",
+  "description": "Предельная рамка Реальности в модели ЭР: всё, что есть, и то, чего нет",
+  "source_refs": ["model_avg_lines_105-150", "vol_1_reality_chapter_7"],
+  "items": [
+    {
+      "id": "reality",
+      "type": "ontological_frame",
+      "label": {
+        "ru": "Реальность",
+        "short": "Реальность"
+      },
+      "definition": {
+        "text": "Предельная рамка ЭР: всё, что есть, и то, чего нет. Не является объектом; это граница различения.",
+        "definition_type": "working_boundary_definition",
+        "source_refs": ["vol_1_reality"]
+      },
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "not_applicable",
+        "hardness_mode": "not_applicable",
+        "access_mode": "mixed",
+        "world_subdomain": null
+      },
+      "language_policy": {
+        "allowed_modes": [
+          "working_distinction",
+          "boundary_statement",
+          "methodological_statement"
+        ],
+        "forbidden_modes": [
+          "total_explanation",
+          "objectifying_description"
+        ],
+        "notes": "О Реальности в целом нельзя говорить как об объекте; допустимы фиксация границ и методология различений."
+      },
+      "claim_policy": {
+        "default_claim_status": "working_distinction",
+        "positive_claims_allowed": false,
+        "requires_scope_boundary": true,
+        "requires_access_mode": true
+      },
+      "map_safety": {
+        "known_risks": [
+          "map_territory_substitution",
+          "dogma",
+          "fairy_tale",
+          "term_reification"
+        ],
+        "anti_substitution_rule": "Не превращать предельную рамку в объяснение устройства всего."
+      }
+    }
+  ]
+}

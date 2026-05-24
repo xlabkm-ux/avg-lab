@@ -1,4 +1,5 @@
-import type { AvgRetrievalHit, AvgGroundedResponse } from '@avg/validation';
+import type { AvgRetrievalHit } from '@avg/retrieval';
+import type { AvgGroundedResponse } from '@avg/validation';
 
 export interface RetrievalState {
   query: string;

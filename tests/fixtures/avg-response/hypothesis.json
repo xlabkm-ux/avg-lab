@@ -1,0 +1,21 @@
+{
+  "id": "response_hypothesis_test",
+  "project_id": "project_001",
+  "session_id": "session_001",
+  "message_id": "message_001",
+  "summary": "Spaced repetition improves long-term retention through distributed practice intervals",
+  "scope": "learning and memory research",
+  "claim_status": "hypothesis",
+  "language_mode": "operational_description",
+  "validation_risk": "medium",
+  "risk_markers": [
+    "requires_evidence",
+    "empirical_claim",
+    "testable_prediction"
+  ],
+  "map_territory_boundary": "preserved",
+  "next_action": "validate against registered research documents",
+  "artifacts": [
+    "empirical hypothesis requiring validation"
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "file_type": "ontology",
+  "description": "Карта твёрдого и нетвёрдого: различение материального и нематериального в модели ЭР",
+  "source_refs": ["model_avg_lines_185-215", "vol_1_reality_chapter_9", "vol_1_reality_chapter_12"],
+  "items": [
+    {
+      "id": "hard_world",
+      "type": "concept",
+      "label": {
+        "ru": "Твёрдый Мир",
+        "short": "Твёрдое"
+      },
+      "definition": {
+        "text": "Материальное, объектифицируемое, с прямой воспринимаемостью. Относится к твёрдой части Мира. Пересечение объективной реальности и твёрдого мира (ОР ∩ ТМ).",
+        "definition_type": "working_distinction",
+        "source_refs": ["vol_1_reality"]
+      },
+      "coordinates": {
+        "nesting_level": "world",
+        "objectivity_mode": "objective",
+        "hardness_mode": "hard",
+        "access_mode": "knowable",
+        "world_subdomain": "material_world"
+      },
+      "language_policy": {
+        "allowed_modes": [
+          "direct_description",
+          "operational_description"
+        ],
+        "forbidden_modes": [],
+        "notes": "Твёрдое доступно прямому описанию и научной верификации."
+      },
+      "claim_policy": {
+        "default_claim_status": "definition",
+        "positive_claims_allowed": true,
+        "requires_scope_boundary": false,
+        "requires_access_mode": true
+      }
+    },
+    {
+      "id": "nonhard_principle",
+      "type": "concept",
+      "label": {
+        "ru": "Нетвёрдое",
+        "short": "Нетвёрдое"
+      },
+      "definition": {
+        "text": "Принцип существования без прямой воспринимаемости и без обязательной объектности. Нематериальное, проявляющееся через косвенные признаки.",
+        "definition_type": "distinction_definition",
+        "source_refs": ["vol_1_reality"]
+      },
+      "coordinates": {
+        "nesting_level": "world",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible",
+        "world_subdomain": null
+      },
+      "language_policy": {
+        "allowed_modes": [
+          "operational_description",
+          "conditional_description",
+          "indirect_signs"
+        ],
+        "forbidden_modes": [
+          "direct_object_description",
+          "final_explanation"
+        ],
+        "notes": "Нетвёрдое требует операционального или условного описания; прямое объектное описание приводит к реификации."
+      },
+      "claim_policy": {
+        "default_claim_status": "working_distinction",
+        "positive_claims_allowed": false,
+        "requires_scope_boundary": true,
+        "requires_access_mode": true
+      },
+      "map_safety": {
+        "known_risks": [
+          "term_reification",
+          "access_mode_mixing",
+          "strong_word_substitution"
+        ],
+        "anti_substitution_rule": "Не превращать нетвёрдое в невидимый твёрдый объект."
+      }
+    },
+    {
+      "id": "edge_hard_contains_nonhard",
+      "type": "relates_to",
+      "label": {
+        "ru": "Соотношение твёрдого и нетвёрдого",
+        "short": "Твёрдое ↔ Нетвёрдое"
+      },
+      "definition": {
+        "text": "Твёрдое и нетвёрдое — взаимодополняющие аспекты Мира, не сводимые друг к другу. Мир = твёрдое + нетвёрдое.",
+        "definition_type": "working_distinction",
+        "source_refs": ["vol_1_reality"]
+      },
+      "coordinates": {
+        "nesting_level": "world",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "mixed",
+        "access_mode": "mixed",
+        "world_subdomain": null
+      },
+      "claim_policy": {
+        "default_claim_status": "working_distinction",
+        "positive_claims_allowed": true,
+        "requires_scope_boundary": true,
+        "requires_access_mode": true
+      },
+      "map_safety": {
+        "known_risks": [
+          "reductionism",
+          "level_mixing"
+        ],
+        "anti_substitution_rule": "Не сводить нетвёрдое к твёрдому (редукционизм) и не смешивать режимы описания."
+      }
+    }
+  ]
+}

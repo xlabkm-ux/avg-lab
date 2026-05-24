@@ -1,0 +1,55 @@
+{
+  "file_type": "ontology",
+  "description": "МетаРеальность: область за пределами непосредственной доступности, но влияющая на Реальность",
+  "source_refs": ["model_avg", "vol_1_reality_chapter_8"],
+  "items": [
+    {
+      "id": "metareality",
+      "type": "ontological_frame",
+      "label": {
+        "ru": "МетаРеальность",
+        "short": "МетаРеальность"
+      },
+      "definition": {
+        "text": "МетаРеальность: область за пределами непосредственной доступности, но влияющая на Реальность. Третий уровень вложенности между Миром и Реальностью.",
+        "definition_type": "working_boundary_definition",
+        "source_refs": ["vol_1_reality"]
+      },
+      "coordinates": {
+        "nesting_level": "metareality",
+        "objectivity_mode": "unknown",
+        "hardness_mode": "nonhard",
+        "access_mode": "indirectly_accessible",
+        "world_subdomain": null
+      },
+      "language_policy": {
+        "allowed_modes": [
+          "conditional_description",
+          "metaphor",
+          "symbolic_pointer"
+        ],
+        "forbidden_modes": [
+          "direct_description",
+          "total_explanation",
+          "objectifying_description"
+        ],
+        "notes": "МетаРеальность недоступна прямому описанию; требуются условные описания, метафоры или символические указатели."
+      },
+      "claim_policy": {
+        "default_claim_status": "hypothesis",
+        "positive_claims_allowed": false,
+        "requires_scope_boundary": true,
+        "requires_access_mode": true
+      },
+      "map_safety": {
+        "known_risks": [
+          "fairy_tale",
+          "dogma",
+          "term_reification",
+          "strong_word_substitution"
+        ],
+        "anti_substitution_rule": "Не выдавать гипотезы о МетаРеальности за установленные факты."
+      }
+    }
+  ]
+}

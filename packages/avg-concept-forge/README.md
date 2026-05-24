@@ -5,9 +5,21 @@
 
 ---
 
-## Planned Purpose
+## Activation Criteria
 
-Creative operations: frame collision, inversion, naming, synthesis.
+This package should be implemented when:
+
+1. **Concept generation becomes a standalone feature** - When creative assistance separates from dialogue
+2. **Frame collision operators are implemented** - When systematic concept manipulation is needed
+3. **Creative assistance is separated from dialogue** - When concept work becomes its own service
+
+## Current State
+
+Concept generation happens within the dialogue flow. Sufficient for MVP-5.
+
+## Decision
+
+**Defer until UTS phase.** This README documents activation criteria only. No implementation needed yet.
 
 ## Ownership
 

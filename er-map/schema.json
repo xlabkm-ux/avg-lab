@@ -1,0 +1,596 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ER Map Storage Schema",
+  "description": "JSON Schema для валидации всех файлов модели Эзоагностики Реальности",
+  "version": "1.0.0",
+  "definitions": {
+    "coordinates": {
+      "type": "object",
+      "description": "Координаты элемента в пространстве ЭР",
+      "properties": {
+        "nesting_level": {
+          "type": "string",
+          "enum": ["universe", "world", "metareality", "reality"],
+          "description": "Уровень вложенности"
+        },
+        "objectivity_mode": {
+          "type": ["string", "null"],
+          "enum": ["objective", "subjective", "mixed", "not_applicable", "unknown", null],
+          "description": "Режим объектности"
+        },
+        "hardness_mode": {
+          "type": ["string", "null"],
+          "enum": ["hard", "nonhard", "mixed", "not_applicable", "unknown", null],
+          "description": "Режим твёрдости"
+        },
+        "access_mode": {
+          "type": ["string", "null"],
+          "enum": ["knowable", "indirectly_accessible", "unknowable", "mixed", null],
+          "description": "Режим доступности"
+        },
+        "world_subdomain": {
+          "type": ["string", "null"],
+          "description": "Подобласть Мира (если применимо)"
+        }
+      },
+      "required": ["nesting_level"]
+    },
+    "language_policy": {
+      "type": "object",
+      "description": "Политика языка для элемента",
+      "properties": {
+        "allowed_modes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["direct_description", "operational_description", "conditional_description", "metaphor", "symbolic_pointer", "silence_required", "working_distinction", "boundary_statement", "methodological_statement"]
+          },
+          "description": "Разрешённые режимы языка"
+        },
+        "forbidden_modes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Запрещённые режимы языка"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Дополнительные заметки о языке"
+        }
+      },
+      "required": ["allowed_modes"]
+    },
+    "claim_policy": {
+      "type": "object",
+      "description": "Политика утверждений для элемента",
+      "properties": {
+        "default_claim_status": {
+          "type": "string",
+          "enum": ["definition", "working_distinction", "operational_marker", "indirect_sign", "hypothesis", "metaphor_only", "prohibited_positive_claim"],
+          "description": "Статус утверждения по умолчанию"
+        },
+        "positive_claims_allowed": {
+          "type": "boolean",
+          "description": "Разрешены ли положительные утверждения"
+        },
+        "requires_scope_boundary": {
+          "type": "boolean",
+          "description": "Требуется ли граница области определения"
+        },
+        "requires_access_mode": {
+          "type": "boolean",
+          "description": "Требуется ли указание режима доступности"
+        }
+      },
+      "required": ["default_claim_status", "positive_claims_allowed"]
+    },
+    "map_safety": {
+      "type": "object",
+      "description": "Предохранители карты от ошибок подстановки",
+      "properties": {
+        "known_risks": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["term_reification", "scheme_absolutization", "map_territory_substitution", "sign_to_entity_substitution", "level_mixing", "access_mode_mixing", "strong_word_substitution", "reductionism", "fairy_tale", "dogma", "social_confirmation_as_proof"]
+          },
+          "description": "Известные риски адекватности"
+        },
+        "anti_substitution_rule": {
+          "type": "string",
+          "description": "Правило предотвращения подстановки карты территорией"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["working_map", "draft", "deprecated"],
+          "description": "Статус карты"
+        },
+        "not_proof": {
+          "type": "boolean",
+          "description": "Является ли карта недоказательной (рабочей гипотезой)"
+        }
+      },
+      "required": ["known_risks"]
+    },
+    "source_reference": {
+      "type": "object",
+      "description": "Ссылка на источник",
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "description": "ID источника (vol_1_reality, vol_2_human, model_avg)"
+        },
+        "chapter": {
+          "type": ["string", "integer"],
+          "description": "Глава или раздел"
+        },
+        "lines": {
+          "type": "string",
+          "pattern": "^\\d+-\\d+$",
+          "description": "Диапазон строк (например, '105-150')"
+        },
+        "quote": {
+          "type": "string",
+          "description": "Цитата из источника"
+        }
+      },
+      "required": ["source_id"]
+    },
+    "node_object": {
+      "type": "object",
+      "description": "Узел карты (термин, феномен, процесс, схема)",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z_][a-z0-9_]*$",
+          "description": "Уникальный идентификатор узла"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["ontological_frame", "term", "phenomenon", "process", "scheme", "level", "space", "concept"],
+          "description": "Тип узла"
+        },
+        "label": {
+          "type": "object",
+          "properties": {
+            "ru": {
+              "type": "string",
+              "description": "Метка на русском"
+            },
+            "short": {
+              "type": "string",
+              "description": "Краткая метка"
+            },
+            "en": {
+              "type": "string",
+              "description": "Метка на английском (опционально)"
+            }
+          },
+          "required": ["ru"]
+        },
+        "definition": {
+          "type": "object",
+          "properties": {
+            "text": {
+              "type": "string",
+              "description": "Текст определения"
+            },
+            "definition_type": {
+              "type": "string",
+              "enum": ["working_boundary_definition", "operational_definition", "distinction_definition", "methodological_definition"],
+              "description": "Тип определения"
+            },
+            "source_refs": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Ссылки на источники"
+            }
+          },
+          "required": ["text"]
+        },
+        "coordinates": {
+          "$ref": "#/definitions/coordinates"
+        },
+        "language_policy": {
+          "$ref": "#/definitions/language_policy"
+        },
+        "claim_policy": {
+          "$ref": "#/definitions/claim_policy"
+        },
+        "map_safety": {
+          "$ref": "#/definitions/map_safety"
+        }
+      },
+      "required": ["id", "type", "label", "definition", "coordinates"]
+    },
+    "edge_object": {
+      "type": "object",
+      "description": "Связь между узлами карты",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^edge_[a-z_][a-z0-9_]*$",
+          "description": "Уникальный идентификатор связи"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["contains", "part_of", "implies", "contradicts", "relates_to", "causes", "precedes", "transforms_into"],
+          "description": "Тип связи"
+        },
+        "from": {
+          "type": "string",
+          "description": "ID исходного узла"
+        },
+        "to": {
+          "type": "string",
+          "description": "ID целевого узла"
+        },
+        "direction": {
+          "type": "string",
+          "enum": ["parent_to_child", "child_to_parent", "bidirectional", "unidirectional"],
+          "description": "Направление связи"
+        },
+        "claim_status": {
+          "type": "string",
+          "enum": ["definition", "working_distinction", "operational_marker", "indirect_sign", "hypothesis", "metaphor_only", "prohibited_positive_claim"],
+          "description": "Статус утверждения связи"
+        },
+        "coordinates": {
+          "$ref": "#/definitions/coordinates"
+        },
+        "causality": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": ["string", "null"],
+              "enum": ["material", "psychophysiological", "cognitive_modeling", "social", "nonhard_world", "essential", "being", null],
+              "description": "Тип причинности"
+            },
+            "is_linear": {
+              "type": "boolean",
+              "description": "Является ли причинность линейной"
+            },
+            "notes": {
+              "type": "string",
+              "description": "Заметки о причинности"
+            }
+          }
+        },
+        "constraints": {
+          "type": "object",
+          "properties": {
+            "must_not_infer": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Что нельзя выводить из этой связи"
+            }
+          }
+        }
+      },
+      "required": ["id", "type", "from", "to", "claim_status"]
+    },
+    "term_object": {
+      "type": "object",
+      "description": "Термин как узел различения",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^term_[a-z_][a-z0-9_]*$",
+          "description": "Уникальный идентификатор термина"
+        },
+        "label": {
+          "type": "string",
+          "description": "Основная метка термина"
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Альтернативные названия/алиасы"
+        },
+        "definition": {
+          "type": "string",
+          "description": "Определение термина"
+        },
+        "term_role": {
+          "type": "string",
+          "enum": ["distinction_node", "operational_concept", "boundary_marker", "methodological_tool"],
+          "description": "Роль термина в модели"
+        },
+        "coordinates": {
+          "$ref": "#/definitions/coordinates"
+        },
+        "allowed_language": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["direct_description", "operational_description", "conditional_description", "metaphor", "symbolic_pointer", "indirect_signs"]
+          },
+          "description": "Разрешённые режимы языка"
+        },
+        "forbidden_language": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["direct_object_description", "final_explanation", "total_explanation", "objectifying_description"]
+          },
+          "description": "Запрещённые режимы языка"
+        },
+        "common_substitutions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "error": {
+                "type": "string",
+                "description": "Описание типичной ошибки подстановки"
+              },
+              "risk": {
+                "type": "string",
+                "enum": ["term_reification", "scheme_absolutization", "map_territory_substitution", "sign_to_entity_substitution", "level_mixing", "access_mode_mixing", "strong_word_substitution", "reductionism", "fairy_tale", "dogma", "social_confirmation_as_proof"]
+              }
+            },
+            "required": ["error", "risk"]
+          },
+          "description": "Типичные ошибки подстановки для этого термина"
+        }
+      },
+      "required": ["id", "label", "definition", "coordinates"]
+    },
+    "assertion_object": {
+      "type": "object",
+      "description": "Проверяемое или ограниченно допустимое утверждение",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^assertion_[a-z_][a-z0-9_]*$",
+          "description": "Уникальный идентификатор утверждения"
+        },
+        "statement": {
+          "type": "string",
+          "description": "Текст утверждения"
+        },
+        "claim_status": {
+          "type": "string",
+          "enum": ["definition", "working_distinction", "operational_marker", "indirect_sign", "hypothesis", "metaphor_only", "prohibited_positive_claim"],
+          "description": "Статус утверждения"
+        },
+        "subject_node": {
+          "type": "string",
+          "description": "ID узла, к которому относится утверждение"
+        },
+        "scope": {
+          "type": "object",
+          "properties": {
+            "local_task_required": {
+              "type": "boolean",
+              "description": "Требуется ли локальная задача"
+            },
+            "definition_area_required": {
+              "type": "boolean",
+              "description": "Требуется ли область определения"
+            },
+            "global_areas_required": {
+              "type": "boolean",
+              "description": "Требуются ли глобальные области"
+            },
+            "context_required": {
+              "type": "boolean",
+              "description": "Требуется ли контекст"
+            }
+          }
+        },
+        "coordinates": {
+          "$ref": "#/definitions/coordinates"
+        },
+        "grounds": {
+          "type": "object",
+          "properties": {
+            "ground_type": {
+              "type": "string",
+              "enum": ["methodological_definition", "empirical_observation", "logical_inference", "operational_necessity"],
+              "description": "Тип обоснования"
+            },
+            "source_refs": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Ссылки на источники"
+            }
+          },
+          "required": ["ground_type"]
+        },
+        "boundaries": {
+          "type": "object",
+          "properties": {
+            "does_not_claim": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Что это утверждение НЕ утверждает"
+            }
+          }
+        }
+      },
+      "required": ["id", "statement", "claim_status", "coordinates"]
+    },
+    "map_object": {
+      "type": "object",
+      "description": "Схема, матрица, лестница или другая картографическая структура",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^map_[a-z_][a-z0-9_]*$",
+          "description": "Уникальный идентификатор карты"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["matrix", "ladder", "pyramid", "graph", "taxonomy", "ontology"],
+          "description": "Тип картографической структуры"
+        },
+        "label": {
+          "type": "string",
+          "description": "Название карты"
+        },
+        "axes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "ID оси"
+              },
+              "values": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Значения оси"
+              }
+            },
+            "required": ["id", "values"]
+          },
+          "description": "Оси матрицы (если применимо)"
+        },
+        "cells": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "ID ячейки"
+              },
+              "label": {
+                "type": "string",
+                "description": "Метка ячейки"
+              },
+              "contains": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Что содержит ячейка"
+              },
+              "access_mode_default": {
+                "type": "string",
+                "enum": ["knowable", "indirectly_accessible", "unknowable"],
+                "description": "Режим доступности по умолчанию"
+              },
+              "language_mode_default": {
+                "type": "string",
+                "enum": ["direct_description", "operational_description", "conditional_description", "metaphor", "symbolic_pointer"],
+                "description": "Режим языка по умолчанию"
+              }
+            },
+            "required": ["id", "label"]
+          },
+          "description": "Ячейки матрицы (если применимо)"
+        },
+        "map_safety": {
+          "$ref": "#/definitions/map_safety"
+        }
+      },
+      "required": ["id", "type", "label"]
+    }
+  },
+  "oneOf": [
+    {
+      "description": "Schema for vocabulary files (controlled dictionaries)",
+      "type": "object",
+      "properties": {
+        "vocabulary_id": {
+          "type": "string",
+          "description": "ID словаря"
+        },
+        "vocabulary_name": {
+          "type": "string",
+          "description": "Название словаря"
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": ["id", "label"]
+          }
+        }
+      },
+      "required": ["vocabulary_id", "vocabulary_name", "values"]
+    },
+    {
+      "description": "Schema for node files (ontology, terms, etc.)",
+      "type": "object",
+      "properties": {
+        "file_type": {
+          "type": "string",
+          "enum": ["ontology", "term", "methodology", "source", "index"]
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {"$ref": "#/definitions/node_object"},
+              {"$ref": "#/definitions/term_object"},
+              {"$ref": "#/definitions/assertion_object"},
+              {"$ref": "#/definitions/map_object"}
+            ]
+          }
+        }
+      },
+      "required": ["file_type", "items"]
+    },
+    {
+      "description": "Schema for edge/relation files",
+      "type": "object",
+      "properties": {
+        "file_type": {
+          "type": "string",
+          "const": "edges"
+        },
+        "relations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/edge_object"
+          }
+        }
+      },
+      "required": ["file_type", "relations"]
+    },
+    {
+      "description": "Schema for manifest.json",
+      "type": "object",
+      "properties": {
+        "schema": {
+          "type": "object"
+        },
+        "meta": {
+          "type": "object"
+        },
+        "structure": {
+          "type": "object"
+        }
+      },
+      "required": ["schema", "meta", "structure"]
+    }
+  ]
+}

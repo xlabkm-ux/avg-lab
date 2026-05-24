@@ -50,7 +50,7 @@ function LanguageModeBadge({ mode }: { mode: string }) {
 
 function RiskBadge({ risk }: { risk: string }) {
   const className = `risk-badge risk-${risk}`;
-  const label = risk.charAt(0).toUpperCase() + risk.slice(1);
+  const label = risk.charAt(0).toUpperCase() + risk.slice(1).replace(/_/g, ' ');
 
   return (
     <span className={className} data-testid="claim-risk-marker">
@@ -64,6 +64,10 @@ function ClaimCard({ claim }: { claim: AvgClaim }) {
 
   const hasRisks = claim.risks.length > 0;
   const needsRepair = claim.repair !== undefined;
+  const isMetaphorOrProhibited =
+    claim.claim_status === "metaphor_only" ||
+    claim.claim_status === "prohibited_positive_claim";
+  const validationStatus = hasRisks || isMetaphorOrProhibited ? "needs-review" : "validated";
 
   return (
     <li
@@ -71,6 +75,7 @@ function ClaimCard({ claim }: { claim: AvgClaim }) {
       data-claim-id={claim.id}
       data-claim-status={claim.claim_status}
       data-language-mode={claim.language_mode}
+      data-validation-status={validationStatus}
     >
       <div className="claim-review-header">
         <button
@@ -92,6 +97,14 @@ function ClaimCard({ claim }: { claim: AvgClaim }) {
 
       {expanded && (
         <div className="claim-review-details">
+          {/* Validation Status Indicator */}
+          <div className="claim-review-field">
+            <strong>Validation Status</strong>
+            <span className={`validation-badge validation-${validationStatus}`} data-testid="validation-status-badge">
+              {validationStatus === "validated" ? "\u2713 Validated" : "\u26A0 Needs Review"}
+            </span>
+          </div>
+
           {claim.scope !== undefined && (
             <div className="claim-review-field">
               <strong>Scope</strong>
@@ -106,7 +119,7 @@ function ClaimCard({ claim }: { claim: AvgClaim }) {
                 {claim.risks.map((risk, index) => (
                   <li key={index} className="claim-risk-item">
                     <RiskBadge risk={risk} />
-                    <span>{risk}</span>
+                    <span>{risk.replace(/_/g, ' ')}</span>
                   </li>
                 ))}
               </ul>

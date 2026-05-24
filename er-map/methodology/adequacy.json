@@ -1,0 +1,92 @@
+{
+  "file_type": "methodology",
+  "description": "Адекватность в ЭР: минимизация искажений мышления и поведения относительно реальной конфигурации",
+  "source_refs": ["model_avg_lines_221-248", "vol_1_reality_chapter_1"],
+  "items": [
+    {
+      "id": "adequacy_core",
+      "type": "concept",
+      "label": {
+        "ru": "Адекватность",
+        "short": "Адекватность"
+      },
+      "definition": {
+        "text": "Адекватность в ЭР — минимизация искажений мышления и поведения относительно реальной конфигурации. Это локальная задача, требующая области определения, контекста и учёта глобальных областей.",
+        "definition_type": "methodological_definition",
+        "source_refs": ["vol_1_reality"]
+      },
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "mixed",
+        "access_mode": "mixed",
+        "world_subdomain": null
+      },
+      "language_policy": {
+        "allowed_modes": [
+          "operational_description",
+          "conditional_description",
+          "methodological_statement"
+        ],
+        "forbidden_modes": [
+          "total_explanation",
+          "direct_object_description"
+        ],
+        "notes": "Адекватность — операциональное понятие, не абсолютное состояние."
+      },
+      "claim_policy": {
+        "default_claim_status": "definition",
+        "positive_claims_allowed": true,
+        "requires_scope_boundary": true,
+        "requires_access_mode": true
+      },
+      "scope_requirements": {
+        "local_task_required": true,
+        "definition_area_required": true,
+        "global_areas_required": true,
+        "context_required": true
+      },
+      "boundaries": {
+        "does_not_claim": [
+          "Адекватность равна абсолютной истине",
+          "Адекватность даёт право говорить обо всём",
+          "Карта ЭР является самой Реальностью"
+        ]
+      },
+      "map_safety": {
+        "known_risks": [
+          "scheme_absolutization",
+          "strong_word_substitution",
+          "dogma"
+        ],
+        "anti_substitution_rule": "Адекватность — рабочая методология, не абсолютное качество."
+      }
+    },
+    {
+      "id": "adequacy_minimization",
+      "type": "concept",
+      "label": {
+        "ru": "Минимизация искажений",
+        "short": "Минимизация"
+      },
+      "definition": {
+        "text": "Процесс последовательного уменьшения когнитивных, языковых и поведенческих искажений в отношении к исследуемой области. Не устранение полностью, а осознанное снижение.",
+        "definition_type": "operational_definition",
+        "source_refs": ["vol_1_reality"]
+      },
+      "coordinates": {
+        "nesting_level": "reality",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "mixed",
+        "access_mode": "mixed",
+        "world_subdomain": null
+      },
+      "claim_policy": {
+        "default_claim_status": "working_distinction",
+        "positive_claims_allowed": true,
+        "requires_scope_boundary": true,
+        "requires_access_mode": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+id: evidence-grounding-001
+input: >
+  Based on the registered documents, what does the research say about spaced repetition?
+expected:
+  must_cite_specific_snippets: true
+  must_distinguish_quotes_from_interpretation: true
+  must_acknowledge_gaps_if_present: true
+  must_not_fabricate_citations: true
+  must_include_confidence_level: true
+fail_if_contains:
+  - "the documents say"
+  - "research clearly shows"
+  - "as proven in the text"
+  - "without any doubt"

@@ -5,9 +5,21 @@
 
 ---
 
-## Planned Purpose
+## Activation Criteria
 
-Adversarial claim review: defender, prosecutor, judge, verdict.
+This package should be implemented when:
+
+1. **Claim adjudication becomes a separate service** - When claim review logic grows beyond inline validation
+2. **Multi-model claim comparison is needed** - When claims need to be evaluated across multiple AI models
+3. **Claim conflict resolution is implemented** - When contradictory claims require systematic resolution
+
+## Current State
+
+Claim validation is handled inline by @avg/validation. Sufficient for MVP-5.
+
+## Decision
+
+**Defer until UTS phase.** This README documents activation criteria only. No implementation needed yet.
 
 ## Ownership
 

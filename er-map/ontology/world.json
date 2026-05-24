@@ -1,0 +1,52 @@
+{
+  "file_type": "ontology",
+  "description": "Мир как целое: твёрдое (материальное) + нетвёрдое (нематериальное)",
+  "source_refs": ["model_avg", "vol_1_reality_chapter_9"],
+  "items": [
+    {
+      "id": "world",
+      "type": "ontological_frame",
+      "label": {
+        "ru": "Мир",
+        "short": "Мир"
+      },
+      "definition": {
+        "text": "Мир как целое: твёрдое (материальное) + нетвёрдое (нематериальное). Включает Вселенную и нематериальные аспекты. Второй уровень вложенности.",
+        "definition_type": "working_boundary_definition",
+        "source_refs": ["vol_1_reality"]
+      },
+      "coordinates": {
+        "nesting_level": "world",
+        "objectivity_mode": "mixed",
+        "hardness_mode": "mixed",
+        "access_mode": "mixed",
+        "world_subdomain": null
+      },
+      "language_policy": {
+        "allowed_modes": [
+          "direct_description",
+          "operational_description",
+          "conditional_description"
+        ],
+        "forbidden_modes": [
+          "total_explanation"
+        ],
+        "notes": "Мир содержит как твёрдое (доступное прямому описанию), так и нетвёрдое (требующее операционального описания)."
+      },
+      "claim_policy": {
+        "default_claim_status": "working_distinction",
+        "positive_claims_allowed": true,
+        "requires_scope_boundary": true,
+        "requires_access_mode": true
+      },
+      "map_safety": {
+        "known_risks": [
+          "level_mixing",
+          "access_mode_mixing",
+          "scheme_absolutization"
+        ],
+        "anti_substitution_rule": "Не смешивать режимы описания твёрдого и нетвёрдого."
+      }
+    }
+  ]
+}

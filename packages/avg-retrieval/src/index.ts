@@ -385,7 +385,7 @@ export function createDocumentRepository(options: DocumentRepositoryOptions = {}
           source_label: snippet.source_label
         } satisfies AvgRetrievalHit;
       })
-      .filter((hit): hit is AvgRetrievalHit => hit !== undefined)
+      .filter((hit): hit is AvgRetrievalHit => hit !== null)
       .sort((left, right) => {
         if (right.score !== left.score) {
           return right.score - left.score;
